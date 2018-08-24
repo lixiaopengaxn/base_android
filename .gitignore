@@ -1,0 +1,8 @@
+.gradle/
+.idea/
+local.properties
+gradle/
+BaseXpAndroid.iml
+app/build
+app.iml
+
