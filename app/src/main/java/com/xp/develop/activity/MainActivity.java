@@ -51,12 +51,12 @@ public class MainActivity extends BaseActivity {
         HashMap<String, String> map = new HashMap<>();
         map.put("type", "yuantong");
         map.put("postid", "11111111111");
-        getData(map, true, false);
+        getData(map, true, true);
     }
 
     @OnClick({R.id.text_view})
-    protected void onClick(View view){
-        switch (view.getId()){
+    protected void onClick(View view) {
+        switch (view.getId()) {
             case R.id.text_view:
                 ToastUtil.showLongToast("我是吐司");
                 break;
@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void getData(HashMap<String, String> map, boolean b, boolean b1) {
-        loginModel.login(this, map, false, false, this.bindToLifecycle(), new ObserverResponseListener<BaseResponse<List<Login>>>() {
+        loginModel.login(this, map, b, b1, this.bindToLifecycle(), new ObserverResponseListener<BaseResponse<List<Login>>>() {
             @Override
             public void onNext(BaseResponse<List<Login>> listBaseResponse) {
                 textView.setText(listBaseResponse.getData().toString());
@@ -76,17 +76,5 @@ public class MainActivity extends BaseActivity {
 
             }
         });
-//        loginModel.subscribe(this, Api.getApiService().login(map), new ObserverResponseListener<Object>() {
-//            @Override
-//            public void onNext(Object o) {
-////                textView.setText((CharSequence) o.toString());
-//                ToastUtil.showLongToast(o.toString());
-//            }
-//
-//            @Override
-//            public void onError(ExceptionHandle.ResponeThrowable e) {
-//
-//            }
-//        },this.bindToLifecycle());
     }
 }
