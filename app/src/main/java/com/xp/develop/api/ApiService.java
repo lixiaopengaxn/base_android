@@ -12,7 +12,10 @@ import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 
 /**
- * api service
+ * author : xpxn
+ * blog  :  https://blog.csdn.net/qq_38729449
+ * time  :  2018/8/25
+ * desc  :  utils about initialization
  */
 public interface ApiService {
 

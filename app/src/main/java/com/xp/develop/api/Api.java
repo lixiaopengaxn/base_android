@@ -3,7 +3,10 @@ package com.xp.develop.api;
 import com.xp.develop.base.BaseApi;
 
 /**
- *
+ * author : xpxn
+ * blog  :  https://blog.csdn.net/qq_38729449
+ * time  :  2018/8/25
+ * desc  :  utils about initialization
  */
 
 public class Api {

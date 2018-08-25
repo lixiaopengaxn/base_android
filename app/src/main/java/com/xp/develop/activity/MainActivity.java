@@ -1,6 +1,7 @@
 package com.xp.develop.activity;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,6 +21,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+
+/**
+ * author : xpxn
+ * blog  :  https://blog.csdn.net/qq_38729449
+ * time  :  2018/8/25
+ * desc  :  utils about initialization
+ */
 
 public class MainActivity extends BaseActivity {
 
@@ -54,6 +62,21 @@ public class MainActivity extends BaseActivity {
         getData(map, true, true);
     }
 
+    @Override
+    public void initOnClick() {
+
+    }
+
+    @Override
+    public boolean IsSwipeBackPage() {
+        return true;
+    }
+
+    @Override
+    public int isTemp() {
+        return 0;
+    }
+
     @OnClick({R.id.text_view})
     protected void onClick(View view) {
         switch (view.getId()) {
@@ -76,5 +99,13 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            moveTaskToBack(true);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
