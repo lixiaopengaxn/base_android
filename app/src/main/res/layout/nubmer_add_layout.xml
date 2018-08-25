@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:orientation="horizontal"
+    android:layout_height="35dp">
+
+
+    <TextView
+        android:minWidth="40dp"
+        android:id="@+id/numb_reduce"
+        android:textStyle="bold"
+        android:textSize="11sp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/numb_left"
+        android:gravity="center"
+        android:text="一"/>
+
+    <TextView
+        android:id="@+id/nub_content"
+        android:layout_width="45dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/numb_center"
+        android:gravity="center"
+        android:text="1"/>
+
+    <TextView
+        android:minWidth="40dp"
+        android:textSize="20sp"
+        android:id="@+id/numb_add"
+        android:background="@drawable/numb_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="+"/>
+</LinearLayout>

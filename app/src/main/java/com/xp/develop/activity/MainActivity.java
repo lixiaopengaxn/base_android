@@ -13,6 +13,7 @@ import com.xp.develop.base.BaseView;
 import com.xp.develop.entity.Login;
 import com.xp.develop.model.LoginModel;
 import com.xp.develop.progress.ObserverResponseListener;
+import com.xp.develop.test.activity.TestActivity;
 import com.xp.develop.utils.ExceptionHandle;
 import com.xp.develop.utils.ToastUtil;
 
@@ -36,6 +37,24 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.text_view)
     TextView textView;
 
+    @BindView(R.id.text_view_1)
+    TextView textView1;
+
+    @BindView(R.id.text_view_2)
+    TextView textView2;
+
+    @BindView(R.id.text_view_3)
+    TextView textView3;
+
+    @BindView(R.id.text_view_4)
+    TextView textView4;
+
+    @BindView(R.id.text_view_5)
+    TextView textView5;
+
+    @BindView(R.id.text_view_6)
+    TextView textView6;
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_main;
@@ -53,13 +72,9 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
+        titleView.getLeftView().setVisibility(View.GONE);
         loginModel = new LoginModel<>();
 
-
-        HashMap<String, String> map = new HashMap<>();
-        map.put("type", "yuantong");
-        map.put("postid", "11111111111");
-        getData(map, true, true);
     }
 
     @Override
@@ -77,11 +92,20 @@ public class MainActivity extends BaseActivity {
         return 0;
     }
 
-    @OnClick({R.id.text_view})
+    @OnClick({R.id.text_view,R.id.text_view_1,R.id.text_view_2,R.id.text_view_3,R.id.text_view_4,R.id.text_view_5,R.id.text_view_6})
     protected void onClick(View view) {
         switch (view.getId()) {
             case R.id.text_view:
-                ToastUtil.showLongToast("我是吐司");
+                HashMap<String, String> map = new HashMap<>();
+                map.put("type", "yuantong");
+                map.put("postid", "11111111111");
+                getData(map, true, true);
+                break;
+            case R.id.text_view_1:
+                openActivity(TestActivity.class);
+                break;
+            case R.id.text_view_2:
+
                 break;
         }
     }
@@ -90,8 +114,8 @@ public class MainActivity extends BaseActivity {
         loginModel.login(this, map, b, b1, this.bindToLifecycle(), new ObserverResponseListener<BaseResponse<List<Login>>>() {
             @Override
             public void onNext(BaseResponse<List<Login>> listBaseResponse) {
-                textView.setText(listBaseResponse.getData().toString());
-                ToastUtil.showLongToast("我是吐司");
+//                textView.setText(listBaseResponse.getData().toString());
+                ToastUtil.showLongToast(listBaseResponse.getData().toString());
             }
 
             @Override

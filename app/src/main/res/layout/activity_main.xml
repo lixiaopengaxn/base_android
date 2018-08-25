@@ -1,19 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<com.xp.develop.customview.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.xp.develop.activity.MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.xp.develop.activity.MainActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:id="@+id/text_view"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="网络请求" />
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:id="@+id/text_view_1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="图片加载" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:id="@+id/text_view_2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:id="@+id/text_view_3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Hello World!" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:id="@+id/text_view_4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Hello World!" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:id="@+id/text_view_5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Hello World!" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:id="@+id/text_view_6"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Hello World!" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Hello World!" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Hello World!" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Hello World!" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Hello World!" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Hello World!" />
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Hello World!" />
+
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+</com.xp.develop.customview.BounceScrollView>

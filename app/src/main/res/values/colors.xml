@@ -9,4 +9,5 @@
     <color name="title_status_color">#3F51B5</color>
     <color name="sofia_navigation">#2B2B2B</color>
     <color name="transparency_bar">#50000000</color>
+    <color name="numb_color">#E3E3E3</color>
 </resources>

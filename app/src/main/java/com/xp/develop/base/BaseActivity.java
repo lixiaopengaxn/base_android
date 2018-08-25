@@ -17,6 +17,8 @@ import android.widget.FrameLayout;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.xp.develop.R;
+import com.xp.develop.activity.MainActivity;
+import com.xp.develop.utils.ToastUtil;
 import com.xp.develop.utils.statusView.DensityUtils;
 import com.xp.develop.utils.statusView.Sofia;
 import com.xp.develop.utils.statusView.TitleView;
@@ -42,7 +44,7 @@ import butterknife.ButterKnife;
  * time  :  2018/8/25
  * desc  :  父类->基类->动态指定类型->泛型设计（通过泛型指定动态类型->由子类指定，父类只需要规定范围即可）
  */
-public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>> extends RxAppCompatActivity {
+public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity {
 
 
     private SwipeBackActivityHelper mHelper;
@@ -50,8 +52,8 @@ public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>
     //引用V层和P层
     private P presenter;
     private V view;
-    
-    public P getPresenter(){
+
+    public P getPresenter() {
         return presenter;
     }
 
@@ -98,6 +100,7 @@ public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>
      * @return
      */
     public abstract P createPresenter();
+
     public abstract V createView();
 
     @Override
@@ -108,16 +111,16 @@ public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>
         //是否显示头布局
         isTempMethod();
         ButterKnife.bind(this);
-        if(presenter == null){
+        if (presenter == null) {
             presenter = createPresenter();
         }
-        if(view == null){
+        if (view == null) {
             view = createView();
         }
-        if(presenter != null && view != null){
+        if (presenter != null && view != null) {
             presenter.attachView(view);
         }
-        
+
         initOnClick();
         if (IsSwipeBackPage()) {
             mHelper = new SwipeBackActivityHelper(this);
@@ -200,9 +203,9 @@ public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>
                             | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
                     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                     // 状态栏（以上几行代码必须，参考setStatusBarColor|setNavigationBarColor方法源码）
-                    window.setStatusBarColor(ContextCompat.getColor(this,R.color.transparency_bar));
+                    window.setStatusBarColor(ContextCompat.getColor(this, R.color.transparency_bar));
                     // 虚拟导航键
-                    window.setNavigationBarColor(ContextCompat.getColor(this,R.color.transparency_bar));
+                    window.setNavigationBarColor(ContextCompat.getColor(this, R.color.transparency_bar));
                 } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     // Android 4.4 以上 半透明
                     Window window = getWindow();
@@ -235,11 +238,10 @@ public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>
     }
 
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(presenter != null){
+        if (presenter != null) {
             presenter.detachView();
         }
     }
@@ -263,7 +265,6 @@ public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>
     }
 
 
-
     private void setSwipeBackEnable(boolean enable) {
         SwipeBackLayout swipeBackLayout = getSwipeBackLayout();
         if (swipeBackLayout != null) {
@@ -277,7 +278,6 @@ public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>
         }
         return mHelper.getSwipeBackLayout();
     }
-
 
 
     @Override
@@ -368,10 +368,6 @@ public abstract class BaseActivity<V extends BaseView,P extends BasePresenter<V>
         }
         startActivityForResult(intent, requestCode);
     }
-
-
-
-
 
 
 }

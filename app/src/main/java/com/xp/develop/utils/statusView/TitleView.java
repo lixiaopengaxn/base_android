@@ -71,6 +71,14 @@ public class TitleView extends RelativeLayout {
 
     }
 
+
+    public View getLeftView(){
+        if(textLeft != null){
+            return textLeft;
+        }
+        return textLeft;
+    }
+
     /**
      * 设置标题栏的颜色
      *
