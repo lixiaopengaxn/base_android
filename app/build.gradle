@@ -41,56 +41,79 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
     //test
     testImplementation rootProject.ext.dependencies.junit
+
     // support
     implementation rootProject.ext.dependencies.constraint
     implementation rootProject.ext.dependencies.appcompatV7
+
     //recyclerView
     implementation rootProject.ext.dependencies.recyclerview
     implementation rootProject.ext.dependencies.supportConfig
+
     //design
     implementation rootProject.ext.dependencies.designConfig
+
     //卡片效果
     implementation rootProject.ext.dependencies.cardView
+
     //图片加载
     implementation rootProject.ext.otherlib.glide
+
     //处理rxjava内存泄漏,基础组件
     implementation rootProject.ext.rxlifeCycle.rxlifecycle
+
     //如果你想绑定到Android特定的生命周期
     implementation rootProject.ext.rxlifeCycle.rxlifecycle_android
+
     //如果你想要预先写好的Activities和Fragments，你可以作为提供者的子类
     implementation rootProject.ext.rxlifeCycle.rxlifecycle_componets
+
     //RxJava2.0所需依赖
     implementation rootProject.ext.okhttp.rxjava
+
     //Rxandroid2.0线程调度依赖
     implementation rootProject.ext.okhttp.rxandroid
+
     // 大神写的这个库可以支持到rxjava2.X
     implementation rootProject.ext.okhttp.retrofit2_rxjava2_adapter
+
     //Retrofit2.0所需依赖
     implementation rootProject.ext.okhttp.retrofit
+
     //结果转为实体类所需依赖
     implementation rootProject.ext.okhttp.converter_gson
+
     //RxJava2.0+Retrofit2.0适配依赖
     implementation rootProject.ext.okhttp.adapter_rxjava2
+
     //OKHttp3.0依赖
     implementation rootProject.ext.okhttp.okhttp
+
     //OKHttp优化策略依赖
     implementation rootProject.ext.okhttp.interceptor
+
     //结果转为基本类型所需依赖
     implementation rootProject.ext.okhttp.converter_scalars
+
     //组件视图绑定依赖
     implementation rootProject.ext.otherlib.butterknife
     implementation rootProject.ext.otherlib.butterknife_compiler
+
     //dialog
     implementation rootProject.ext.otherlib.sweetalert
-//    //KLog
-//    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
 
+    //    //KLog
 
+    //    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
+
+    //EasyXRecyclerView库
+    implementation 'com.zhouyou:easyrecyclerview:1.0.2'
+    implementation project(':LayoutManagerGroup')
 }
