@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.xp.develop.customview.ratingbar.MaterialRatingBar
+        style="@style/Widget.MaterialRatingBar.RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:maxHeight="30dp"
+        android:minHeight="30dp"
+        android:rating="1.5"
+        app:mrb_progressBackgroundTint="@color/def_blue"
+        app:mrb_progressTint="@color/def_blue"
+        app:mrb_secondaryProgressTint="@color/def_blue" />
+
+</LinearLayout>

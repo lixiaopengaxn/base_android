@@ -12,6 +12,7 @@ import com.xp.develop.utils.takephoto.compress.CompressConfig;
 import com.xp.develop.utils.takephoto.model.CropOptions;
 import com.xp.develop.utils.takephoto.model.InvokeParam;
 import com.xp.develop.utils.takephoto.model.TContextWrap;
+import com.xp.develop.utils.takephoto.model.TImage;
 import com.xp.develop.utils.takephoto.model.TResult;
 import com.xp.develop.utils.takephoto.model.TakePhotoOptions;
 import com.xp.develop.utils.takephoto.permission.InvokeListener;
@@ -19,6 +20,7 @@ import com.xp.develop.utils.takephoto.permission.PermissionManager;
 import com.xp.develop.utils.takephoto.permission.TakePhotoInvocationHandler;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * author :  xpxn
@@ -31,6 +33,7 @@ public abstract class BaseTakePhotoActivity extends BaseActivity implements Take
     private InvokeParam invokeParam;
     protected TakePhoto takePhoto;
     protected TakePhoto basePhoto;
+    protected ArrayList<TImage> baseImages;
     protected Uri imageUri;
 
     @Override

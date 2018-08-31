@@ -55,6 +55,9 @@
             android:screenOrientation="portrait"
             android:launchMode="singleTask"/>
 
+        <activity android:name=".test.activity.TestPingFenActivity"
+            android:screenOrientation="portrait"/>
+
         <!--test-->
 
 
