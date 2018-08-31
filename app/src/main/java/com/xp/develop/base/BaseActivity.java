@@ -53,11 +53,11 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     private P presenter;
     private V view;
 
-    public P getPresenter() {
+    protected P getPresenter() {
         return presenter;
     }
 
-    private Toolbar tooBar;
+    protected Toolbar tooBar;
 
     //标题栏的view
     protected TitleView titleView;
@@ -70,38 +70,38 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     /**
      * 获取加载页面的资源id
      */
-    public abstract int getLayoutId();
+    protected abstract int getLayoutId();
 
     /**
      * 初始化view
      */
-    public abstract void init(Bundle savedInstanceState);
+    protected abstract void init(Bundle savedInstanceState);
 
     /**
      * 初始化点击事件
      */
-    public abstract void initOnClick();
+    protected abstract void initOnClick();
 
     /***
      * TODO
      * 是否侧滑退出
      */
-    public abstract boolean IsSwipeBackPage();
+    protected abstract boolean IsSwipeBackPage();
 
     /**
      * 是否加载标题模板
      *
      * @return
      */
-    public abstract int isTemp();
+    protected abstract int isTemp();
 
     /***
      * 由子类指定具体类型
      * @return
      */
-    public abstract P createPresenter();
+    protected abstract P createPresenter();
 
-    public abstract V createView();
+    protected abstract V createView();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

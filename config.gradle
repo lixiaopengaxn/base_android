@@ -77,6 +77,13 @@ ext {
 
     ]
 
+    file = [
+            //关于选择手机文件的一些库
+            crop               : "com.soundcloud.android.crop:lib_crop:1.0.0",
+            multipleimageselect: "com.darsh.multipleimageselect:multipleimageselect:1.0.5",
+            advancedluban      : "me.shaohui.advancedluban:library:1.3.2",
+    ]
+
     publish = [
             version: "2.6.6"
     ]

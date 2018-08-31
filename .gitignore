@@ -3,8 +3,21 @@
 local.properties
 gradle/
 BaseXpAndroid.iml
-LayoutManagerGroup/build/
-LayoutManagerGroup/LayoutManagerGroup.iml
-app/build
+
+
+app/build/
 app.iml
+
+
+LayoutManagerGroup/LayoutManagerGroup.iml
+LayoutManagerGroup/build/
+
+
+agentweb/agentweb.iml
+agentweb/build/
+
+
+poputil/build/
+poputil/poputil.iml
+
 

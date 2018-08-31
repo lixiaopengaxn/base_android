@@ -14,6 +14,7 @@ import com.xp.develop.entity.Login;
 import com.xp.develop.model.LoginModel;
 import com.xp.develop.progress.ObserverResponseListener;
 import com.xp.develop.test.activity.TestActivity;
+import com.xp.develop.test.activity.TestWebViewActivity;
 import com.xp.develop.utils.ExceptionHandle;
 import com.xp.develop.utils.ToastUtil;
 
@@ -105,7 +106,7 @@ public class MainActivity extends BaseActivity {
                 openActivity(TestActivity.class);
                 break;
             case R.id.text_view_2:
-
+                openActivity(TestWebViewActivity.class);
                 break;
         }
     }
