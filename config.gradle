@@ -19,6 +19,7 @@ ext {
 
     dependencies = [
             // support
+            fragment      : "com.android.support:support-fragment:${dependVersion.support}",
             appcompatV7   : "com.android.support:appcompat-v7:${dependVersion.support}",
             recyclerview  : "com.android.support:recyclerview-v7:${dependVersion.support}",
             supportConfig : "com.android.support:support-v4:${dependVersion.support}",

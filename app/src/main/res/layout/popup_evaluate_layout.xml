@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/click_to_dismiss"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/trans">
+
+    <LinearLayout
+        android:paddingTop="@dimen/dp_10"
+        android:id="@+id/popup_anima"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/red"
+        android:orientation="vertical">
+
+        <TextView
+
+            android:id="@+id/pop_evaluate_camera"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/bg_event_down"
+            android:gravity="center"
+            android:text="相机"
+            android:textColor="@color/red"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/pop_evaluate_photo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/bg_event_down"
+            android:gravity="center"
+            android:text="相册"
+            android:textColor="@color/red"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</RelativeLayout>

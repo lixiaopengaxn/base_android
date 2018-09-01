@@ -9,12 +9,24 @@
         style="@style/Widget.MaterialRatingBar.RatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:maxHeight="30dp"
         android:minHeight="30dp"
         android:rating="1.5"
         app:mrb_progressBackgroundTint="@color/def_blue"
         app:mrb_progressTint="@color/def_blue"
         app:mrb_secondaryProgressTint="@color/def_blue" />
+
+
+    <com.xp.develop.customview.RangeSeekbar
+        android:id="@+id/price_seek_bar"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:leftCursorBackground="@drawable/bg_range_seekbar"
+        app:markTextArray="@array/markArray"
+        app:rightCursorBackground="@drawable/bg_range_seekbar"
+        app:spaceBetween="20dp"
+        app:textSize="15dp" />
 
 </LinearLayout>
