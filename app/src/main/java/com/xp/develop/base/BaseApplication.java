@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.xp.develop.activity.MainActivity;
-import com.xp.develop.test.activity.TestTaskPhotoActivity;
+import com.xp.develop.welcome.WelcomeActivity;
 
 import me.jessyan.autosize.AutoSizeConfig;
 import me.jessyan.autosize.external.ExternalAdaptInfo;
@@ -23,8 +23,12 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //对单位的自定义配置, 请在 App 启动时完成
+
         mContext = getApplicationContext();
+
+
+
+        //对单位的自定义配置, 请在 App 启动时完成
         configUnits();
     }
 
@@ -69,7 +73,7 @@ public class BaseApplication extends Application {
         //如果项目完全使用副单位, 则可以直接以像素为单位填写 AndroidManifest 中需要填写的设计图尺寸, 不需再把像素转化为 dp
         AutoSizeConfig.getInstance()
                 .getUnitsManager()
-                .setSupportDP(false)
+                .setSupportDP(true)
 
                 //AndroidAutoSize 默认开启对 sp 的支持, 调用 UnitsManager.setSupportSP(false); 可以关闭对 sp 的支持
                 //如果关闭对 sp 的支持, 在布局时就应该使用副单位填写字体的尺寸
@@ -112,6 +116,6 @@ public class BaseApplication extends Application {
                 //即使在不改三方库源码的情况下也可以完美适配三方库的页面, 这就是 AndroidAutoSize 的优势
                 //但前提是三方库页面的布局使用的是 dp 和 sp, 如果布局全部使用的 px, 那 AndroidAutoSize 也将无能为力
                 //经过测试 DefaultErrorActivity 的设计图宽度在 380dp - 400dp 显示效果都是比较舒服的
-                .addExternalAdaptInfoOfActivity(TestTaskPhotoActivity.class, new ExternalAdaptInfo(true, 400));
+                .addExternalAdaptInfoOfActivity(WelcomeActivity.class, new ExternalAdaptInfo(true, 390));
     }
 }

@@ -379,7 +379,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
      */
     @Override
     public boolean isBaseOnWidth() {
-        return false;
+        return true;
     }
 
     /**

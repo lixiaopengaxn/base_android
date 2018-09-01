@@ -15,6 +15,6 @@ public interface ApiConstants {
     }
 
     interface AUTO_SIZE{
-        int DP = 960;
+        int DP = 400;
     }
 }

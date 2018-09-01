@@ -86,7 +86,7 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
 
     @Override
     public boolean isBaseOnWidth() {
-        return false;
+        return true;
     }
 
     @Override
