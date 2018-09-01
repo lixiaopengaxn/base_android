@@ -91,7 +91,7 @@ public class TestTaskPhotoActivity extends BaseTakePhotoActivity {
 
                     }
                 });
-
+                //sssssss
                 view.findViewById(R.id.pop_evaluate_photo).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
