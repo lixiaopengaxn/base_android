@@ -1,0 +1,47 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:1:1-10:12
+	package
+		ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:2:11-40
+		INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+		INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+		ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:1:1-10:12
+		INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+		ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:1:1-10:12
+		INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:1:11-69
+application
+ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:4:5-9:19
+provider#me.jessyan.autosize.InitProvider
+ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:5:9-8:39
+	android:authorities
+		ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:7:13-74
+	android:exported
+		ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:8:13-37
+	android:name
+		ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml:6:13-41
+uses-sdk
+INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+		ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+		INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+		ADDED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
+		INJECTED from /Users/lipeng/Downloads/StudioDemo3/BaseXpAndroid/autosize/src/main/AndroidManifest.xml
