@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.xp.develop.R;
 import com.xp.develop.activity.MainActivity;
+import com.xp.develop.api.ApiConstants;
 import com.xp.develop.utils.ToastUtil;
 import com.xp.develop.utils.statusView.DensityUtils;
 import com.xp.develop.utils.statusView.Sofia;
@@ -26,6 +27,7 @@ import com.xp.develop.utils.swipe.SwipeBackActivityHelper;
 import com.xp.develop.utils.swipe.SwipeBackLayout;
 
 import butterknife.ButterKnife;
+import me.jessyan.autosize.internal.CustomAdapt;
 
 /**
  * author :
@@ -44,7 +46,7 @@ import butterknife.ButterKnife;
  * time  :  2018/8/25
  * desc  :  父类->基类->动态指定类型->泛型设计（通过泛型指定动态类型->由子类指定，父类只需要规定范围即可）
  */
-public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity {
+public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity  implements CustomAdapt {
 
 
     private SwipeBackActivityHelper mHelper;
@@ -370,4 +372,30 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     }
 
 
+    /**
+     * 是否按照宽度进行等比例适配 (为了保证在高宽比不同的屏幕上也能正常适配, 所以只能在宽度和高度之中选一个作为基准进行适配)
+     *
+     * @return {@code true} 为按照宽度适配, {@code false} 为按照高度适配
+     */
+    @Override
+    public boolean isBaseOnWidth() {
+        return false;
+    }
+
+    /**
+     * 这里使用 IPhone 的设计图, IPhone 的设计图尺寸为 750px * 1334px, 因为这个页面使用副单位进行布局
+     * 所以可以直接以像素作为单位返回设计图的尺寸
+     * <p>
+     * 返回设计图上的设计尺寸
+     * {@link #getSizeInDp} 须配合 {@link #isBaseOnWidth()} 使用, 规则如下:
+     * 如果 {@link #isBaseOnWidth()} 返回 {@code true}, {@link #getSizeInDp} 则应该返回设计图的总宽度
+     * 如果 {@link #isBaseOnWidth()} 返回 {@code false}, {@link #getSizeInDp} 则应该返回设计图的总高度
+     * 如果您不需要自定义设计图上的设计尺寸, 想继续使用在 AndroidManifest 中填写的设计图尺寸, {@link #getSizeInDp} 则返回 {@code 0}
+     *
+     * @return 设计图上的设计尺寸
+     */
+    @Override
+    public float getSizeInDp() {
+        return ApiConstants.AUTO_SIZE.DP;
+    }
 }

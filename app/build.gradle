@@ -63,6 +63,8 @@ dependencies {
     implementation project(':agentweb')
     implementation project(':recyclerView')
     implementation project(':AndPermission')
+    //今日头条的适配方案
+    implementation project(':autosize')
 
     //test
     testImplementation rootProject.ext.dependencies.junit
@@ -125,7 +127,7 @@ dependencies {
     implementation rootProject.ext.otherlib.butterknife_compiler
 
     //dialog
-    implementation rootProject.ext.otherlib.sweetalert
+//    implementation rootProject.ext.otherlib.sweetalert
 
     //加载本地图片，裁剪等~~~
     implementation rootProject.ext.file.crop

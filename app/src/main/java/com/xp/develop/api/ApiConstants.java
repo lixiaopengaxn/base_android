@@ -13,4 +13,8 @@ public interface ApiConstants {
        String WEB_GITLAB_URL = "https://gitlab.com/lixiaopengaxn/base_android";
 
     }
+
+    interface AUTO_SIZE{
+        int DP = 960;
+    }
 }

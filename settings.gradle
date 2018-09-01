@@ -1,1 +1,1 @@
-include ':app','LayoutManagerGroup','poputil','agentweb','recyclerView','AndPermission'
+include ':app','LayoutManagerGroup','poputil','agentweb','recyclerView','AndPermission','autosize'

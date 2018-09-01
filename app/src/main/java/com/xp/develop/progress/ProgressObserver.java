@@ -29,19 +29,19 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
         this.listener = listener;
         this.context = context;
         if(isDialog){
-            mProgressDialogHandler = new ProgressDialogHandler(context, this, cancelable);
+//            mProgressDialogHandler = new ProgressDialogHandler(context, this, cancelable);
         }
     }
 
     private void showProgressDialog() {
         if (mProgressDialogHandler != null) {
-            mProgressDialogHandler.obtainMessage(ProgressDialogHandler.SHOW_PROGRESS_DIALOG).sendToTarget();
+//            mProgressDialogHandler.obtainMessage(ProgressDialogHandler.SHOW_PROGRESS_DIALOG).sendToTarget();
         }
     }
 
     private void dismissProgressDialog() {
         if (mProgressDialogHandler != null) {
-            mProgressDialogHandler.obtainMessage(ProgressDialogHandler.DISMISS_PROGRESS_DIALOG).sendToTarget();
+//            mProgressDialogHandler.obtainMessage(ProgressDialogHandler.DISMISS_PROGRESS_DIALOG).sendToTarget();
             mProgressDialogHandler = null;
         }
     }
@@ -60,7 +60,7 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
 
     @Override
     public void onError(Throwable e) {
-        dismissProgressDialog();
+//        dismissProgressDialog();
         Log.e(TAG, "onError: ", e);
         //自定义异常处理
         if(e instanceof ExceptionHandle.ResponeThrowable){
@@ -84,7 +84,7 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
 
     @Override
     public void onComplete() {
-        dismissProgressDialog();
+//        dismissProgressDialog();
         Log.e(TAG, "onComplete: ");
     }
 

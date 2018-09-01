@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xp.develop.R;
+import com.xp.develop.base.BaseApplication;
 
 /**
  * 作者：senon on 2017/12/7 14:21
@@ -20,19 +21,19 @@ public class ToastUtil {
     private static TextView stoast;
 
     public static void showShortToast(String msg) {
-        showCustomToast(ApplicationUtil.getContext(), msg, Toast.LENGTH_SHORT);
+        showCustomToast(BaseApplication.getContext(), msg, Toast.LENGTH_SHORT);
     }
 
     public static void showShortToast(int msgId) {
-        showCustomToast(ApplicationUtil.getContext(), msgId, Toast.LENGTH_SHORT);
+        showCustomToast(BaseApplication.getContext(), msgId, Toast.LENGTH_SHORT);
     }
 
     public static void showLongToast(String msg) {
-        showCustomToast(ApplicationUtil.getContext(), msg, Toast.LENGTH_LONG);
+        showCustomToast(BaseApplication.getContext(), msg, Toast.LENGTH_LONG);
     }
 
     public static void showLongToast(int msgId) {
-        showCustomToast(ApplicationUtil.getContext(), msgId, Toast.LENGTH_LONG);
+        showCustomToast(BaseApplication.getContext(), msgId, Toast.LENGTH_LONG);
     }
 
     public static void showToastInUiThread(final Activity activity, final String msg) {

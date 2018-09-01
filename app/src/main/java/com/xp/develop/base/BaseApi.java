@@ -3,7 +3,6 @@ package com.xp.develop.base;
 import android.text.TextUtils;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.xp.develop.utils.ApplicationUtil;
 import com.xp.develop.utils.NetWorkUtil;
 
 import java.io.File;
@@ -58,7 +57,7 @@ public class BaseApi {
         HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor();
         logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         //缓存
-        File cacheFile = new File(ApplicationUtil.getContext().getCacheDir(), "cache");
+        File cacheFile = new File(BaseApplication.getContext().getCacheDir(), "cache");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); //100Mb
         //增加头部信息
         Interceptor headerInterceptor = new Interceptor() {
@@ -108,7 +107,7 @@ public class BaseApi {
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();//拦截器获取请求
             String cacheControl = request.cacheControl().toString();//服务器的缓存策略
-            if (!NetWorkUtil.isNetConnected(ApplicationUtil.getContext())) {//断网时配置缓存策略
+            if (!NetWorkUtil.isNetConnected(BaseApplication.getContext())) {//断网时配置缓存策略
                 request = request.newBuilder()
                         .cacheControl(TextUtils.isEmpty(cacheControl) ?
                                 CacheControl.FORCE_NETWORK : CacheControl.FORCE_CACHE)
@@ -116,7 +115,7 @@ public class BaseApi {
                         .build();
             }
             Response originalResponse = chain.proceed(request);
-            if (NetWorkUtil.isNetConnected(ApplicationUtil.getContext())) {//在线缓存
+            if (NetWorkUtil.isNetConnected(BaseApplication.getContext())) {//在线缓存
 //                KLog.e("在线缓存2分钟");
                 return originalResponse.newBuilder()
                         .removeHeader("Pragma")
