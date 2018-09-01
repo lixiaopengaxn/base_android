@@ -73,7 +73,10 @@ ext {
             butterknife     : "com.jakewharton:butterknife:${dependVersion.butterknife}",
             butterknife_compiler  : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
             //dialog
-            sweetalert    : 'com.github.f0ris.sweetalert:library:1.5.1',
+            sweetalert    : "com.github.f0ris.sweetalert:library:1.5.1",
+
+            //webView
+            tkrefreshlayout : "com.lcodecorex:tkrefreshlayout:1.0.7",
 
 
     ]

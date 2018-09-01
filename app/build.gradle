@@ -132,12 +132,14 @@ dependencies {
     implementation rootProject.ext.file.multipleimageselect
     implementation rootProject.ext.file.advancedluban
 
+    //webView
+    implementation rootProject.ext.otherlib.tkrefreshlayout
+
     //    //KLog
 
     //    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
 
-    //webView
-    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
+
 
 
 }
