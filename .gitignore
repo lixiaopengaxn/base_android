@@ -24,7 +24,12 @@ poputil/poputil.iml
 recyclerView/build/
 recyclerView/recyclerView.iml
 
+
 AndPermission/build/
 AndPermission/AndPermission.iml
+
+
+autosize/build/
+autosize/autosize.iml
 
 
