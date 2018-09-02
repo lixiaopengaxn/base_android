@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_height="match_parent">
+
+
+    <com.xp.develop.customview.ObservableScrollView
+        android:id="@+id/sv_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_main_topContent"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:background="#b5b433"
+                android:gravity="center"
+                android:src="@mipmap/ic_launcher"
+                android:text="我是头部"
+                android:textSize="22sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/red"
+                android:layout_height="700dp"/>
+
+        </LinearLayout>
+    </com.xp.develop.customview.ObservableScrollView>
+
+
+    <include layout="@layout/test_scroll_activity_head_layout" />
+
+</RelativeLayout>

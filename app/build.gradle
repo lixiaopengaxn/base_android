@@ -64,7 +64,7 @@ dependencies {
     implementation project(':recyclerView')
     implementation project(':AndPermission')
     //今日头条的适配方案
-    implementation project(':autosize')
+//    implementation project(':autosize')
 
     //test
     testImplementation rootProject.ext.dependencies.junit

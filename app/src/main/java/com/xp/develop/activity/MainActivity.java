@@ -15,6 +15,7 @@ import com.xp.develop.model.LoginModel;
 import com.xp.develop.progress.ObserverResponseListener;
 import com.xp.develop.test.activity.TestActivity;
 import com.xp.develop.test.activity.TestPingFenActivity;
+import com.xp.develop.test.activity.TestScrollActivity;
 import com.xp.develop.test.activity.TestTaskPhotoActivity;
 import com.xp.develop.test.activity.TestWebViewActivity;
 import com.xp.develop.utils.ExceptionHandle;
@@ -117,6 +118,10 @@ public class MainActivity extends BaseActivity {
 
             case R.id.text_view_4:
                 openActivity(TestTaskPhotoActivity.class);
+                break;
+
+            case R.id.text_view_5:
+                openActivity(TestScrollActivity.class);
                 break;
         }
     }

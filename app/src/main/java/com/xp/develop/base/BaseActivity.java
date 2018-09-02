@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
-import android.view.DisplayCutout;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,8 +17,6 @@ import android.widget.FrameLayout;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.xp.develop.R;
-import com.xp.develop.api.ApiConstants;
-import com.xp.develop.utils.DeviceUtils;
 import com.xp.develop.utils.statusView.DensityUtils;
 import com.xp.develop.utils.statusView.Sofia;
 import com.xp.develop.utils.statusView.TitleView;
@@ -27,7 +24,6 @@ import com.xp.develop.utils.swipe.SwipeBackActivityHelper;
 import com.xp.develop.utils.swipe.SwipeBackLayout;
 
 import butterknife.ButterKnife;
-import me.jessyan.autosize.internal.CustomAdapt;
 
 /**
  * author :
@@ -46,7 +42,7 @@ import me.jessyan.autosize.internal.CustomAdapt;
  * time  :  2018/8/25
  * desc  :  父类->基类->动态指定类型->泛型设计（通过泛型指定动态类型->由子类指定，父类只需要规定范围即可）
  */
-public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity  implements CustomAdapt {
+public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity{
 
 
     private SwipeBackActivityHelper mHelper;
@@ -389,25 +385,25 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
      *
      * @return {@code true} 为按照宽度适配, {@code false} 为按照高度适配
      */
-    @Override
-    public boolean isBaseOnWidth() {
-        return true;
-    }
-
-    /**
-     * 这里使用 IPhone 的设计图, IPhone 的设计图尺寸为 750px * 1334px, 因为这个页面使用副单位进行布局
-     * 所以可以直接以像素作为单位返回设计图的尺寸
-     * <p>
-     * 返回设计图上的设计尺寸
-     * {@link #getSizeInDp} 须配合 {@link #isBaseOnWidth()} 使用, 规则如下:
-     * 如果 {@link #isBaseOnWidth()} 返回 {@code true}, {@link #getSizeInDp} 则应该返回设计图的总宽度
-     * 如果 {@link #isBaseOnWidth()} 返回 {@code false}, {@link #getSizeInDp} 则应该返回设计图的总高度
-     * 如果您不需要自定义设计图上的设计尺寸, 想继续使用在 AndroidManifest 中填写的设计图尺寸, {@link #getSizeInDp} 则返回 {@code 0}
-     *
-     * @return 设计图上的设计尺寸
-     */
-    @Override
-    public float getSizeInDp() {
-        return ApiConstants.AUTO_SIZE.DP;
-    }
+//    @Override
+//    public boolean isBaseOnWidth() {
+//        return true;
+//    }
+//
+//    /**
+//     * 这里使用 IPhone 的设计图, IPhone 的设计图尺寸为 750px * 1334px, 因为这个页面使用副单位进行布局
+//     * 所以可以直接以像素作为单位返回设计图的尺寸
+//     * <p>
+//     * 返回设计图上的设计尺寸
+//     * {@link #getSizeInDp} 须配合 {@link #isBaseOnWidth()} 使用, 规则如下:
+//     * 如果 {@link #isBaseOnWidth()} 返回 {@code true}, {@link #getSizeInDp} 则应该返回设计图的总宽度
+//     * 如果 {@link #isBaseOnWidth()} 返回 {@code false}, {@link #getSizeInDp} 则应该返回设计图的总高度
+//     * 如果您不需要自定义设计图上的设计尺寸, 想继续使用在 AndroidManifest 中填写的设计图尺寸, {@link #getSizeInDp} 则返回 {@code 0}
+//     *
+//     * @return 设计图上的设计尺寸
+//     */
+//    @Override
+//    public float getSizeInDp() {
+//        return ApiConstants.AUTO_SIZE.DP;
+//    }
 }
