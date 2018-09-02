@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
+import android.view.DisplayCutout;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,9 +18,8 @@ import android.widget.FrameLayout;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.xp.develop.R;
-import com.xp.develop.activity.MainActivity;
 import com.xp.develop.api.ApiConstants;
-import com.xp.develop.utils.ToastUtil;
+import com.xp.develop.utils.DeviceUtils;
 import com.xp.develop.utils.statusView.DensityUtils;
 import com.xp.develop.utils.statusView.Sofia;
 import com.xp.develop.utils.statusView.TitleView;
@@ -132,6 +132,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         }
 
 
+
         /****
          * //标题栏左边默认的返回监听
          */
@@ -167,6 +168,17 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
      */
     @SuppressLint("ResourceAsColor")
     public void isTempMethod() {
+        //刘海
+//
+//        if(DeviceUtils.hasNotchInScreen(this) == true){
+//            WindowManager.LayoutParams lp =getWindow().getAttributes();
+//            lp.layoutInDisplayCutoutMode
+//                    =WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT;
+//            getWindow().setAttributes(lp);
+//        }
+//
+
+
         if (tooBar != null) {
             if (isTemp() == 1) {
                 //全屏,且不显示状态栏

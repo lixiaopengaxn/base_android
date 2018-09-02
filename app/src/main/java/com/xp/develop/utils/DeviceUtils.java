@@ -38,6 +38,7 @@ import android.view.inputmethod.InputMethodManager;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.text.NumberFormat;
 import java.util.List;
 
@@ -999,6 +1000,52 @@ public class DeviceUtils {
             }
         }
         return sb.toString();
+    }
+
+    /***
+     * 华为，检测是否是刘海屏
+     * @param context
+     * @return
+     */
+    public static boolean hasNotchInScreen(Context context) {
+        boolean ret = false;
+        try {
+            ClassLoader cl = context.getClassLoader();
+            Class HwNotchSizeUtil = cl.loadClass("com.huawei.android.util.HwNotchSizeUtil");
+            Method get = HwNotchSizeUtil.getMethod("hasNotchInScreen");
+            ret = (boolean) get.invoke(HwNotchSizeUtil);
+        } catch (ClassNotFoundException e) {
+            Log.e("test", "hasNotchInScreen ClassNotFoundException");
+        } catch (NoSuchMethodException e) {
+            Log.e("test", "hasNotchInScreen NoSuchMethodException");
+        } catch (Exception e) {
+            Log.e("test", "hasNotchInScreen Exception");
+        } finally {
+            return ret;
+        }
+    }
+
+    /****
+     * 获取刘海平的参数
+     * @param context
+     * @return
+     */
+    public static int[] getNotchSize(Context context) {
+        int[] ret = new int[]{0, 0};
+        try {
+            ClassLoader cl = context.getClassLoader();
+            Class HwNotchSizeUtil = cl.loadClass("com.huawei.android.util.HwNotchSizeUtil");
+            Method get = HwNotchSizeUtil.getMethod("getNotchSize");
+            ret = (int[]) get.invoke(HwNotchSizeUtil);
+        } catch (ClassNotFoundException e) {
+            Log.e("test", "getNotchSize ClassNotFoundException");
+        } catch (NoSuchMethodException e) {
+            Log.e("test", "getNotchSize NoSuchMethodException");
+        } catch (Exception e) {
+            Log.e("test", "getNotchSize Exception");
+        } finally {
+            return ret;
+        }
     }
 
 }
