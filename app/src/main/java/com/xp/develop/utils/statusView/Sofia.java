@@ -20,7 +20,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
-
+/***
+ * github https://github.com/yanzhenjie/Sofia
+ */
 public class Sofia {
 
     private Sofia() {
