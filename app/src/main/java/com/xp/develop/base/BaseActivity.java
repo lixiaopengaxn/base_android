@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.xp.develop.R;
+import com.xp.develop.utils.StatusbarUtils;
 import com.xp.develop.utils.statusView.DensityUtils;
 import com.xp.develop.utils.statusView.Sofia;
 import com.xp.develop.utils.statusView.TitleView;
@@ -42,7 +43,7 @@ import butterknife.ButterKnife;
  * time  :  2018/8/25
  * desc  :  父类->基类->动态指定类型->泛型设计（通过泛型指定动态类型->由子类指定，父类只需要规定范围即可）
  */
-public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity{
+public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity {
 
 
     private SwipeBackActivityHelper mHelper;
@@ -128,7 +129,6 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         }
 
 
-
         /****
          * //标题栏左边默认的返回监听
          */
@@ -164,33 +164,12 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
      */
     @SuppressLint("ResourceAsColor")
     public void isTempMethod() {
-        //刘海
-//
-//        if(DeviceUtils.hasNotchInScreen(this) == true){
-//            WindowManager.LayoutParams lp =getWindow().getAttributes();
-//            lp.layoutInDisplayCutoutMode
-//                    =WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT;
-//            getWindow().setAttributes(lp);
-//        }
-//
-
-
         if (tooBar != null) {
             if (isTemp() == 1) {
                 //全屏,且不显示状态栏
                 tooBar.setVisibility(View.GONE);
                 tooBar = null;
-
-                //隐藏状态栏和底部虚拟按键
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                    View decorView = getWindow().getDecorView();
-                    decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-                }
+                StatusbarUtils.hideToobar(this);
             } else if (isTemp() == 2) {
                 //全屏，且显示状态栏
                 tooBar.setVisibility(View.GONE);
@@ -203,27 +182,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
                 //全屏,且显示透明状态栏
                 tooBar.setVisibility(View.GONE);
                 tooBar = null;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    // Android 5.0 以上 全透明
-                    Window window = getWindow();
-                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
-                            | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-                    window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                    // 状态栏（以上几行代码必须，参考setStatusBarColor|setNavigationBarColor方法源码）
-                    window.setStatusBarColor(ContextCompat.getColor(this, R.color.transparency_bar));
-                    // 虚拟导航键
-                    window.setNavigationBarColor(ContextCompat.getColor(this, R.color.transparency_bar));
-                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    // Android 4.4 以上 半透明
-                    Window window = getWindow();
-                    // 状态栏
-                    window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                    // 虚拟导航键
-                    window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-                }
+                StatusbarUtils.enableTranslucentStatusbar(this);
             } else {
                 tooBar.setVisibility(View.VISIBLE);
                 Sofia.with(this)
@@ -231,7 +190,6 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
                         .statusBarBackground(ContextCompat.getColor(this, R.color.title_status_color));
             }
         }
-
 
     }
 

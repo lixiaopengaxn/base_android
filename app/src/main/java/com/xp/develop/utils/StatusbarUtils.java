@@ -40,4 +40,22 @@ public class StatusbarUtils {
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
     }
+
+
+    /****
+     * 隐藏状态栏
+     */
+
+    public static void hideToobar(Activity activity){
+        //隐藏状态栏和底部虚拟按键
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            View decorView = activity.getWindow().getDecorView();
+            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+        }
+    }
 }
