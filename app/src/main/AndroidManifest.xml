@@ -79,6 +79,9 @@
         <activity android:name=".test.activity.TestScrollActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".test.activity.NewActivity"
+            android:screenOrientation="portrait"/>
+
         <!--test-->
 
 

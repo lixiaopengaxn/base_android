@@ -34,7 +34,7 @@ import java.util.Stack;
  * 创建时间:16/12/28 下午11:42
  * 描述:
  */
-class BGASwipeBackManager implements Application.ActivityLifecycleCallbacks {
+public class BGASwipeBackManager implements Application.ActivityLifecycleCallbacks {
     private static final BGASwipeBackManager sInstance = new BGASwipeBackManager();
     private Stack<Activity> mActivityStack = new Stack<>();
     private Set<Class<? extends View>> mProblemViewClassSet = new HashSet<>();

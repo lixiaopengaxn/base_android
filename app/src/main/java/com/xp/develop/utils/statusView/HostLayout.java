@@ -52,10 +52,10 @@ public class HostLayout extends RelativeLayout implements Bar {
         loadView();
         replaceContentView();
 
-        Utils.invasionStatusBar(mActivity);
-        Utils.invasionNavigationBar(mActivity);
-        Utils.setStatusBarColor(mActivity, Color.TRANSPARENT);
-        Utils.setNavigationBarColor(mActivity, Color.TRANSPARENT);
+        StatusbarUtils.invasionStatusBar(mActivity);
+        StatusbarUtils.invasionNavigationBar(mActivity);
+        StatusbarUtils.setStatusBarColor(mActivity, Color.TRANSPARENT);
+        StatusbarUtils.setNavigationBarColor(mActivity, Color.TRANSPARENT);
     }
 
     @Override
@@ -98,13 +98,13 @@ public class HostLayout extends RelativeLayout implements Bar {
 
     @Override
     public Bar statusBarDarkFont() {
-        Utils.setStatusBarDarkFont(mActivity, true);
+        StatusbarUtils.setStatusBarDarkFont(mActivity, true);
         return this;
     }
 
     @Override
     public Bar statusBarLightFont() {
-        Utils.setStatusBarDarkFont(mActivity, false);
+        StatusbarUtils.setStatusBarDarkFont(mActivity, false);
         return this;
     }
 

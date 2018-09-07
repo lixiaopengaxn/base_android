@@ -3,6 +3,7 @@ package com.xp.develop.base;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
 import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +21,7 @@ import com.xp.develop.utils.StatusbarUtils;
 import com.xp.develop.utils.statusView.DensityUtils;
 import com.xp.develop.utils.statusView.Sofia;
 import com.xp.develop.utils.statusView.TitleView;
+import com.xp.develop.utils.statusView.StatusbarUtils;
 import com.xp.develop.utils.swipe.BGASwipeBackHelper;
 
 import butterknife.ButterKnife;
@@ -61,7 +63,6 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
     //子布局
     private FrameLayout mBodyContent;
-    private int color;
 
 
     /**
@@ -157,11 +158,11 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 //        // 设置是否是微信滑动返回样式。默认值为 true
 //        mSwipeBackHelper.setIsWeChatStyle(true);
 //        // 设置阴影资源 id。默认值为 R.drawable.bga_sbl_shadow
-        mSwipeBackHelper.setShadowResId(R.mipmap.shadow_left);
+//        mSwipeBackHelper.setShadowResId(R.mipmap.shadow_left);
 //        // 设置是否显示滑动返回的阴影效果。默认值为 true
-        mSwipeBackHelper.setIsNeedShowShadow(true);
+//        mSwipeBackHelper.setIsNeedShowShadow(true);
 //        // 设置阴影区域的透明度是否根据滑动的距离渐变。默认值为 true
-        mSwipeBackHelper.setIsShadowAlphaGradient(true);
+//        mSwipeBackHelper.setIsShadowAlphaGradient(true);
 //        // 设置触发释放后自动滑动返回的阈值，默认值为 0.3f
 //        mSwipeBackHelper.setSwipeBackThreshold(0.3f);
 //        // 设置底部导航条是否悬浮在内容上，默认值为 false
@@ -248,9 +249,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
                 //全屏，且显示状态栏
                 tooBar.setVisibility(View.GONE);
                 tooBar = null;
-                Sofia.with(this)
-                        .navigationBarBackground(ContextCompat.getColor(this, R.color.title_status_color))
-                        .statusBarBackground(ContextCompat.getColor(this, R.color.title_status_color));
+                setStatusBarNanigationBarColor(R.color.colorPrimary);
             } else if (isTemp() == 3) {
 
                 //全屏,且显示透明状态栏
@@ -259,9 +258,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
                 StatusbarUtils.enableTranslucentStatusbar(this);
             } else {
                 tooBar.setVisibility(View.VISIBLE);
-                Sofia.with(this)
-                        .navigationBarBackground(ContextCompat.getColor(this, R.color.title_status_color))
-                        .statusBarBackground(ContextCompat.getColor(this, R.color.title_status_color));
+                setStatusBarNanigationBarColor(R.color.colorPrimary);
             }
         }
 
@@ -271,13 +268,48 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     /***
      * 标题栏的颜色
      */
-    protected void setTitleViewColor(int color) {
-        this.color = color;
+    protected void setTooBarColor(@ColorRes int color) {
         if (tooBar != null) {
             tooBar.setBackgroundColor(ContextCompat.getColor(this, color));
             titleView.setTitleLayoutColor(ContextCompat.getColor(this, color));
         }
     }
+
+    /**
+     * setTempColor 标题栏，状态栏，navigationBar
+     */
+    protected void setStatusBarNanigationBarTooBarColor(@ColorRes int color){
+        setTooBarColor(color);
+        setNanigationBarColor(color);
+        setStatusBarColor(color);
+    }
+
+    /****
+     * 单独设置navigationbar
+     * 的颜色
+     */
+    protected void setNanigationBarColor(@ColorRes int color){
+        Sofia.with(this)
+                .navigationBarBackground(ContextCompat.getColor(this, color));
+    }
+
+    /****
+     * 单独设置navigationbar
+     * 的颜色
+     */
+    protected void setStatusBarColor(@ColorRes int color){
+        Sofia.with(this).
+        statusBarBackground(ContextCompat.getColor(this,color));
+    }
+
+    /**
+     * setTempColor 标题栏，状态栏，navigationBar
+     */
+    protected void setStatusBarNanigationBarColor(@ColorRes int color){
+        setNanigationBarColor(color);
+        setStatusBarColor(color);
+    }
+
 
 
     @Override
@@ -285,6 +317,16 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         super.onDestroy();
         if (presenter != null) {
             presenter.detachView();
+        }
+        if(mSwipeBackHelper != null){
+            mSwipeBackHelper = null;
+        }
+        if(tooBar != null || titleView != null){
+            tooBar = null;
+            titleView = null;
+        }
+        if(mBodyContent != null){
+            mBodyContent = null;
         }
     }
 

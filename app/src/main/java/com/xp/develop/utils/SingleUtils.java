@@ -7,20 +7,20 @@ package com.xp.develop.utils;
  * time  :  2018/8/31
  * desc  :  utils about initialization
  */
-public class Utils {
+public class SingleUtils {
 
-    private static Utils instance = null;
+    private static SingleUtils instance = null;
 
-    public Utils() {
+    public SingleUtils() {
 
     }
 
     //同步代码快的demo加锁，安全高效
-    public static Utils getInstance() {
+    public static SingleUtils getInstance() {
         if (instance == null)
-            synchronized (Utils.class) {
+            synchronized (SingleUtils.class) {
                 if (instance == null)
-                    instance = new Utils();
+                    instance = new SingleUtils();
             }
 
         return instance;

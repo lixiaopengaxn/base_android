@@ -13,6 +13,7 @@ import com.xp.develop.base.BaseView;
 import com.xp.develop.entity.Login;
 import com.xp.develop.model.LoginModel;
 import com.xp.develop.progress.ObserverResponseListener;
+import com.xp.develop.test.activity.NewActivity;
 import com.xp.develop.test.activity.TestActivity;
 import com.xp.develop.test.activity.TestPingFenActivity;
 import com.xp.develop.test.activity.TestScrollActivity;
@@ -122,6 +123,9 @@ public class MainActivity extends BaseActivity {
 
             case R.id.text_view_5:
                 openActivity(TestScrollActivity.class);
+                break;
+            case R.id.text_view_6:
+                openActivity(NewActivity.class);
                 break;
         }
     }
