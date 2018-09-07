@@ -1,6 +1,7 @@
 package com.xp.develop.test.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.xp.develop.R;
 import com.xp.develop.base.BaseActivity;
@@ -71,4 +72,8 @@ public class TestActivity extends BaseActivity {
         return null;
     }
 
+    @Override
+    public void onClick(View view) {
+
+    }
 }

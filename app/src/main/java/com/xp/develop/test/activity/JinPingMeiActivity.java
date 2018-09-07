@@ -1,6 +1,7 @@
 package com.xp.develop.test.activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -83,6 +84,11 @@ public class JinPingMeiActivity extends BaseActivity<JinPingMeiContract.View, Ji
 
     @Override
     public void onSuccessMsg(String success) {
+
+    }
+
+    @Override
+    public void onClick(View view) {
 
     }
 }

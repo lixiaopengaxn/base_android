@@ -24,6 +24,11 @@ public class WelcomeActivity  extends BaseActivity{
     public static final long DOWN_TIMER_TIME = 1000;
     private MCountDownTimer mDownTimer = new MCountDownTimer(DOWN_TIMER_TIME, DOWN_TIMER_MILLIS);
 
+    @Override
+    public void onClick(View view) {
+
+    }
+
     private class MCountDownTimer extends CountDownTimer {
         public MCountDownTimer(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);

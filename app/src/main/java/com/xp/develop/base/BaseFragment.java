@@ -1,8 +1,11 @@
 package com.xp.develop.base;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,27 +43,64 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
     public Context mContext;
     private Unbinder unbinder;
 
-
-    /**
-     * 表示View是否被初始化
-     */
-    public boolean isViewInitiated;
-    /**
-     * 表示对用户是否可见
-     */
-    public boolean isVisibleToUser;
-    /**
-     * 表示数据是否初始化
-     */
-    public boolean isDataInitiated;
-
     //由子类指定具体类型
     public abstract int getLayoutId();
+
     public abstract P createPresenter();
     public abstract V createView();
+
     public abstract void init(View view);
-    //懒加载
-    public abstract void onUserVisible();
+
+    /**
+     * 懒加载一次。如果只想在对用户可见时才加载数据，并且只加载一次数据，在子类中重写该方法
+     */
+    protected abstract void onLazyLoadOnce();
+
+    /**
+     * 对用户可见时触发该方法。如果只想在对用户可见时才加载数据，在子类中重写该方法
+     */
+    protected abstract void onVisibleToUser();
+
+    /**
+     * 对用户不可见时触发该方法
+     */
+    protected abstract void onInvisibleToUser();
+
+    protected String TAG;
+    protected View mContentView;
+    protected Activity mActivity;
+    protected boolean mIsLoadedData = false;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        TAG = this.getClass().getSimpleName();
+        mActivity = getActivity();
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isResumed()) {
+            handleOnVisibilityChangedToUser(isVisibleToUser);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (getUserVisibleHint()) {
+            handleOnVisibilityChangedToUser(true);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (getUserVisibleHint()) {
+            handleOnVisibilityChangedToUser(false);
+        }
+    }
 
     public P getPresenter() {
         return presenter;
@@ -72,9 +112,31 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
         //由于某些原因, 屏幕旋转后 Fragment 的重建, 会导致框架对 Fragment 的自定义适配参数失去效果
         //所以如果您的 Fragment 允许屏幕旋转, 则请在 onCreateView 手动调用一次 AutoSize.autoConvertDensity()
         //如果您的 Fragment 不允许屏幕旋转, 则可以将下面调用 AutoSize.autoConvertDensity() 的代码删除掉
+
 //        AutoSize.autoConvertDensity(getActivity(), ApiConstants.AUTO_SIZE.DP, true);
-        View view = inflater.inflate(getLayoutId(), container, false);
-        unbinder = ButterKnife.bind(this, view);
+
+        View mContentView = inflater.inflate(getLayoutId(), container, false);
+        unbinder = ButterKnife.bind(this, mContentView);
+
+        getPresent();
+
+        // 避免多次从xml中加载布局文件
+        if (mContentView == null) {
+            init(mContentView);
+        } else {
+            ViewGroup parent = (ViewGroup) mContentView.getParent();
+            if (parent != null) {
+                parent.removeView(mContentView);
+            }
+        }
+
+        return mContentView;
+    }
+
+    /***
+     * 创建 persenter 和 view
+     */
+    private void getPresent(){
         mContext = getActivity();
         if (presenter == null) {
             presenter = createPresenter();
@@ -85,8 +147,25 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
         if (presenter != null && view != null) {
             presenter.attachView(this.view);
         }
-        init(view);
-        return view;
+    }
+
+    /**
+     * 处理对用户是否可见
+     *
+     * @param isVisibleToUser
+     */
+    private void handleOnVisibilityChangedToUser(boolean isVisibleToUser) {
+        if (isVisibleToUser) {
+            // 对用户可见
+            if (!mIsLoadedData) {
+                mIsLoadedData = true;
+                onLazyLoadOnce();
+            }
+            onVisibleToUser();
+        } else {
+            // 对用户不可见
+            onInvisibleToUser();
+        }
     }
 
 
@@ -95,36 +174,6 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
         super.onViewCreated(view, savedInstanceState);
         init(view);
     }
-
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        isViewInitiated = true;
-        prepareFetchData();
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        this.isVisibleToUser = isVisibleToUser;
-        prepareFetchData();
-    }
-
-
-    public boolean prepareFetchData() {
-        return prepareFetchData(false);
-    }
-
-    public boolean prepareFetchData(boolean forceUpdate) {
-        if (isVisibleToUser && isViewInitiated && (!isDataInitiated || forceUpdate)) {
-            onUserVisible();
-            isDataInitiated = true;
-            return true;
-        }
-        return false;
-    }
-
 
     @Override
     public void onDestroyView() {
@@ -135,6 +184,18 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
         if (unbinder != null) {
             unbinder.unbind();
         }
+    }
+
+
+    /**
+     * 查找View
+     *
+     * @param id   控件的id
+     * @param <VT> View类型
+     * @return
+     */
+    protected <VT extends View> VT getViewById(@IdRes int id) {
+        return (VT) mContentView.findViewById(id);
     }
 
     public void openActivity(Class<?> cls) {

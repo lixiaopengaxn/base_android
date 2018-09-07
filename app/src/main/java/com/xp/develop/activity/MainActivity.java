@@ -97,7 +97,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @OnClick({R.id.text_view,R.id.text_view_1,R.id.text_view_2,R.id.text_view_3,R.id.text_view_4,R.id.text_view_5,R.id.text_view_6})
-    protected void onClick(View view) {
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.text_view:
                 HashMap<String, String> map = new HashMap<>();

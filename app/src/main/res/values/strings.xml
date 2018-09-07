@@ -26,4 +26,6 @@
     <string name="limit_exceeded">最多能选 %d 张</string>
     <string name="title_settings">设置</string>
 
+    <integer name="bga_sbl_anim_duration">200</integer>
+
 </resources>

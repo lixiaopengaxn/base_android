@@ -1,6 +1,7 @@
 package com.xp.develop.test.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.xp.develop.R;
 import com.xp.develop.base.BaseActivity;
@@ -47,5 +48,10 @@ public class TestPingFenActivity extends BaseActivity {
     @Override
     protected BaseView createView() {
         return null;
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

@@ -2,14 +2,13 @@ package com.xp.develop.base;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -21,8 +20,7 @@ import com.xp.develop.utils.StatusbarUtils;
 import com.xp.develop.utils.statusView.DensityUtils;
 import com.xp.develop.utils.statusView.Sofia;
 import com.xp.develop.utils.statusView.TitleView;
-import com.xp.develop.utils.swipe.SwipeBackActivityHelper;
-import com.xp.develop.utils.swipe.SwipeBackLayout;
+import com.xp.develop.utils.swipe.BGASwipeBackHelper;
 
 import butterknife.ButterKnife;
 
@@ -43,10 +41,10 @@ import butterknife.ButterKnife;
  * time  :  2018/8/25
  * desc  :  父类->基类->动态指定类型->泛型设计（通过泛型指定动态类型->由子类指定，父类只需要规定范围即可）
  */
-public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity {
+public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity implements  BGASwipeBackHelper.Delegate, View.OnClickListener{
 
 
-    private SwipeBackActivityHelper mHelper;
+    protected BGASwipeBackHelper mSwipeBackHelper;
 
     //引用V层和P层
     private P presenter;
@@ -104,30 +102,16 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        initSwipeBackFinish();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         loadingChildLayout();
         //是否显示头布局
         isTempMethod();
         ButterKnife.bind(this);
-        if (presenter == null) {
-            presenter = createPresenter();
-        }
-        if (view == null) {
-            view = createView();
-        }
-        if (presenter != null && view != null) {
-            presenter.attachView(view);
-        }
+        presenter();
 
         initOnClick();
-        if (IsSwipeBackPage()) {
-            mHelper = new SwipeBackActivityHelper(this);
-            mHelper.onActivityCreate();
-            setSwipeBackEnable(true);
-            getSwipeBackLayout().setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
-        }
-
 
         /****
          * //标题栏左边默认的返回监听
@@ -138,6 +122,96 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
 
         init(savedInstanceState);
+    }
+
+    /***
+     * 创建 presenter 和 view
+     */
+    private void presenter(){
+
+        if (presenter == null) {
+            presenter = createPresenter();
+        }
+        if (view == null) {
+            view = createView();
+        }
+        if (presenter != null && view != null) {
+            presenter.attachView(view);
+        }
+    }
+
+
+    /**
+     * 初始化滑动返回。在 super.onCreate(savedInstanceState) 之前调用该方法
+     */
+    private void initSwipeBackFinish() {
+        mSwipeBackHelper = new BGASwipeBackHelper(this, this);
+
+        // 「必须在 Application 的 onCreate 方法中执行 BGASwipeBackHelper.init 来初始化滑动返回」
+        // 下面几项可以不配置，这里只是为了讲述接口用法。
+
+//        // 设置滑动返回是否可用。默认值为 true
+//        mSwipeBackHelper.setSwipeBackEnable(IsSwipeBackPage());
+//        // 设置是否仅仅跟踪左侧边缘的滑动返回。默认值为 true
+//        mSwipeBackHelper.setIsOnlyTrackingLeftEdge(true);
+//        // 设置是否是微信滑动返回样式。默认值为 true
+//        mSwipeBackHelper.setIsWeChatStyle(true);
+//        // 设置阴影资源 id。默认值为 R.drawable.bga_sbl_shadow
+        mSwipeBackHelper.setShadowResId(R.mipmap.shadow_left);
+//        // 设置是否显示滑动返回的阴影效果。默认值为 true
+        mSwipeBackHelper.setIsNeedShowShadow(true);
+//        // 设置阴影区域的透明度是否根据滑动的距离渐变。默认值为 true
+        mSwipeBackHelper.setIsShadowAlphaGradient(true);
+//        // 设置触发释放后自动滑动返回的阈值，默认值为 0.3f
+//        mSwipeBackHelper.setSwipeBackThreshold(0.3f);
+//        // 设置底部导航条是否悬浮在内容上，默认值为 false
+        mSwipeBackHelper.setIsNavigationBarOverlap(true);
+    }
+
+
+    /**
+     * 是否支持滑动返回。这里在父类中默认返回 true 来支持滑动返回，如果某个界面不想支持滑动返回则重写该方法返回 false 即可
+     *
+     * @return
+     */
+    @Override
+    public boolean isSupportSwipeBack() {
+        return IsSwipeBackPage();
+    }
+
+    /**
+     * 正在滑动返回
+     *
+     * @param slideOffset 从 0 到 1
+     */
+    @Override
+    public void onSwipeBackLayoutSlide(float slideOffset) {
+
+    }
+
+    /**
+     * 没达到滑动返回的阈值，取消滑动返回动作，回到默认状态
+     */
+    @Override
+    public void onSwipeBackLayoutCancel() {
+
+    }
+
+    /**
+     * 滑动返回执行完毕，销毁当前 Activity
+     */
+    @Override
+    public void onSwipeBackLayoutExecuted() {
+        mSwipeBackHelper.swipeBackward();
+    }
+
+    @Override
+    public void onBackPressed() {
+        // 正在滑动返回的时候取消返回按钮事件
+        if (mSwipeBackHelper.isSliding()) {
+            return;
+        }
+        mSwipeBackHelper.backward();
     }
 
 
@@ -214,37 +288,16 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         }
     }
 
-    @Override
-    public View findViewById(int id) {
-        View v = super.findViewById(id);
-        if (v == null && mHelper != null) {
-            return mHelper.findViewById(id);
-        }
-        return v;
-    }
 
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        if (mHelper != null) {
-            mHelper.onPostCreate();
-        }
-    }
-
-
-    private void setSwipeBackEnable(boolean enable) {
-        SwipeBackLayout swipeBackLayout = getSwipeBackLayout();
-        if (swipeBackLayout != null) {
-            swipeBackLayout.setEnableGesture(enable);
-        }
-    }
-
-    private SwipeBackLayout getSwipeBackLayout() {
-        if (mHelper == null) {
-            return null;
-        }
-        return mHelper.getSwipeBackLayout();
+    /**
+     * 查找View
+     *
+     * @param id   控件的id
+     * @param <VT> View类型
+     * @return
+     */
+    protected <VT extends View> VT getViewById(@IdRes int id) {
+        return (VT) findViewById(id);
     }
 
 
@@ -336,6 +389,8 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         }
         startActivityForResult(intent, requestCode);
     }
+
+
 
 
     /**
