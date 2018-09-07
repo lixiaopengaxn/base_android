@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--<color name="colorPrimary">#3F51B5</color>-->
 
-    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--纯颜色-->
     <color name="white">#ffffff</color>
     <color name="blank">#000000</color>
     <color name="red">#f00f00</color>
-    <color name="def_blue">#f0f0</color>
 
+
+    <!--所有app默认的颜色-->
+    <color name="def_blue">#303F9F</color>
+    <color name="def_blue_trans">#a9303F9F</color>
+
+    <!--透明色-->
     <color name="trans">#00000000</color>
+    <!--半透明色-->
+    <color name="transparency_bar">#50000000</color>
+    <color name="trans_8">#80000000</color>
 
     <color name="title_status_color">#FF4081</color>
 
     <color name="sofia_navigation">#2B2B2B</color>
-    <color name="transparency_bar">#50000000</color>
+
     <color name="numb_color">#E3E3E3</color>
 
     <color name="line_bg">#CDCDCD</color>
 
-    <!--自定位文件activity状态栏和toobar的颜色-->
+    <!--选择系统文件activity的状态栏和toobar的颜色-->
     <color name="multiple_image_select_primaryDark">#FF4081</color>
     <color name="multiple_image_select_primary">#FF4081</color>
     <color name="multiple_image_select_accent">#FF4081</color>

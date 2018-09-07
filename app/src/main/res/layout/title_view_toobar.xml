@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/bar_all_layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    style="@style/MATCH.VER">
 
     <!--<View-->
     <!--android:layout_width="match_parent"-->
@@ -12,15 +10,12 @@
 
     <RelativeLayout
         android:id="@+id/title_all_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:orientation="horizontal">
+        style="@style/H_WRAP_W_MATCH.HOR"
+        android:layout_gravity="bottom">
 
         <TextView
             android:id="@+id/title_left_text"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            style="@style/H_MATCH_W_WRAP"
             android:gravity="center"
             android:text="@string/back"
             android:textColor="@color/white"
@@ -29,8 +24,7 @@
 
         <ImageView
             android:id="@+id/title_left_img"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            style="@style/H_MATCH_W_WRAP"
             android:gravity="center"
             android:paddingRight="30dp"
             android:src="@mipmap/ic_launcher"
@@ -38,22 +32,19 @@
 
         <TextView
             android:id="@+id/title_center_text"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            style="@style/H_MATCH_W_WRAP"
             android:layout_centerInParent="true"
             android:ellipsize="end"
             android:gravity="center"
             android:lines="1"
             android:maxEms="10"
-            android:paddingRight="15dp"
             android:text="@string/title"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/title_center_img"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            style="@style/H_MATCH_W_WRAP"
             android:layout_centerInParent="true"
             android:gravity="center"
             android:src="@mipmap/ic_launcher"
@@ -61,25 +52,20 @@
 
         <TextView
             android:id="@+id/title_right_text"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            style="@style/H_MATCH_W_WRAP"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:gravity="center"
-            android:paddingLeft="16dp"
-            android:paddingRight="15dp"
             android:text="@string/title_settings"
             android:textColor="@color/white"
             android:textSize="15sp" />
 
         <ImageView
             android:id="@+id/title_right_img"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            style="@style/H_MATCH_W_WRAP"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:gravity="center"
-            android:src="@mipmap/ic_launcher"
             android:visibility="invisible" />
 
     </RelativeLayout>

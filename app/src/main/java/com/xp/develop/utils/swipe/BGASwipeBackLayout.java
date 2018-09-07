@@ -54,6 +54,8 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 
+import com.xp.develop.R;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -222,7 +224,7 @@ public class BGASwipeBackLayout extends ViewGroup {
     void attachToActivity(Activity activity) {
         mActivity = activity;
 
-        setSliderFadeColor(Color.TRANSPARENT);
+        setSliderFadeColor(ContextCompat.getColor(activity,R.color.colorPrimary));
 
         mShadowView = new BGASwipeBackShadowView(activity);
 
@@ -1830,7 +1832,7 @@ public class BGASwipeBackLayout extends ViewGroup {
         @Override
         public void run() {
             if (mChildView.getParent() == this) {
-                ViewCompat.setLayerType(mChildView, ViewCompat.LAYER_TYPE_NONE, null);
+                mChildView.setLayerType(ViewCompat.SCROLL_AXIS_NONE, null);
                 invalidateChildRegion(mChildView);
             }
             mPostedRunnables.remove(this);

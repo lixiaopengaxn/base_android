@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/toolbar"
+        app:contentInsetStart="0dp"
         style="@style/Toolbar">
 
         <com.xp.develop.utils.statusView.TitleView
             android:id="@+id/title_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:paddingLeft="@dimen/title_view_left_right"
+            android:paddingRight="@dimen/title_view_left_right"
+            style="@style/MATCH" />
 
     </android.support.v7.widget.Toolbar>
 

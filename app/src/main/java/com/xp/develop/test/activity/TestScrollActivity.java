@@ -9,9 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.xp.develop.R;
-import com.xp.develop.activity.MainActivity;
 import com.xp.develop.customview.ObservableScrollView;
-import com.xp.develop.utils.StatusbarUtils;
+import com.xp.develop.utils.statusView.StatusbarUtils;
 
 /**
  * author :  xpxn

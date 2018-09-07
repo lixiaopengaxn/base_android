@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.support.annotation.DrawableRes;
-import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -39,7 +38,7 @@ class BGASwipeBackShadowView extends FrameLayout {
     /**
      * 阴影资源 id
      */
-    private int mShadowResId = R.mipmap.shadow_left;
+    private int mShadowResId = R.drawable.shadow_left;
     /**
      * 阴影区域的透明度是否根据滑动的距离渐变
      */
@@ -71,7 +70,7 @@ class BGASwipeBackShadowView extends FrameLayout {
     }
 
     /**
-     * 设置阴影资源 id。默认值为 R.drawable.bga_sbl_shadow
+     * 设置阴影资源 id。默认值为 R.drawable.shadow_left
      */
     void setShadowResId(@DrawableRes int shadowResId) {
         mShadowResId = shadowResId;
@@ -232,9 +231,9 @@ class BGASwipeBackShadowView extends FrameLayout {
     void setShadowAlpha(float alpha) {
         if (mIsNeedShowShadow && mIsShadowAlphaGradient) {
             if (mIsCurrentActivityTranslucent) {
-                ViewCompat.setAlpha(this, alpha);
+                mShadowView.setAlpha(alpha);
             } else if (mShadowView != null) {
-                ViewCompat.setAlpha(mShadowView, alpha);
+                mShadowView.setAlpha(alpha);
             }
         }
     }
@@ -244,11 +243,11 @@ class BGASwipeBackShadowView extends FrameLayout {
             if (mIsCurrentActivityTranslucent) { // 透明主题
                 onPanelSlide(mActivity, slideOffset);
             } else if (mPreContentView != null) { // 非透明主题
-                ViewCompat.setTranslationX(mPreContentView, (mPreContentView.getMeasuredWidth() * WE_CHAT_STYLE_MAX_OFFSET) * (1 - slideOffset));
+                mPreContentView.setTranslationX((mPreContentView.getMeasuredWidth() * WE_CHAT_STYLE_MAX_OFFSET) * (1 - slideOffset));
             }
         } else { // 非微信滑动返回样式的情况
             if (!mIsCurrentActivityTranslucent && mPreContentView != null) { // 只有非透明主题时才移动
-                ViewCompat.setTranslationX(mPreContentView, mPreContentView.getMeasuredWidth() * (1 - slideOffset));
+                mPreContentView.setTranslationX(mPreContentView.getMeasuredWidth() * (1 - slideOffset));
             }
         }
     }
@@ -258,7 +257,7 @@ class BGASwipeBackShadowView extends FrameLayout {
             Activity preActivity = BGASwipeBackManager.getInstance().getPenultimateActivity(currentActivity);
             if (preActivity != null) {
                 View decorView = preActivity.getWindow().getDecorView();
-                ViewCompat.setTranslationX(decorView, -decorView.getMeasuredWidth() * (1 - WE_CHAT_STYLE_MAX_OFFSET) * (1 - slideOffset));
+                decorView.setTranslationX(-decorView.getMeasuredWidth() * (1 - WE_CHAT_STYLE_MAX_OFFSET) * (1 - slideOffset));
             }
         } catch (Exception e) {
         }
@@ -269,11 +268,11 @@ class BGASwipeBackShadowView extends FrameLayout {
             if (mIsCurrentActivityTranslucent) { // 透明主题
                 onPanelClosed(mActivity);
             } else if (mPreContentView != null) { // 非透明主题
-                ViewCompat.setTranslationX(mPreContentView, 0);
+                mPreContentView.setTranslationX(0);
             }
         } else { // 非微信滑动返回样式的情况
             if (!mIsCurrentActivityTranslucent && mPreContentView != null) { // 只有非透明主题时才移动
-                ViewCompat.setTranslationX(mPreContentView, 0);
+                mPreContentView.setTranslationX(0);
             }
         }
         unBindPreActivity(false);
@@ -284,7 +283,7 @@ class BGASwipeBackShadowView extends FrameLayout {
             Activity preActivity = BGASwipeBackManager.getInstance().getPenultimateActivity(currentActivity);
             if (preActivity != null) {
                 View decorView = preActivity.getWindow().getDecorView();
-                ViewCompat.setTranslationX(decorView, 0);
+                decorView.setTranslationX(0);
             }
         } catch (Exception e) {
         }

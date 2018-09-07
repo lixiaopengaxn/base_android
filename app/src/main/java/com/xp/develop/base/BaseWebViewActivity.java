@@ -49,12 +49,9 @@ public abstract class BaseWebViewActivity extends BaseActivity {
     private ErrorLayoutEntity mErrorLayoutEntity;
 
     protected AgentWeb mAgentWeb;
+
     @BindView(R.id.base_web_view_container)
     LinearLayout baseContainer;
-
-    private MiddlewareWebChromeBase mMiddleWareWebChrome;
-    private MiddlewareWebClientBase mMiddleWareWebClient;
-
 
     protected abstract void initView(Bundle savedInstanceState);
 
@@ -90,7 +87,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
         AbsAgentWebUIController.HAS_DESIGN_LIB = false;
         mAgentWeb = AgentWeb.with(this)
                 .setAgentWebParent(baseContainer, new LinearLayout.LayoutParams(-1, -1))
-                .useDefaultIndicator(ContextCompat.getColor(BaseWebViewActivity.this, R.color.def_blue))
+                .useDefaultIndicator(ContextCompat.getColor(BaseWebViewActivity.this, R.color.colorPrimary))
                 .setWebChromeClient(mWebChromeClient)
                 .setWebViewClient(mWebViewClient)
                 .setMainFrameErrorView(R.layout.agentweb_error_page, -1)
@@ -105,7 +102,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
     }
 
     /***
-     * 适合网络界面，比如：百度，京东
+     * 适合网络界面，比如：百度，京东   不支持下载
      */
     protected void buildAgentWeb() {
         NestedScrollAgentWebView webView = new NestedScrollAgentWebView(this);
@@ -121,10 +118,10 @@ public abstract class BaseWebViewActivity extends BaseActivity {
                 .setAgentWebUIController(getAgentWebUIController())
                 .interceptUnkownUrl()
                 .setOpenOtherPageWays(getOpenOtherAppWay())
-                .setWebChromeClient(mWebChromeClient)
-                .setWebViewClient(mWebViewClient)
-//                .useMiddlewareWebChrome(getMiddleWareWebChrome())
-//                .useMiddlewareWebClient(getMiddleWareWebClient())
+                .setWebChromeClient(getWebChromeClient())
+                .setWebViewClient(getWebViewClient())
+                .useMiddlewareWebChrome(getMiddleWareWebChrome())
+                .useMiddlewareWebClient(getMiddleWareWebClient())
                 .setAgentWebWebSettings(getAgentWebSettings())
                 .setMainFrameErrorView(mErrorLayoutEntity.layoutRes, mErrorLayoutEntity.reloadId)
                 .setSecurityType(AgentWeb.SecurityType.STRICT_CHECK)
@@ -324,13 +321,13 @@ public abstract class BaseWebViewActivity extends BaseActivity {
 
     protected @NonNull
     MiddlewareWebChromeBase getMiddleWareWebChrome() {
-        return this.mMiddleWareWebChrome = new MiddlewareWebChromeBase() {
+        return new MiddlewareWebChromeBase() {
         };
     }
 
     protected @NonNull
     MiddlewareWebClientBase getMiddleWareWebClient() {
-        return this.mMiddleWareWebClient = new MiddlewareWebClientBase() {
+        return new MiddlewareWebClientBase() {
         };
     }
 

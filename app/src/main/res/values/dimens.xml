@@ -1,10 +1,11 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="nub_width">1dp</dimen>
     <dimen name="nub_radius_width">8dp</dimen>
     <dimen name="nub_padding_width">10dp</dimen>
+
+    <dimen name="title_view_left_right">16dp</dimen>
 
 </resources>

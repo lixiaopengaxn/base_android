@@ -26,5 +26,71 @@
         <item name="android:maxHeight">16dp</item>
     </style>
 
+    <!--全部最大-->
+    <style name="MATCH">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!--全部最小-->
+    <style name="WRAP">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--高最小，宽最大-->
+    <style name="H_WRAP_W_MATCH">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--高最大，宽最小-->
+    <style name="H_MATCH_W_WRAP">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!--高最大，宽最小，且垂直-->
+    <style name="H_MATCH_W_WRAP.VER">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!--高最大，宽最小，且水平-->
+    <style name="H_MATCH_W_WRAP.HOR">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!--高最小，宽最大，且垂直-->
+    <style name="H_WRAP_W_MATCH.VER">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!--高最小，宽最大，且水平-->
+    <style name="H_WRAP_W_MATCH.HOR">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!--全部最大，且垂直-->
+    <style name="MATCH.VER">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!--全部最大，且水平-->
+    <style name="MATCH.HOR">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!--全部最小，且垂直-->
+    <style name="WRAP.VER">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!--全部最小，且水平-->
+    <style name="WRAP.HOR">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+
+
 
 </resources>
