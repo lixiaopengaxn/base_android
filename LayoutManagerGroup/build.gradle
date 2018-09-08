@@ -7,9 +7,6 @@ android {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
 
-        //string
-        testInstrumentationRunner rootProject.ext.textstring.testInst
-
     }
 
     buildTypes {

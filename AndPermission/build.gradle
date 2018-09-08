@@ -9,7 +9,6 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
     }
 
-    resourcePrefix 'permission'
 }
 
 dependencies {

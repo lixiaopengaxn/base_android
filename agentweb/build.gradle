@@ -8,9 +8,6 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
     }
 
-    lintOptions{
-        abortOnError false
-    }
     repositories {
         flatDir {
             dirs 'libs', 'providedLibs'
