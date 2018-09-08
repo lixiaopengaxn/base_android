@@ -10,12 +10,14 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+
     defaultConfig {
         applicationId rootProject.ext.textstring.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.publish.version
+
         //string
         testInstrumentationRunner rootProject.ext.textstring.testInst
 
@@ -33,7 +35,15 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            //开启混淆
+            minifyEnabled true
+
+            shrinkResources true
+
+            // .9png 的解决办法
+            aaptOptions.cruncherEnabled = false
+            aaptOptions.useNewCruncher = false
+
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -50,6 +60,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    //打包过程中报错，加上这句可打印详细错误信息
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
 }
 
 dependencies {
