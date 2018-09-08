@@ -21,6 +21,15 @@
 #-renamesourcefileattribute SourceFile
 
 
+-dontwarn com.squareup.okhttp3.**
+-keep class com.squareup.okhttp3.** { *;}
+-dontwarn okio.**
+-dontwarn okio.**
+-dontwarn javax.annotation.Nullable
+-dontwarn javax.annotation.ParametersAreNonnullByDefault
+
+
+
 
 #---------------------------------glide---------------------------------
 
@@ -138,7 +147,9 @@
 
 #---------------------------------recycelrview-------------------------------------------
 
--keep class com.chad.library.adapter.** {*;}
+-keep class com.chad.library.adapter.** {
+*;
+}
 -keep public class * extends com.chad.library.adapter.base.BaseQuickAdapter
 -keep public class * extends com.chad.library.adapter.base.BaseViewHolder
 -keepclassmembers  class **$** extends com.chad.library.adapter.base.BaseViewHolder {

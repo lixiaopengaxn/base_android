@@ -31,23 +31,26 @@ android {
 
         //方法个数超出的问题
         multiDexEnabled true
-        //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+
     }
+
     buildTypes {
+
         release {
             //开启混淆
             minifyEnabled true
-
+            //压缩
+            zipAlignEnabled true
+            //删除无用资源
             shrinkResources true
-
-            // .9png 的解决办法
-            aaptOptions.cruncherEnabled = false
-            aaptOptions.useNewCruncher = false
-
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+
+        debug {
+
         }
     }
-
 
     //解决库依赖冲突问题
     configurations.all {
@@ -157,8 +160,6 @@ dependencies {
     //    //KLog
 
     //    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
-
-
 
 
 }
