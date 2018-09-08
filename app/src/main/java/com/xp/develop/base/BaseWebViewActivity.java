@@ -87,7 +87,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
         AbsAgentWebUIController.HAS_DESIGN_LIB = false;
         mAgentWeb = AgentWeb.with(this)
                 .setAgentWebParent(baseContainer, new LinearLayout.LayoutParams(-1, -1))
-                .useDefaultIndicator(ContextCompat.getColor(BaseWebViewActivity.this, R.color.colorPrimary))
+                .useDefaultIndicator(getIndicatorColor())
                 .setWebChromeClient(mWebChromeClient)
                 .setWebViewClient(mWebViewClient)
                 .setMainFrameErrorView(R.layout.agentweb_error_page, -1)
@@ -281,7 +281,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
 
     protected @ColorInt
     int getIndicatorColor() {
-        return ContextCompat.getColor(BaseWebViewActivity.this, R.color.def_blue);
+        return ContextCompat.getColor(BaseWebViewActivity.this, R.color.colorPrimary);
     }
 
     protected int getIndicatorHeight() {
@@ -330,6 +330,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
         return new MiddlewareWebClientBase() {
         };
     }
+
 
 
 }
