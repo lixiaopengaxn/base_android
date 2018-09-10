@@ -49,11 +49,11 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     protected BGASwipeBackHelper mSwipeBackHelper;
 
     //引用V层和P层
-    private P presenter;
-    private V view;
+    protected P mvpPresenter;
+    private V mvpView;
 
     protected P getPresenter() {
-        return presenter;
+        return mvpPresenter;
     }
 
     protected Toolbar tooBar;
@@ -136,14 +136,14 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
      */
     private void presenter(){
 
-        if (presenter == null) {
-            presenter = createPresenter();
+        if (mvpPresenter == null) {
+            mvpPresenter = createPresenter();
         }
-        if (view == null) {
-            view = createView();
+        if (mvpView == null) {
+            mvpView = createView();
         }
-        if (presenter != null && view != null) {
-            presenter.attachView(view);
+        if (mvpPresenter != null && mvpView != null) {
+            mvpPresenter.attachView(mvpView);
         }
     }
 
@@ -320,8 +320,8 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (presenter != null) {
-            presenter.detachView();
+        if (mvpPresenter != null) {
+            mvpPresenter.detachView();
         }
         if(mSwipeBackHelper != null){
             mSwipeBackHelper = null;

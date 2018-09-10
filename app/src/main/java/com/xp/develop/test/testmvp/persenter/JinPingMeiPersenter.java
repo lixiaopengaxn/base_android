@@ -5,6 +5,7 @@ import android.content.Context;
 import com.xp.develop.test.testmvp.contract.JinPingMeiContract;
 import com.xp.develop.test.testmvp.entity.Testsinmp;
 import com.xp.develop.test.testmvp.model.JinPingMeiModel;
+import com.xp.develop.utils.ToastUtil;
 
 import okhttp3.Call;
 
@@ -38,6 +39,9 @@ public class JinPingMeiPersenter extends JinPingMeiContract.Persenter {
     @Override
     public void jinpingmei(String url) {
 
+            //这是网络请求
+//        model.login();
 
+        ToastUtil.showLongToast("突突突突突突");
     }
 }
