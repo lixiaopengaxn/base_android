@@ -13,6 +13,7 @@ import com.xp.develop.base.BaseView;
 import com.xp.develop.entity.Login;
 import com.xp.develop.model.LoginModel;
 import com.xp.develop.progress.ObserverResponseListener;
+import com.xp.develop.test.activity.JinPingMeiActivity;
 import com.xp.develop.test.activity.NewActivity;
 import com.xp.develop.test.activity.TestActivity;
 import com.xp.develop.test.activity.TestPingFenActivity;
@@ -98,7 +99,7 @@ public class MainActivity extends BaseActivity {
         return 0;
     }
 
-    @OnClick({R.id.text_view,R.id.text_view_1,R.id.text_view_2,R.id.text_view_3,R.id.text_view_4,R.id.text_view_5,R.id.text_view_6})
+    @OnClick({R.id.text_view,R.id.text_view_1,R.id.text_view_2,R.id.text_view_3,R.id.text_view_4,R.id.text_view_5,R.id.text_view_6,R.id.text_view_7})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.text_view:
@@ -129,6 +130,7 @@ public class MainActivity extends BaseActivity {
                 openActivity(NewActivity.class);
                 break;
             case R.id.text_view_7:
+                openActivity(JinPingMeiActivity.class);
                 break;
             case R.id.text_view_8:
                 break;
