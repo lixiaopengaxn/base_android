@@ -20,6 +20,7 @@ import com.xp.develop.test.activity.TestScrollActivity;
 import com.xp.develop.test.activity.TestTaskPhotoActivity;
 import com.xp.develop.test.activity.TestWebViewActivity;
 import com.xp.develop.utils.ExceptionHandle;
+import com.xp.develop.utils.SingleUtils;
 import com.xp.develop.utils.ToastUtil;
 
 import java.util.HashMap;
@@ -126,6 +127,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.text_view_6:
                 openActivity(NewActivity.class);
+                break;
+            case R.id.text_view_7:
+                break;
+            case R.id.text_view_8:
                 break;
         }
     }

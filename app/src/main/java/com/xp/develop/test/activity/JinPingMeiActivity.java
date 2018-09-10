@@ -52,7 +52,7 @@ public class JinPingMeiActivity extends BaseActivity<JinPingMeiContract.View, Ji
 
     @Override
     public boolean IsSwipeBackPage() {
-        return false;
+        return true;
     }
 
     @Override

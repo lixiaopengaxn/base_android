@@ -3,6 +3,8 @@ package com.xp.develop.base;
 import android.app.Application;
 import android.content.Context;
 
+import com.xp.develop.R;
+import com.xp.develop.utils.SingleUtils;
 import com.xp.develop.utils.swipe.BGASwipeBackHelper;
 
 
@@ -21,8 +23,6 @@ public class BaseApplication extends Application {
         super.onCreate();
 
         mContext = getApplicationContext();
-
-
 
         //对单位的自定义配置, 请在 App 启动时完成
 //        configUnits();

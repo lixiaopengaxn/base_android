@@ -21,16 +21,6 @@
 #-renamesourcefileattribute SourceFile
 
 
--dontwarn com.squareup.okhttp3.**
--keep class com.squareup.okhttp3.** { *;}
--dontwarn okio.**
--dontwarn okio.**
--dontwarn javax.annotation.Nullable
--dontwarn javax.annotation.ParametersAreNonnullByDefault
-
-
-
-
 #---------------------------------glide---------------------------------
 
 -keep public class * implements com.bumptech.glide.module.GlideModule

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--状态栏，toobar，导航栏的颜色-->
-    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <color name="colorPrimary">#3F51B5</color>
 
-    <color name="colorPrimary">#000000</color>
+    <!--<color name="colorPrimary">#f6f9</color>-->
 
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>

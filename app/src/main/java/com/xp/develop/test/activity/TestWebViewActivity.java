@@ -18,7 +18,6 @@ public class TestWebViewActivity extends BaseWebViewActivity {
     protected void initView(Bundle savedInstanceState) {
 
     }
-
     @Override
     protected String getUrl() {
         return ApiConstants.WEB_VIEW.WEB_GITLAB_URL;

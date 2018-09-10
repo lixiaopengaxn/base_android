@@ -43,9 +43,9 @@ android {
             //开启混淆
             minifyEnabled false
             //压缩
-            zipAlignEnabled false
+//            zipAlignEnabled true
             //删除无用资源
-            shrinkResources false
+//            shrinkResources true
 
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
@@ -56,10 +56,10 @@ android {
         }
     }
 
-    //解决库依赖冲突问题
-    configurations.all {
-        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
-    }
+//    //解决库依赖冲突问题
+//    configurations.all {
+//        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+//    }
 
 
 
@@ -67,12 +67,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-    //打包过程中报错，加上这句可打印详细错误信息
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
-    }
+//
+//    //打包过程中报错，加上这句可打印详细错误信息
+//    lintOptions {
+//        checkReleaseBuilds false
+//        abortOnError false
+//    }
 
 }
 

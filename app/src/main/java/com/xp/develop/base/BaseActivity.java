@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.xp.develop.R;
+import com.xp.develop.utils.SingleUtils;
 import com.xp.develop.utils.statusView.DensityUtils;
 import com.xp.develop.utils.statusView.Sofia;
 import com.xp.develop.utils.statusView.TitleView;
@@ -111,7 +112,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         ButterKnife.bind(this);
         presenter();
 
-        initOnClick();
+
 
         /****
          * //标题栏左边默认的返回监听
@@ -122,6 +123,12 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
 
         init(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initOnClick();
     }
 
     /***
@@ -257,7 +264,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
                 StatusbarUtils.enableTranslucentStatusbar(this);
             } else {
                 tooBar.setVisibility(View.VISIBLE);
-                setStatusBarNanigationBarColor(R.color.colorPrimary);
+                setStatusBarNanigationBarTooBarColor(R.color.colorPrimary);
             }
         }
 
@@ -270,7 +277,6 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     protected void setTooBarColor(@ColorRes int color) {
         if (tooBar != null) {
             tooBar.setBackgroundColor(ContextCompat.getColor(this, color));
-            titleView.setTitleLayoutColor(ContextCompat.getColor(this, color));
         }
     }
 
@@ -302,10 +308,10 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     }
 
     /**
-     * setTempColor 标题栏，状态栏，navigationBar
+     * setTempColor 标题栏，状态栏
      */
     protected void setStatusBarNanigationBarColor(@ColorRes int color){
-        setNanigationBarColor(color);
+        setTooBarColor(color);
         setStatusBarColor(color);
     }
 

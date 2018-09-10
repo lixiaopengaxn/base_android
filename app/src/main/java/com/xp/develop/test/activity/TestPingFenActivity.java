@@ -32,7 +32,7 @@ public class TestPingFenActivity extends BaseActivity {
 
     @Override
     protected boolean IsSwipeBackPage() {
-        return false;
+        return true;
     }
 
     @Override

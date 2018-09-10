@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <TextView
-
+            android:textColor="@color/white"
             android:id="@+id/pop_evaluate_camera"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -27,6 +27,7 @@
             android:textSize="18sp" />
 
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/pop_evaluate_photo"
             android:layout_width="match_parent"
             android:layout_height="50dp"

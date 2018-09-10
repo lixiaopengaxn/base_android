@@ -1,6 +1,8 @@
 package com.xp.develop.utils;
 
 
+import android.support.annotation.ColorRes;
+
 /**
  * author :  xpxn
  * blog  :  https://blog.csdn.net/qq_38729449
@@ -27,13 +29,13 @@ public class SingleUtils {
 
     }
 
-    private int color;
+    private @ColorRes int color;
 
-    public int getColor() {
+    public @ColorRes int getColor() {
         return color;
     }
 
-    public void setColor(int color) {
+    public void setColor(@ColorRes int color) {
         this.color = color;
     }
 
