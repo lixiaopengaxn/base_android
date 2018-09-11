@@ -1,263 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <com.xp.develop.customview.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
     android:layout_height="match_parent">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:paddingBottom="@dimen/dp_40"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         android:orientation="vertical"
         tools:context="com.xp.develop.activity.MainActivity">
 
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:id="@+id/text_view"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="网络请求"
-                android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/text_view"
+            style="@style/TestButton"
+            android:text="网络请求" />
 
 
-        </android.support.v7.widget.CardView>
+        <TextView
+            android:id="@+id/text_view_1"
+            style="@style/TestButton"
+            android:text="图片加载" />
 
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:id="@+id/text_view_1"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="图片加载"
-                android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/text_view_2"
+            style="@style/TestButton"
+            android:text="webview" />
 
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:id="@+id/text_view_2"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="webview"
-                android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/text_view_3"
+            style="@style/TestButton"
+            android:text="评分" />
 
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:id="@+id/text_view_3"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="评分"
-                android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/text_view_4"
+            style="@style/TestButton"
+            android:text="选择图片"
+/>
 
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:id="@+id/text_view_4"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="选择图片"
-                android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/text_view_5"
+            style="@style/TestButton"
+            android:text="滑动状态栏沉浸式" />
 
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:id="@+id/text_view_5"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="滑动状态栏沉浸式"
-                android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/text_view_6"
+            style="@style/TestButton"
+            android:text="new Activity" />
 
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:id="@+id/text_view_6"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="new Activity"
-                android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/text_view_7"
+            style="@style/TestButton"
+            android:text="MAP请求" />
 
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:id="@+id/text_view_7"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="MAP请求"
-                android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/text_view_8"
+            style="@style/TestButton"
+            android:text="Hello World!" />
 
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:id="@+id/text_view_8"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="Hello World!"
-                android:textColor="@color/white" />
+        <TextView
+            style="@style/TestButton"
+            android:text="Hello World!" />
 
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="Hello World!"
-                android:textColor="@color/white" />
-
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="Hello World!"
-                android:textColor="@color/white" />
-
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="Hello World!"
-                android:textColor="@color/white" />
-
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="15dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:text="Hello World!"
-                android:textColor="@color/white" />
-
-
-        </android.support.v7.widget.CardView>
+        <TextView
+            style="@style/TestButton"
+            android:text="Hello World!" />
 
 
     </LinearLayout>

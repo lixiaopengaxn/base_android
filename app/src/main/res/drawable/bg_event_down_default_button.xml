@@ -4,12 +4,14 @@
     <item android:state_pressed="true">
         <shape>
             <solid android:color="@color/def_blue_trans" />
+            <corners android:radius="3dp" android:topLeftRadius="@dimen/bg_default_down_button" android:bottomRightRadius="@dimen/bg_default_down_button"/>
         </shape>
     </item>
     
     <item android:state_pressed="false">
         <shape>
             <solid android:color="@color/colorPrimary" />
+            <corners android:radius="3dp" android:topLeftRadius="@dimen/bg_default_down_button" android:bottomRightRadius="@dimen/bg_default_down_button"/>
         </shape>
     </item>
 

@@ -8,4 +8,6 @@
 
     <dimen name="title_view_left_right">16dp</dimen>
 
+    <dimen name="bg_default_down_button">50dp</dimen>
+
 </resources>

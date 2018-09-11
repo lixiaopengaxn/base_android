@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Shortcut xmlns:android="http://schemas.android.com/apk/res/android">
+    <Shortcut
+        android:enabled="true"
+        android:icon="@mipmap/app_icon"
+        android:shortcutDisabledMessage="@string/album_view"
+        android:shortcutId="publish"
+        android:shortcutLongLabel="@string/album_view"
+        android:shortcutShortLabel="@string/album_view">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.xp.develop.activity.MainActivity"
+            android:targetPackage="com.xp.develop" />
+        <categories android:name="android.shortcut.conversation" />
+    </Shortcut>
+
+    <Shortcut
+        android:enabled="true"
+        android:icon="@mipmap/app_icon"
+        android:shortcutDisabledMessage="@string/album_view"
+        android:shortcutId="write"
+        android:shortcutLongLabel="@string/album_view"
+        android:shortcutShortLabel="@string/album_view">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.xp.develop.activity.MainActivity"
+            android:targetPackage="com.xp.develop" />
+        <categories android:name="android.shortcut.conversation" />
+    </Shortcut>
+
+</Shortcut>

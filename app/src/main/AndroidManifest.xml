@@ -40,6 +40,11 @@
         </provider>
 
 
+        <meta-data
+            android:name="android.app.shortcuts"
+            android:resource="@xml/shortcut" />
+
+
 
         <activity android:name=".welcome.WelcomeActivity" android:theme="@style/WelcomeTheme">
             <intent-filter>
