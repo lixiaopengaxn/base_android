@@ -98,7 +98,7 @@ public class BGASwipeBackHelper {
      * @return
      */
     public BGASwipeBackHelper setSwipeBackEnable(boolean swipeBackEnable) {
-        if (mSwipeBackLayout != null) {
+        if (mSwipeBackLayout != null && mActivity != null) {
             mSwipeBackLayout.setSwipeBackEnable(swipeBackEnable);
         }
         return this;

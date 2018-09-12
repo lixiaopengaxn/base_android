@@ -68,7 +68,7 @@
         <TextView
             android:id="@+id/text_view_8"
             style="@style/TestButton"
-            android:text="Hello World!" />
+            android:text="Kotlin" />
 
 
         <TextView

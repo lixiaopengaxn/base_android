@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'//引入kotlin
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -160,10 +161,16 @@ dependencies {
 
     //webView
     implementation rootProject.ext.otherlib.tkrefreshlayout
+    //kotlin
+    implementation rootProject.ext.otherlib.kotlin
+
 
     //    //KLog
 
     //    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
 
 
+}
+repositories {
+    mavenCentral()
 }

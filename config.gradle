@@ -79,6 +79,9 @@ ext {
             //webView
             tkrefreshlayout : "com.lcodecorex:tkrefreshlayout:1.0.7",
 
+            //引入Kotlin
+            kotlin          : 'org.jetbrains.kotlin:kotlin-stdlib:1.2.61'
+
 
     ]
 

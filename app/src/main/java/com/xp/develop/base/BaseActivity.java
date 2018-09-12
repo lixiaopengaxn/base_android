@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.xp.develop.R;
+import com.xp.develop.activity.MainActivity;
 import com.xp.develop.utils.SingleUtils;
 import com.xp.develop.utils.statusView.DensityUtils;
 import com.xp.develop.utils.statusView.Sofia;
@@ -117,7 +118,9 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         /****
          * //标题栏左边默认的返回监听
          */
-        titleView.setLeftTitleOnclickListener(view -> finish());
+        if (!this.getClass().equals(MainActivity.class)) {
+            titleView.setLeftTitleOnclickListener(view -> finish());
+        }
 
         titleView.setLeftTitleImgOnclickListener(view -> finish());
 
