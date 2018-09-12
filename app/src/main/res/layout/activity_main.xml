@@ -43,8 +43,7 @@
         <TextView
             android:id="@+id/text_view_4"
             style="@style/TestButton"
-            android:text="选择图片"
-/>
+            android:text="选择图片" />
 
 
         <TextView

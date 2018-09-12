@@ -183,4 +183,9 @@
 -dontwarn com.google.gson.**
 
 
+#---------------------------------------屏幕适配------------------------------------------
+
+-keep class me.jessyan.autosize.** { *; }
+-keep interface me.jessyan.autosize.** { *; }
+
 
