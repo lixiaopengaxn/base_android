@@ -85,7 +85,7 @@
         <activity android:name=".test.activity.NewActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".kotlin.KotlinActicity"
+        <activity android:name=".kotlin.KotlinActivity"
             android:screenOrientation="portrait"/>
 
         <!--test-->

@@ -1,6 +1,7 @@
 package com.xp.develop.activity;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -11,7 +12,7 @@ import com.xp.develop.base.BasePresenter;
 import com.xp.develop.base.BaseResponse;
 import com.xp.develop.base.BaseView;
 import com.xp.develop.entity.Login;
-import com.xp.develop.kotlin.KotlinActicity;
+import com.xp.develop.kotlin.KotlinActivity;
 import com.xp.develop.model.LoginModel;
 import com.xp.develop.progress.ObserverResponseListener;
 import com.xp.develop.test.activity.JinPingMeiActivity;
@@ -22,8 +23,6 @@ import com.xp.develop.test.activity.TestScrollActivity;
 import com.xp.develop.test.activity.TestTaskPhotoActivity;
 import com.xp.develop.test.activity.TestWebViewActivity;
 import com.xp.develop.utils.ExceptionHandle;
-import com.xp.develop.utils.SingleUtils;
-import com.xp.develop.utils.ToastUtil;
 
 import java.util.HashMap;
 import java.util.List;
@@ -133,7 +132,7 @@ public class MainActivity extends BaseActivity {
                 openActivity(JinPingMeiActivity.class);
                 break;
             case R.id.text_view_8:
-                openActivity(KotlinActicity.class);
+                openActivity(KotlinActivity.class);
                 break;
         }
     }
@@ -143,6 +142,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onNext(BaseResponse<List<Login>> listBaseResponse) {
                 textView.setText(listBaseResponse.getData().toString());
+                textView.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.white));
             }
 
             @Override

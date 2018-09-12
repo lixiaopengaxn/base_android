@@ -38,6 +38,7 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+
     <!--高最小，宽最大-->
     <style name="H_WRAP_W_MATCH">
         <item name="android:layout_width">match_parent</item>

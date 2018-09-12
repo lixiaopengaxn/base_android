@@ -2,8 +2,13 @@ package com.xp.develop.kotlin
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.Button
 import com.xp.develop.R
+import com.xp.develop.base.BaseActivity
+import com.xp.develop.base.BasePresenter
+import com.xp.develop.base.BaseView
+import com.xp.develop.base.BaseWebViewActivity
 import com.xp.develop.utils.ToastUtil
 import com.xp.develop.utils.log.LogUtils
 
@@ -13,18 +18,17 @@ import com.xp.develop.utils.log.LogUtils
  *  time  :  2018/9/12
  *  desc  :  utils about initialization
  */
-class KotlinActicity : AppCompatActivity() {
+class KotlinActivity : BaseActivity<BaseView, BasePresenter<BaseView>>() {
 
-    //var 全局变量
-    var c = 9
+    override fun onClick(p0: View?) {
 
-    var arr = arrayOf("1", "2", "3")
+    }
 
+    override fun getLayoutId(): Int {
+        return R.layout.test_kotlin_layout;
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.test_kotlin_layout)
-
+    override fun init(savedInstanceState: Bundle?) {
         //val 局部成量
         val a: Int = 8
 
@@ -38,6 +42,34 @@ class KotlinActicity : AppCompatActivity() {
             LogUtils.trace("我是有返回值的，getlist:" + getlist(arr))
         }
     }
+
+    override fun initOnClick() {
+        TODO("not implemented")
+    }
+
+    override fun IsSwipeBackPage(): Boolean {
+
+        return true
+    }
+
+    override fun isTemp(): Int {
+
+        return 0
+    }
+
+    override fun createPresenter(): BasePresenter<BaseView> ? {
+
+        return null
+    }
+
+    override fun createView(): BaseView ? {
+        return null
+    }
+
+    //var 全局变量
+    var c = 9
+
+    var arr = arrayOf("1", "2", "3")
 
     //指定返回值
     fun getIntNub(a: Int, b: Int): Int {
@@ -58,27 +90,26 @@ class KotlinActicity : AppCompatActivity() {
     }
 
     //条件表达式
-    fun getMax(a : Int , b : Int) : Int{
-        if (a > b){
+    fun getMax(a: Int, b: Int): Int {
+        if (a > b) {
             return a
-        } else{
+        } else {
             return b
         }
     }
 
     // 表达式的简写
-    fun getMin(a: Int,b: Int) = if(a > b) a else b
+    fun getMin(a: Int, b: Int) = if (a > b) a else b
 
     //设置函数返回类型可为 null
-    fun isNull ( a: Int , b: Int) : Int?{
-        print(a+b)
+    fun isNull(a: Int, b: Int): Int? {
+        print(a + b)
         return null
     }
 
 
-
-    fun getStringLength(stringSize : Any) : Int ?{
-        if(stringSize is String){
+    fun getStringLength(stringSize: Any): Int? {
+        if (stringSize is String) {
             return stringSize.length
         }
 
