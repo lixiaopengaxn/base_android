@@ -19,6 +19,8 @@ import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.xp.develop.R;
 import com.xp.develop.activity.MainActivity;
 import com.xp.develop.utils.SingleUtils;
+import com.xp.develop.utils.pulltoview.TwinklingRefreshLayout;
+import com.xp.develop.utils.pulltoview.header.bezierlayout.BezierLayout;
 import com.xp.develop.utils.statusView.DensityUtils;
 import com.xp.develop.utils.statusView.Sofia;
 import com.xp.develop.utils.statusView.TitleView;
@@ -50,7 +52,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     protected BGASwipeBackHelper mSwipeBackHelper;
 
     //引用V层和P层
-    protected P mvpPresenter;
+    private P mvpPresenter;
     private V mvpView;
 
     protected P getPresenter() {
@@ -115,6 +117,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
 
 
+
         /****
          * //标题栏左边默认的返回监听
          */
@@ -126,6 +129,8 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
 
         init(savedInstanceState);
+
+
     }
 
     @Override

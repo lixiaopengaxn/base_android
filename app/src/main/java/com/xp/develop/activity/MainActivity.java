@@ -26,6 +26,8 @@ import com.xp.develop.test.activity.TestScrollActivity;
 import com.xp.develop.test.activity.TestTaskPhotoActivity;
 import com.xp.develop.test.activity.TestWebViewActivity;
 import com.xp.develop.utils.ExceptionHandle;
+import com.xp.develop.utils.pulltoview.TwinklingRefreshLayout;
+import com.xp.develop.utils.pulltoview.header.bezierlayout.BezierLayout;
 import com.xp.develop.utils.recycler.BaseQuickAdapter;
 import com.xp.develop.utils.recycler.BaseViewHolder;
 
@@ -47,8 +49,11 @@ public class MainActivity extends BaseActivity {
 
     LoginModel<Object> loginModel;
 
-    @BindView(R.id.main_recycler)
+    @BindView(R.id.base_recycler)
     RecyclerView recyclerView;
+
+    @BindView(R.id.refresh)
+    TwinklingRefreshLayout refreshLayout;
 
     private List<String> textTitle = new ArrayList<>();
 
@@ -56,7 +61,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.base_recycler_no_scroll_layout;
     }
 
     @Override
@@ -82,6 +87,7 @@ public class MainActivity extends BaseActivity {
         HomeAdapter adapter = new HomeAdapter(textTitle);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        refreshLayout.setPureScrollModeOn();
 
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override

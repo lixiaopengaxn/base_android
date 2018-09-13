@@ -3,12 +3,15 @@ package com.xp.develop.customview;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.TextView;
 
-import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.xp.develop.R;
+import com.xp.develop.utils.pulltoview.TwinklingRefreshLayout;
+import com.xp.develop.utils.pulltoview.header.bezierlayout.BezierLayout;
 import com.xp.develop.utils.webjs.IWebLayout;
 
 /**

@@ -11,7 +11,7 @@
                 android:bottomRightRadius="@dimen/bg_default_down_button"/>
 
             <gradient
-                android:endColor="@color/white"
+                android:endColor="@color/Green"
                 android:centerColor="@color/colorAccent"
                 android:startColor="@color/red" />
 
@@ -27,7 +27,7 @@
 
             <gradient
                 android:endColor="@color/colorAccent"
-                android:centerColor="@color/white"
+                android:centerColor="@color/Green"
                 android:startColor="@color/red"
                 android:angle="45"/>
 

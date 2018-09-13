@@ -1,14 +1,12 @@
 package com.xp.develop.kotlin
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import com.xp.develop.R
 import com.xp.develop.base.BaseActivity
 import com.xp.develop.base.BasePresenter
 import com.xp.develop.base.BaseView
-import com.xp.develop.base.BaseWebViewActivity
 import com.xp.develop.utils.ToastUtil
 import com.xp.develop.utils.log.LogUtils
 
@@ -43,8 +41,7 @@ class KotlinActivity : BaseActivity<BaseView, BasePresenter<BaseView>>() {
         }
     }
 
-    override fun initOnClick() {
-
+    override fun initOnClick(){
 
     }
 

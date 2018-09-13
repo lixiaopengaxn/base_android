@@ -76,9 +76,6 @@ ext {
             butterknife     : "com.jakewharton:butterknife:${dependVersion.butterknife}",
             butterknife_compiler  : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
 
-            //webView
-            tkrefreshlayout : "com.lcodecorex:tkrefreshlayout:1.0.7",
-
             //引入Kotlin
             kotlin          : 'org.jetbrains.kotlin:kotlin-stdlib:1.2.61'
 

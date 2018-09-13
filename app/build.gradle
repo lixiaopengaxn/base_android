@@ -157,7 +157,7 @@ dependencies {
     implementation rootProject.ext.file.advancedluban
 
     //webView
-    implementation rootProject.ext.otherlib.tkrefreshlayout
+//    implementation rootProject.ext.otherlib.tkrefreshlayout
     //kotlin
     implementation rootProject.ext.otherlib.kotlin
 

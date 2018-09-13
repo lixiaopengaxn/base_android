@@ -64,6 +64,9 @@
     <item name="BaseQuickAdapter_dragging_support" type="id"/>
     <item name="BaseQuickAdapter_databinding_support" type="id"/>
 
+    <!--pull to view-->
+    <item name="ex_header" type="id"/>
+
 
 
 </resources>

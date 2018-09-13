@@ -35,9 +35,4 @@
 
     <color name="line_bg">#CDCDCD</color>
 
-    <!--选择系统文件activity的状态栏和toobar的颜色-->
-    <color name="multiple_image_select_primaryDark">@color/colorPrimary</color>
-    <color name="multiple_image_select_primary">@color/colorPrimary</color>
-    <color name="multiple_image_select_accent">@color/colorPrimary</color>
-
 </resources>
