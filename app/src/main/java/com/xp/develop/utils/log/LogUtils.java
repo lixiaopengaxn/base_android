@@ -3,6 +3,8 @@ package com.xp.develop.utils.log;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.xp.develop.utils.pop.util.log.LogTag;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,9 +14,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.logging.Logger;
 
-import razerdp.util.log.LogTag;
-
-import static razerdp.util.log.LogTag.e;
+import static com.xp.develop.utils.pop.util.log.LogTag.e;
 
 
 /**

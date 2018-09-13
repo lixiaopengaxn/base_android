@@ -8,8 +8,7 @@ import android.view.animation.Animation;
 
 import com.xp.develop.R;
 import com.xp.develop.utils.ToastUtil;
-
-import razerdp.basepopup.BasePopupWindow;
+import com.xp.develop.utils.pop.basepopup.BasePopupWindow;
 
 
 /**

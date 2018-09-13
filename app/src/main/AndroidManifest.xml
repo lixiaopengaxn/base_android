@@ -28,10 +28,20 @@
             android:name="design_height_in_dp"
             android:value="680"/>
 
+        <activity
+            android:name=".utils.webjs.ActionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="standard"
+            android:theme="@style/actionActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden">
 
+        </activity>
+
+        <!--AgentWebFileProvider-->
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.xp.develop.fileprovider"
+            android:authorities="${applicationId}.fileprovider"
             android:grantUriPermissions="true"
             android:exported="false">
             <meta-data

@@ -9,20 +9,8 @@ app/build/
 app.iml
 
 
-LayoutManagerGroup/LayoutManagerGroup.iml
-LayoutManagerGroup/build/
-
-
 agentweb/agentweb.iml
 agentweb/build/
-
-
-poputil/build/
-poputil/poputil.iml
-
-
-recyclerView/build/
-recyclerView/recyclerView.iml
 
 
 AndPermission/build/

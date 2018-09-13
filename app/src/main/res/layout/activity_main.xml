@@ -1,85 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<com.xp.develop.customview.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:background="@color/colorPrimary"
-    android:layout_height="match_parent">
+    style="@style/MATCH"
+    android:orientation="vertical"
+    tools:context="com.xp.develop.activity.MainActivity">
+    <android.support.v7.widget.RecyclerView
+        android:background="@color/black"
+        android:id="@+id/main_recycler"
+        style="@style/MATCH"
+        android:scrollbars="none" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:paddingBottom="@dimen/dp_40"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        android:orientation="vertical"
-        tools:context="com.xp.develop.activity.MainActivity">
-
-
-        <TextView
-            android:id="@+id/text_view"
-            style="@style/TestButton"
-            android:text="网络请求" />
-
-
-        <TextView
-            android:id="@+id/text_view_1"
-            style="@style/TestButton"
-            android:text="图片加载" />
-
-
-        <TextView
-            android:id="@+id/text_view_2"
-            style="@style/TestButton"
-            android:text="webview" />
-
-
-        <TextView
-            android:id="@+id/text_view_3"
-            style="@style/TestButton"
-            android:text="评分" />
-
-
-        <TextView
-            android:id="@+id/text_view_4"
-            style="@style/TestButton"
-            android:text="选择图片" />
-
-
-        <TextView
-            android:id="@+id/text_view_5"
-            style="@style/TestButton"
-            android:text="滑动状态栏沉浸式" />
-
-
-        <TextView
-            android:id="@+id/text_view_6"
-            style="@style/TestButton"
-            android:text="new Activity" />
-
-
-        <TextView
-            android:id="@+id/text_view_7"
-            style="@style/TestButton"
-            android:text="MAP请求" />
-
-
-        <TextView
-            android:id="@+id/text_view_8"
-            style="@style/TestButton"
-            android:text="Kotlin" />
-
-
-        <TextView
-            style="@style/TestButton"
-            android:text="Hello World!" />
-
-
-        <TextView
-            style="@style/TestButton"
-            android:text="Hello World!" />
-
-
-    </LinearLayout>
-
-</com.xp.develop.customview.BounceScrollView>
+</LinearLayout>

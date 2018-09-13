@@ -14,12 +14,11 @@ import android.widget.TextView;
 
 
 import com.xp.develop.R;
+import com.xp.develop.utils.pop.basepopup.BasePopupWindow;
+import com.xp.develop.utils.pop.util.DimensUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import razerdp.basepopup.BasePopupWindow;
-import razerdp.util.DimensUtils;
 
 /**
  * Created by 大灯泡 on 2016/12/6.

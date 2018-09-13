@@ -8,10 +8,8 @@ import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.TranslateAnimation;
 
-
-
-import razerdp.basepopup.BasePopupWindow;
-import razerdp.util.DimensUtils;
+import com.xp.develop.utils.pop.basepopup.BasePopupWindow;
+import com.xp.develop.utils.pop.util.DimensUtils;
 
 /**
  * author :

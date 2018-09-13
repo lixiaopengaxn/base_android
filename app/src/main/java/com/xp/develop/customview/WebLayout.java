@@ -7,9 +7,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
-import com.just.agentweb.IWebLayout;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.xp.develop.R;
+import com.xp.develop.utils.webjs.IWebLayout;
 
 /**
  * Created by cenxiaozhong on 2017/7/1.

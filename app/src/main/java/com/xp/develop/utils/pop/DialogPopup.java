@@ -11,8 +11,7 @@ import android.widget.Toast;
 
 
 import com.xp.develop.R;
-
-import razerdp.basepopup.BasePopupWindow;
+import com.xp.develop.utils.pop.basepopup.BasePopupWindow;
 
 /**
  * author :

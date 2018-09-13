@@ -3,23 +3,21 @@ package com.xp.develop.test.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.xp.develop.R;
 import com.xp.develop.base.BasePresenter;
 import com.xp.develop.base.BaseTakePhotoActivity;
 import com.xp.develop.base.BaseView;
 import com.xp.develop.utils.ToastUtil;
 import com.xp.develop.utils.pop.SlideFromBottomPopup;
+import com.xp.develop.utils.recycler.BaseQuickAdapter;
+import com.xp.develop.utils.recycler.BaseViewHolder;
 import com.xp.develop.utils.takephoto.model.TResult;
 
-import java.lang.invoke.CallSite;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -7,8 +7,7 @@ import android.view.animation.Animation;
 
 
 import com.xp.develop.R;
-
-import razerdp.basepopup.BasePopupWindow;
+import com.xp.develop.utils.pop.basepopup.BasePopupWindow;
 
 /**
  * author :
@@ -27,7 +26,7 @@ import razerdp.basepopup.BasePopupWindow;
  * time  :  2018/8/13
  * desc  :  utils about initialization
  */
-public abstract class SlideFromBottomPopup extends BasePopupWindow{
+public abstract class SlideFromBottomPopup extends BasePopupWindow {
 
     public View popupView;
 

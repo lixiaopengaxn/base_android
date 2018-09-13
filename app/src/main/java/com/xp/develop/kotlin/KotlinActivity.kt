@@ -44,7 +44,8 @@ class KotlinActivity : BaseActivity<BaseView, BasePresenter<BaseView>>() {
     }
 
     override fun initOnClick() {
-        TODO("not implemented")
+
+
     }
 
     override fun IsSwipeBackPage(): Boolean {

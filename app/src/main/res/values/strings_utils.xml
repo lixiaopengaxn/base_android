@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--web iew-->
+    <string name="agentweb_download_task_has_been_exist">该任务已经存在 ， 请勿重复点击下载!</string>
+    <string name="agentweb_tips">提示</string>
+    <string name="agentweb_honeycomblow">您正在使用手机流量 ， 继续下载该文件吗?</string>
+    <string name="agentweb_download">下载</string>
+    <string name="agentweb_cancel">取消</string>
+    <string name="agentweb_download_fail">下载失败!</string>
+    <string name="agentweb_current_downloading_progress">当前进度:%s</string>
+    <string name="agentweb_trickter">您有一条新通知</string>
+    <string name="agentweb_file_download">文件下载</string>
+    <string name="agentweb_click_open">点击打开</string>
+    <string name="agentweb_coming_soon_download">即将开始下载文件</string>
+    <string name="agentweb_camera">相机</string>
+    <string name="agentweb_file_chooser">文件</string>
+    <string name="agentweb_loading">加载中 ...</string>
+    <string name="agentweb_leave_app_and_go_other_page">您需要离开%s前往其他应用吗？</string>
+    <string name="agentweb_leave">离开</string>
+    <string name="agentweb_max_file_length_limit">选择的文件不能大于%sMB</string>
+    <string name="agentweb_default_page_error">出错啦! 点击空白处刷新 ~</string>
+
+    <item name="web_parent_layout_id" type="id"/>
+    <item name="agentweb_webview_id" type="id"/>
+    <item name="mainframe_error_viewsub_id" type="id"/>
+    <item name="mainframe_error_container_id" type="id"/>
+
+
+
+    <!--TakePhoto-->
+    <string name="tip_type_not_image">选择的不是图片</string>
+    <string name="tip_no_camera">没有相机</string>
+    <string name="tip_tips">提示</string>
+    <string name="tip_compress">正在压缩照片...</string>
+    <string name="tip_compress_failed">"%1$s 图片压缩失败:%2$s picturePath:%3$s"</string>
+    <string name="msg_crop_failed">"有裁切失败的图片"</string>
+    <string name="msg_compress_failed">"有压缩失败的图片"</string>
+    <string name="msg_crop_canceled">" 取消裁切"</string>
+    <string name="msg_operation_canceled">"操作被取消"</string>
+    <string name="tip_permission_camera">没有使用相机的权限，请在权限管理中开启</string>
+    <string name="tip_permission_storage">没有使用SD卡的权限，请在权限管理中开启</string>
+    <string name="tip_permission_camera_storage">没有使用相机和SD卡的权限，请在权限管理中开启</string>
+
+    <!--custom multipleimageselect -->
+    <string name="album_view">选择图片</string>
+    <string name="image_view">单击选择</string>
+
+    <string name="add">确定</string>
+    <string name="selected">已选</string>
+    <string name="limit_exceeded">最多能选 %d 张</string>
+    <string name="title_settings">设置</string>
+
+    <integer name="bga_sbl_anim_duration">200</integer>
+
+    <!--recycler-->
+    <string name="brvah_app_name">Library</string>
+    <string name="brvah_loading">正在加载中...</string>
+    <string name="brvah_load_failed">加载失败，请点我重试</string>
+    <string name="brvah_load_end">没有更多数据</string>
+
+    <item name="BaseQuickAdapter_viewholder_support" type="id"/>
+    <item name="BaseQuickAdapter_swiping_support" type="id"/>
+    <item name="BaseQuickAdapter_dragging_support" type="id"/>
+    <item name="BaseQuickAdapter_databinding_support" type="id"/>
+
+
+
+</resources>

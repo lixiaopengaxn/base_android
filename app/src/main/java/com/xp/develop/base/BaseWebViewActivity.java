@@ -20,19 +20,19 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.just.agentweb.AbsAgentWebUIController;
-import com.just.agentweb.AgentWeb;
-import com.just.agentweb.AgentWebSettingsImpl;
-import com.just.agentweb.AgentWebUIControllerImplBase;
-import com.just.agentweb.DefaultWebClient;
-import com.just.agentweb.IAgentWebSettings;
-import com.just.agentweb.IWebLayout;
-import com.just.agentweb.MiddlewareWebChromeBase;
-import com.just.agentweb.MiddlewareWebClientBase;
-import com.just.agentweb.NestedScrollAgentWebView;
-import com.just.agentweb.PermissionInterceptor;
 import com.xp.develop.R;
 import com.xp.develop.customview.WebLayout;
+import com.xp.develop.utils.webjs.AbsAgentWebUIController;
+import com.xp.develop.utils.webjs.AgentWeb;
+import com.xp.develop.utils.webjs.AgentWebSettingsImpl;
+import com.xp.develop.utils.webjs.AgentWebUIControllerImplBase;
+import com.xp.develop.utils.webjs.DefaultWebClient;
+import com.xp.develop.utils.webjs.IAgentWebSettings;
+import com.xp.develop.utils.webjs.IWebLayout;
+import com.xp.develop.utils.webjs.MiddlewareWebChromeBase;
+import com.xp.develop.utils.webjs.MiddlewareWebClientBase;
+import com.xp.develop.utils.webjs.NestedScrollAgentWebView;
+import com.xp.develop.utils.webjs.PermissionInterceptor;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -251,7 +251,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
 
 
     protected static class ErrorLayoutEntity {
-        private int layoutRes = com.just.agentweb.R.layout.agentweb_error_page;
+        private int layoutRes = R.layout.agentweb_error_page;
         private int reloadId;
 
         public void setLayoutRes(int layoutRes) {
