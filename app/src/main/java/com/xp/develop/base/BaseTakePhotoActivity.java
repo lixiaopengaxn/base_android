@@ -67,21 +67,6 @@ public abstract class BaseTakePhotoActivity extends BaseActivity implements Take
     }
 
     @Override
-    public void takeSuccess(TResult result) {
-
-    }
-
-    @Override
-    public void takeFail(TResult result, String msg) {
-
-    }
-
-    @Override
-    public void takeCancel() {
-
-    }
-
-    @Override
     public PermissionManager.TPermissionType invoke(InvokeParam invokeParam) {
         PermissionManager.TPermissionType type=PermissionManager.checkPermission(TContextWrap.of(this),invokeParam.getMethod());
         if(PermissionManager.TPermissionType.WAIT.equals(type)){
@@ -170,4 +155,19 @@ public abstract class BaseTakePhotoActivity extends BaseActivity implements Take
         imageUri = Uri.fromFile(file);
     }
 
+
+    @Override
+    public void takeSuccess(TResult result) {
+
+    }
+
+    @Override
+    public void takeFail(TResult result, String msg) {
+
+    }
+
+    @Override
+    public void takeCancel() {
+
+    }
 }

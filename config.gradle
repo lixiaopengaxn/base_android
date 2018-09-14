@@ -17,6 +17,7 @@ ext {
             retrofit       : "2.4.0",
             butterknife    : "8.8.1",
             glide          : "4.8.0",
+            kotlin_version : "1.2.61",
     ]
 
     dependencies = [

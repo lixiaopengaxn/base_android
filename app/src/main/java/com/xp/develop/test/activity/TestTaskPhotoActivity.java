@@ -17,6 +17,7 @@ import com.xp.develop.utils.pop.SlideFromBottomPopup;
 import com.xp.develop.utils.recycler.BaseQuickAdapter;
 import com.xp.develop.utils.recycler.BaseViewHolder;
 import com.xp.develop.utils.takephoto.model.TResult;
+import com.xp.develop.utils.takephoto.permission.PermissionManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +90,6 @@ public class TestTaskPhotoActivity extends BaseTakePhotoActivity {
 
                     }
                 });
-                //sssssss
                 view.findViewById(R.id.pop_evaluate_photo).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

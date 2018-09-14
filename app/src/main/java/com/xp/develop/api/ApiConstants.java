@@ -10,7 +10,9 @@ public interface ApiConstants {
 
     interface WEB_VIEW{
 
-       String WEB_GITLAB_URL = "https://gitlab.com/lixiaopengaxn/base_android";
+//       String WEB_GITLAB_URL = "https://gitlab.com/lixiaopengaxn/base_android";
+
+        String WEB_GITLAB_URL = "https://www.baidu.com";
 
     }
 

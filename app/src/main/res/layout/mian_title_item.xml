@@ -4,6 +4,9 @@
 
     <TextView
         android:id="@+id/text_view"
+        android:maxLines="10"
+        android:ems="1"
+        android:ellipsize="end"
         style="@style/TestButton"
         android:text="网络请求" />
 

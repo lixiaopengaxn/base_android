@@ -25,7 +25,7 @@ public class TestWebViewActivity extends BaseWebViewActivity {
 
     @Override
     protected int type() {
-        return 1;
+        return 0;
     }
 
     @Override

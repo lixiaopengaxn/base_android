@@ -93,7 +93,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
                 .setMainFrameErrorView(R.layout.agentweb_error_page, -1)
                 .setSecurityType(AgentWeb.SecurityType.STRICT_CHECK)
                 .setWebLayout(new WebLayout(this))
-                .setOpenOtherPageWays(DefaultWebClient.OpenOtherPageWays.ASK)//打开其他应用时，弹窗咨询用户是否前往其他应用
+//                .setOpenOtherPageWays(DefaultWebClient.OpenOtherPageWays.ASK)//打开其他应用时，弹窗咨询用户是否前往其他应用
                 .interceptUnkownUrl() //拦截找不到相关页面的Scheme
                 .createAgentWeb()
                 .ready()

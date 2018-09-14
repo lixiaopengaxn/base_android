@@ -5,7 +5,6 @@
     android:orientation="vertical"
     tools:context="com.xp.develop.activity.MainActivity">
     <android.support.v7.widget.RecyclerView
-        android:background="@color/black"
         android:id="@+id/main_recycler"
         style="@style/MATCH"
         android:overScrollMode="never"

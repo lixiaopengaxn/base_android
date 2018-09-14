@@ -94,6 +94,11 @@ public class MainActivity extends BaseActivity {
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 if(position != 0){
                     openActivity(jumpClass.get(position - 1));
+                } else {
+                    HashMap<String, String> map = new HashMap<>();
+                map.put("type", "yuantong");
+                map.put("postid", "11111111111");
+                getData(map, true, true,view.findViewById(R.id.text_view));
                 }
             }
         });
@@ -154,59 +159,20 @@ public class MainActivity extends BaseActivity {
     public int isTemp() {
         return 0;
     }
-//
-//    public void onClick(View view) {
-//        switch (view.getId()) {
-//            case R.id.text_view:
-//                HashMap<String, String> map = new HashMap<>();
-//                map.put("type", "yuantong");
-//                map.put("postid", "11111111111");
-////                getData(map, true, true);
-//                break;
-//            case R.id.text_view_1:
-//                openActivity(TestActivity.class);
-//                break;
-//            case R.id.text_view_2:
-//                openActivity(TestWebViewActivity.class);
-//                break;
-//
-//            case R.id.text_view_3:
-//                openActivity(TestPingFenActivity.class);
-//                break;
-//
-//            case R.id.text_view_4:
-//                openActivity(TestTaskPhotoActivity.class);
-//                break;
-//
-//            case R.id.text_view_5:
-//                openActivity(TestScrollActivity.class);
-//                break;
-//            case R.id.text_view_6:
-//                openActivity(NewActivity.class);
-//                break;
-//            case R.id.text_view_7:
-//                openActivity(JinPingMeiActivity.class);
-//                break;
-//            case R.id.text_view_8:
-//                openActivity(KotlinActivity.class);
-//                break;
-//        }
-//    }
 
-//    private void getData(HashMap<String, String> map, boolean b, boolean b1) {
-//        loginModel.login(this, map, b, b1, this.bindToLifecycle(), new ObserverResponseListener<BaseResponse<List<Login>>>() {
-//            @Override
-//            public void onNext(BaseResponse<List<Login>> listBaseResponse) {
-//                textView.setText(listBaseResponse.getData().toString());
-//                textView.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.white));
-//            }
-//
-//            @Override
-//            public void onError(ExceptionHandle.ResponeThrowable e) {
-//
-//            }
-//        });
-//    }
+    private void getData(HashMap<String, String> map, boolean b, boolean b1,TextView view) {
+        loginModel.login(this, map, b, b1, this.bindToLifecycle(), new ObserverResponseListener<BaseResponse<List<Login>>>() {
+            @Override
+            public void onNext(BaseResponse<List<Login>> listBaseResponse) {
+                view.setText(listBaseResponse.getData().toString());
+            }
+
+            @Override
+            public void onError(ExceptionHandle.ResponeThrowable e) {
+
+            }
+        });
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

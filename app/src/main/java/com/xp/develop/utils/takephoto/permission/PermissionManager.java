@@ -11,10 +11,13 @@ import android.widget.Toast;
 
 
 import com.xp.develop.R;
+import com.xp.develop.utils.ToastUtil;
 import com.xp.develop.utils.takephoto.app.TakePhoto;
 import com.xp.develop.utils.takephoto.model.InvokeParam;
 import com.xp.develop.utils.takephoto.model.TContextWrap;
 import com.xp.develop.utils.takephoto.uitl.TConstant;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.Permission;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -23,6 +26,7 @@ import java.util.ArrayList;
  * Created by penn on 16/9/22.
  */
 public class PermissionManager {
+
     public enum TPermission {
         STORAGE(Manifest.permission.WRITE_EXTERNAL_STORAGE), CAMERA(Manifest.permission.CAMERA);
         String stringValue;
@@ -75,13 +79,12 @@ public class PermissionManager {
             return TPermissionType.NOT_NEED;
         }
 
-        boolean cameraGranted = true, storageGranted =
-            ContextCompat.checkSelfPermission(contextWrap.getActivity(), TPermission.STORAGE.stringValue())
+        boolean cameraGranted = true, storageGranted = ContextCompat.checkSelfPermission(contextWrap.getActivity(), TPermission.STORAGE.stringValue())
                 == PackageManager.PERMISSION_GRANTED ? true : false;
 
         if (TextUtils.equals(methodName, "onPickFromCapture") || TextUtils.equals(methodName, "onPickFromCaptureWithCrop")) {
             cameraGranted = ContextCompat.checkSelfPermission(contextWrap.getActivity(), TPermission.CAMERA.stringValue())
-                == PackageManager.PERMISSION_GRANTED ? true : false;
+                    == PackageManager.PERMISSION_GRANTED ? true : false;
         }
 
         boolean granted = storageGranted && cameraGranted;

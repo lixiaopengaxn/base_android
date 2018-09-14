@@ -67,6 +67,11 @@ public final class Permission {
 
         public static final String[] CAMERA = new String[]{Permission.CAMERA};
 
+        public static final String[] CAMERA_CALENDAR = new String[]{
+                Permission.CAMERA,
+                Permission.READ_CALENDAR,
+                Permission.WRITE_CALENDAR};
+
         public static final String[] CONTACTS = new String[]{
                 Permission.READ_CONTACTS,
                 Permission.WRITE_CONTACTS,
