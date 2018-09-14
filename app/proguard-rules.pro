@@ -67,7 +67,16 @@
  rx.internal.util.atomic.LinkedQueueNode consumerNode;
 }
 
-
+#butterknife
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}
 
 
 #---------------------------------默认保留区---------------------------------
@@ -188,4 +197,4 @@
 -keep class me.jessyan.autosize.** { *; }
 -keep interface me.jessyan.autosize.** { *; }
 
-
+-ignorewarnings
