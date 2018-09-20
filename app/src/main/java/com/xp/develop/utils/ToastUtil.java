@@ -21,7 +21,7 @@ public class ToastUtil {
     private static TextView stoast;
 
     public static void showShortToast(String msg) {
-        showCustomToast(BaseApplication.getContext(), msg, Toast.LENGTH_SHORT);
+        showToastInUiThread((Activity) BaseApplication.getContext(), msg);
     }
 
     public static void showShortToast(int msgId) {

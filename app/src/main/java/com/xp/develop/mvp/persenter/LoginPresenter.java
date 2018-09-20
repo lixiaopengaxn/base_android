@@ -35,13 +35,12 @@ public class LoginPresenter extends LoginContract.Presenter {
         map.put("orgCode", companyName);
         map.put("loginName", uName);
         map.put("loginPass", uPassword);
-        model.okHttp(context, Api.getApiService().login(map), getView().bindLifecycle(), new ObserverResponseListener<BaseResponse<LoginModel>>() {
+        model.okHttp(context, Api.getApiService().login(map), getView().bindLifecycle(), new ObserverResponseListener<LoginModel>() {
             @Override
-            public void onNext(BaseResponse<LoginModel> model) {
+            public void onNext(LoginModel model) {
 
                 if (getView() != null) {
-//                    getView().loginData(model.getData());
-//                    ToastUtil.showLongToast(model.getData().toString()+"");
+                    getView().loginData(model);
                 }
             }
 
@@ -59,7 +58,7 @@ public class LoginPresenter extends LoginContract.Presenter {
 
             @Override
             public void onComplete() {
-                getView().onSuccessMsg("");
+//                getView().onSuccessMsg("完成");
             }
         });
 

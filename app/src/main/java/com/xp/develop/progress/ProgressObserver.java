@@ -91,7 +91,7 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
         }else {
             ToastUtil.showLongToast("请求失败");
         }
-//        dismissProgressDialog();
+        dismissProgressDialog();
     }
 
     @Override

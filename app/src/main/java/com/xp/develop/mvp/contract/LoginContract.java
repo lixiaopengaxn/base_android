@@ -1,6 +1,7 @@
 package com.xp.develop.mvp.contract;
 
 import com.xp.develop.base.BasePresenter;
+import com.xp.develop.base.BaseResponse;
 import com.xp.develop.base.BaseView;
 import com.xp.develop.mvp.entity.LoginModel;
 

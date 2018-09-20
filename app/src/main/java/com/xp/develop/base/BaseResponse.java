@@ -22,7 +22,16 @@ public class BaseResponse<T> {
 
     private String msg;
     private int code;
+    private String token;
     private T data;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public T getData() {
         return data;

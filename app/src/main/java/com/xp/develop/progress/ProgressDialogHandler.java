@@ -35,9 +35,9 @@ public class ProgressDialogHandler extends Handler {
             sad = new LoadingView(context);
 
             if (!sad.isShowing()) {
-
+                sad.setDismissWhenTouchOutside(true);
                 sad.showPopupWindow();
-                sad.setDismissWhenTouchOutside(false);
+
             }
         }
     }

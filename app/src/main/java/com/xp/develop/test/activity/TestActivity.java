@@ -2,9 +2,11 @@ package com.xp.develop.test.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.xp.develop.R;
 import com.xp.develop.base.BaseActivity;
+import com.xp.develop.base.BaseResponse;
 import com.xp.develop.customview.CustomImageView;
 import com.xp.develop.mvp.contract.LoginContract;
 import com.xp.develop.mvp.entity.LoginModel;
@@ -79,7 +81,7 @@ public class TestActivity extends BaseActivity<LoginContract.LoginView,LoginCont
     }
 
     /****
-     * 创建 P 层的对象
+     * 创建 P 层的对象   这里如果报红的话  注意一下自己的返回类型
      * @return
      */
     @Override
@@ -88,7 +90,7 @@ public class TestActivity extends BaseActivity<LoginContract.LoginView,LoginCont
     }
 
     /***
-     * 创建 V 层的对象
+     * 创建 V 层的对象   这里如果报红的话  注意一下自己的返回类型
      * @return
      */
     @Override
@@ -103,7 +105,7 @@ public class TestActivity extends BaseActivity<LoginContract.LoginView,LoginCont
 
     @Override
     public void loginData(LoginModel loginModel) {
-        ToastUtil.showLongToast(loginModel.toString() + "");
+        ToastUtil.showLongToast(loginModel.getMsg() + "");
     }
 
     @Override
@@ -113,7 +115,7 @@ public class TestActivity extends BaseActivity<LoginContract.LoginView,LoginCont
 
     @Override
     public void onSuccessMsg(String success) {
-
+        ToastUtil.showLongToast(success);
     }
 
     /***

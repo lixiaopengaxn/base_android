@@ -280,6 +280,7 @@ public abstract class BasePopupWindow implements BasePopup, PopupWindow.OnDismis
         mPopupWindow.bindPopupHelper(mHelper);
         mHelper.setPopupViewWidth(w);
         mHelper.setPopupViewHeight(h);
+        setPopupWindowFullScreen(true);
 
         preMeasurePopupView(w, h);
 
@@ -292,7 +293,10 @@ public abstract class BasePopupWindow implements BasePopup, PopupWindow.OnDismis
             mDismissView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    dismiss();
+                    if(!isDismissWhenTouchOutside()){
+                        dismiss();
+                    }
+//
                 }
             });
         }
@@ -362,7 +366,6 @@ public abstract class BasePopupWindow implements BasePopup, PopupWindow.OnDismis
      * 设置一个点击后触发dismiss PopupWindow的View，一般为蒙层
      *
      * @return 点击dismiss的控件
-     * @deprecated use {@link }
      */
     public View getClickToDismissView() {
         return getPopupWindowView();

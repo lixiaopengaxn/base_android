@@ -22,7 +22,7 @@ public interface ApiService {
 
     @POST("ranger/platform/auth/rest/authByLoginName")
 //    @POST("province-count")
-    Observable<BaseResponse<LoginModel>> login(@QueryMap Map<String, String> map);
+    Observable<LoginModel> login(@QueryMap Map<String, String> map);
 
     @POST("query")
     Observable<BaseResponse<List<Login>>> logout(@QueryMap Map<String, String> map);
