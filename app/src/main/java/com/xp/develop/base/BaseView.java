@@ -1,6 +1,8 @@
 package com.xp.develop.base;
 
 
+import io.reactivex.ObservableTransformer;
+
 /**
  * author :
  * ---------------------------------------___           ___           ___         ___
@@ -24,5 +26,8 @@ public interface BaseView {
     void onErrorMsg(String error);
 
     void onSuccessMsg(String success);
+
+    //绑定activity，与activity生命周期一样
+    <T> ObservableTransformer<T, T> bindLifecycle();
 
 }

@@ -1,6 +1,7 @@
 package com.xp.develop.base;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.xp.develop.utils.NetWorkUtil;
@@ -54,7 +55,7 @@ public class BaseApi {
      * @return retrofit
      */
     public Retrofit getRetrofit(String baseUrl) {
-        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor();
+        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(message -> Log.e("okHttp"," \n详细日志---OkHttp==Message:"+message));
         logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         //缓存
         File cacheFile = new File(BaseApplication.getContext().getCacheDir(), "cache");

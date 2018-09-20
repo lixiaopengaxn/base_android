@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 
+import com.xp.develop.base.BaseResponse;
 import com.xp.develop.utils.ExceptionHandle;
 import com.xp.develop.utils.ToastUtil;
 
@@ -23,25 +24,26 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
     private ObserverResponseListener listener;
     private ProgressDialogHandler mProgressDialogHandler;
     private Context context;
+    private boolean isComplate;
     private Disposable d;
 
     public ProgressObserver(Context context, ObserverResponseListener listener, boolean isDialog, boolean cancelable) {
         this.listener = listener;
         this.context = context;
         if(isDialog){
-//            mProgressDialogHandler = new ProgressDialogHandler(context, this, cancelable);
+            mProgressDialogHandler = new ProgressDialogHandler(context, this, cancelable);
         }
     }
 
     private void showProgressDialog() {
         if (mProgressDialogHandler != null) {
-//            mProgressDialogHandler.obtainMessage(ProgressDialogHandler.SHOW_PROGRESS_DIALOG).sendToTarget();
+            mProgressDialogHandler.obtainMessage(ProgressDialogHandler.SHOW_PROGRESS_DIALOG).sendToTarget();
         }
     }
 
     private void dismissProgressDialog() {
         if (mProgressDialogHandler != null) {
-//            mProgressDialogHandler.obtainMessage(ProgressDialogHandler.DISMISS_PROGRESS_DIALOG).sendToTarget();
+            mProgressDialogHandler.obtainMessage(ProgressDialogHandler.DISMISS_PROGRESS_DIALOG).sendToTarget();
             mProgressDialogHandler = null;
         }
     }
@@ -55,12 +57,21 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
 
     @Override
     public void onNext(T t) {
-        listener.onNext(t);//可定制接口，通过code回调处理不同的业务
+        //可定制接口，通过code回调处理不同的业务
+        int code = ((BaseResponse) t).getCode();
+        String str = ((BaseResponse) t).getMsg();
+        if(code == 0){
+            isComplate = true;
+            listener.onNext(t);
+        } else {
+            isComplate = false;
+            listener.onCodeError(str);
+        }
     }
 
     @Override
     public void onError(Throwable e) {
-//        dismissProgressDialog();
+
         Log.e(TAG, "onError: ", e);
         //自定义异常处理
         if(e instanceof ExceptionHandle.ResponeThrowable){
@@ -80,11 +91,13 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
         }else {
             ToastUtil.showLongToast("请求失败");
         }
+//        dismissProgressDialog();
     }
 
     @Override
     public void onComplete() {
-//        dismissProgressDialog();
+        if(isComplate) listener.onComplete();
+        dismissProgressDialog();
         Log.e(TAG, "onComplete: ");
     }
 

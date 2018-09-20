@@ -19,10 +19,11 @@
             android:orientation="vertical">
 
             <TextView
+
                 android:id="@+id/tv_main_topContent"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
-                android:background="#b5b433"
+                android:background="@mipmap/welcome"
                 android:gravity="center"
                 android:src="@mipmap/ic_launcher"
                 android:text="我是头部"

@@ -47,8 +47,6 @@ import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
-    LoginModel<Object> loginModel;
-
     @BindView(R.id.base_recycler)
     RecyclerView recyclerView;
 
@@ -76,7 +74,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
-        loginModel = new LoginModel<>();
 
             initData();
 
@@ -95,10 +92,7 @@ public class MainActivity extends BaseActivity {
                 if(position != 0){
                     openActivity(jumpClass.get(position - 1));
                 } else {
-                    HashMap<String, String> map = new HashMap<>();
-                map.put("type", "yuantong");
-                map.put("postid", "11111111111");
-                getData(map, true, true,view.findViewById(R.id.text_view));
+                    openActivity(TestActivity.class);
                 }
             }
         });
@@ -158,20 +152,6 @@ public class MainActivity extends BaseActivity {
     @Override
     public int isTemp() {
         return 0;
-    }
-
-    private void getData(HashMap<String, String> map, boolean b, boolean b1,TextView view) {
-        loginModel.login(this, map, b, b1, this.bindToLifecycle(), new ObserverResponseListener<BaseResponse<List<Login>>>() {
-            @Override
-            public void onNext(BaseResponse<List<Login>> listBaseResponse) {
-                view.setText(listBaseResponse.getData().toString());
-            }
-
-            @Override
-            public void onError(ExceptionHandle.ResponeThrowable e) {
-
-            }
-        });
     }
 
     @Override

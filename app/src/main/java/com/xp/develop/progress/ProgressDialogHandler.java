@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 
+import com.xp.develop.utils.pop.LoadingView;
+import com.xp.develop.utils.pop.PopupController;
+
 
 /**
  * Dialog的进度控制
@@ -13,9 +16,11 @@ public class ProgressDialogHandler extends Handler {
     public static final int SHOW_PROGRESS_DIALOG = 1;
     public static final int DISMISS_PROGRESS_DIALOG = 2;
 
-//    private SweetAlertDialog sad;
+    private LoadingView sad;
     private Context context;
+    //取消对话框
     private boolean cancelable;
+    //取消请求
     private ProgressCancelListener mProgressCancelListener;
 
     public ProgressDialogHandler(Context context, ProgressCancelListener mProgressCancelListener, boolean cancelable) {
@@ -26,32 +31,22 @@ public class ProgressDialogHandler extends Handler {
     }
 
     private void initProgressDialog() {
-//        if (sad == null) {
-//            sad = new SweetAlertDialog(context);
-//            sad.changeAlertType(SweetAlertDialog.PROGRESS_TYPE);
-//            sad.setTitleText("正在加载...");
-//            sad.setCancelable(cancelable);
-//
-//            if (cancelable) {
-//                sad.setOnCancelListener(new DialogInterface.OnCancelListener() {
-//                    @Override
-//                    public void onCancel(DialogInterface dialogInterface) {
-//                        mProgressCancelListener.onCancelProgress();
-//                    }
-//                });
-//            }
-//
-//            if (!sad.isShowing()) {
-//                sad.show();
-//            }
-//        }
+        if (sad == null) {
+            sad = new LoadingView(context);
+
+            if (!sad.isShowing()) {
+
+                sad.showPopupWindow();
+                sad.setDismissWhenTouchOutside(false);
+            }
+        }
     }
 
     private void dismissProgressDialog() {
-//        if (sad != null) {
-//            sad.dismiss();
-//            sad = null;
-//        }
+        if (sad != null) {
+            sad.dismiss();
+            sad = null;
+        }
     }
 
     @Override

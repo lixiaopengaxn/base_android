@@ -100,7 +100,7 @@
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:padding">12dp</item>
-        <item name="android:background">@drawable/bg_event_down_default_button_test</item>
+        <item name="android:background">@drawable/bg_view_corrugated</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/black</item>
 

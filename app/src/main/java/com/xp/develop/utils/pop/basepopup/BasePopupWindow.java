@@ -278,8 +278,6 @@ public abstract class BasePopupWindow implements BasePopup, PopupWindow.OnDismis
         mPopupWindow = new PopupWindowProxy(mPopupView, w, h, this);
         mPopupWindow.setOnDismissListener(this);
         mPopupWindow.bindPopupHelper(mHelper);
-        setDismissWhenTouchOutside(true);
-
         mHelper.setPopupViewWidth(w);
         mHelper.setPopupViewHeight(h);
 

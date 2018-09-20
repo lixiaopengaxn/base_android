@@ -11,8 +11,6 @@
 
         <com.xp.develop.utils.statusView.TitleView
             android:id="@+id/title_view"
-            android:paddingLeft="@dimen/title_view_left_right"
-            android:paddingRight="@dimen/title_view_left_right"
             style="@style/MATCH" />
 
     </android.support.v7.widget.Toolbar>

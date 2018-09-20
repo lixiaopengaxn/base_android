@@ -19,4 +19,14 @@ public interface ObserverResponseListener<T> {
      * @param e
      */
     void onError(ExceptionHandle.ResponeThrowable e);
+
+    /***
+     * 参数错误
+     */
+    void onCodeError(String errorMsg);
+
+    /***
+     * 请求已完成
+     */
+    void onComplete();
 }

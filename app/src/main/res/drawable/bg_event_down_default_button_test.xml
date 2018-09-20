@@ -2,20 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:state_pressed="true">
-        <shape>
-            <solid android:color="@color/def_blue_trans"/>
-
-            <corners
-                android:radius="3dp"
-                android:topLeftRadius="@dimen/bg_default_down_button"
-                android:bottomRightRadius="@dimen/bg_default_down_button"/>
-
-            <gradient
-                android:endColor="@color/Green"
-                android:centerColor="@color/colorAccent"
-                android:startColor="@color/red" />
-
-        </shape>
+        <animated-rotate android:drawable="@drawable/bg_view_corrugated"/>
     </item>
     
     <item android:state_pressed="false">

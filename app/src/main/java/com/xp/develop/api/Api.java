@@ -11,7 +11,7 @@ import com.xp.develop.base.BaseApi;
 
 public class Api {
 
-    private String baseUrl = "http://www.kuaidi100.com/";
+    private String baseUrl = "http://192.168.2.183:8183/";
 //    private String baseUrl = "http://hbhz.sesdf.org/api/";
 //    http://www.kuaidi100.com/query?type=快递公司代号&postid=快递单号
 

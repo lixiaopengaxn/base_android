@@ -12,6 +12,8 @@ import com.xp.develop.test.testmvp.entity.Testsinmp;
 import com.xp.develop.test.testmvp.persenter.JinPingMeiPersenter;
 import com.xp.develop.utils.ToastUtil;
 
+import io.reactivex.ObservableTransformer;
+
 
 /**
  * author :
@@ -86,6 +88,11 @@ public class JinPingMeiActivity extends BaseActivity<JinPingMeiContract.View, Ji
     @Override
     public void onSuccessMsg(String success) {
 
+    }
+
+    @Override
+    public <T> ObservableTransformer<T, T> bindLifecycle() {
+        return this.bindToLifecycle();
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.xp.develop.api;
 
 import com.xp.develop.base.BaseResponse;
 import com.xp.develop.entity.Login;
+import com.xp.develop.mvp.entity.LoginModel;
 
 import java.util.List;
 import java.util.Map;
@@ -19,9 +20,9 @@ import retrofit2.http.QueryMap;
  */
 public interface ApiService {
 
-    @POST("query")
+    @POST("ranger/platform/auth/rest/authByLoginName")
 //    @POST("province-count")
-    Observable<BaseResponse<List<Login>>> login(@QueryMap Map<String, String> map);
+    Observable<BaseResponse<LoginModel>> login(@QueryMap Map<String, String> map);
 
     @POST("query")
     Observable<BaseResponse<List<Login>>> logout(@QueryMap Map<String, String> map);

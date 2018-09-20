@@ -31,7 +31,7 @@
             android:value="390"/>
         <meta-data
             android:name="design_height_in_dp"
-            android:value="680"/>
+            android:value="720"/>
 
         <activity
             android:name=".utils.webjs.ActionActivity"

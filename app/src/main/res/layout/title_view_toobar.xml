@@ -10,13 +10,16 @@
 
     <RelativeLayout
         android:id="@+id/title_all_layout"
-        style="@style/H_WRAP_W_MATCH.HOR"
-        android:layout_gravity="bottom">
+        style="@style/H_WRAP_W_MATCH.HOR">
 
         <TextView
+            android:background="@drawable/bg_view_corrugated"
             android:id="@+id/title_left_text"
             style="@style/H_MATCH_W_WRAP"
             android:gravity="center"
+            android:clickable="true"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:text="@string/back"
             android:textColor="@color/white"
             android:textSize="15sp" />
@@ -31,6 +34,8 @@
             android:visibility="gone" />
 
         <TextView
+            android:clickable="true"
+            android:background="@drawable/bg_view_corrugated"
             android:id="@+id/title_center_text"
             style="@style/H_MATCH_W_WRAP"
             android:layout_centerInParent="true"
@@ -38,6 +43,8 @@
             android:gravity="center"
             android:lines="1"
             android:maxEms="10"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:text="@string/title"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -51,8 +58,12 @@
             android:visibility="invisible" />
 
         <TextView
+            android:clickable="true"
+            android:background="@drawable/bg_view_corrugated"
             android:id="@+id/title_right_text"
             style="@style/H_MATCH_W_WRAP"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:gravity="center"
