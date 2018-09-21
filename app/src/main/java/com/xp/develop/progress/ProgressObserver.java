@@ -30,7 +30,7 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
     public ProgressObserver(Context context, ObserverResponseListener listener, boolean isDialog, boolean cancelable) {
         this.listener = listener;
         this.context = context;
-        if(isDialog){
+        if (isDialog) {
             mProgressDialogHandler = new ProgressDialogHandler(context, this, cancelable);
         }
     }
@@ -60,12 +60,14 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
         //可定制接口，通过code回调处理不同的业务
         int code = ((BaseResponse) t).getCode();
         String str = ((BaseResponse) t).getMsg();
-        if(code == 0){
+        if (code == 0) {
             isComplate = true;
             listener.onNext(t);
         } else {
             isComplate = false;
-            listener.onCodeError(str);
+            //全局的请求成功但是code不正确的提示
+            ToastUtil.showLongToast(str);
+            listener.onSuccessCodeError(str);
         }
     }
 
@@ -74,8 +76,8 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
 
         Log.e(TAG, "onError: ", e);
         //自定义异常处理
-        if(e instanceof ExceptionHandle.ResponeThrowable){
-            listener.onError((ExceptionHandle.ResponeThrowable)e);
+        if (e instanceof ExceptionHandle.ResponeThrowable) {
+            listener.onError((ExceptionHandle.ResponeThrowable) e);
         } else {
             listener.onError(new ExceptionHandle.ResponeThrowable(e, ExceptionHandle.ERROR.UNKNOWN));
         }
@@ -88,7 +90,7 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
             ToastUtil.showLongToast("连接失败");
         } else if (e instanceof HttpException) {
             ToastUtil.showLongToast("请求超时");
-        }else {
+        } else {
             ToastUtil.showLongToast("请求失败");
         }
         dismissProgressDialog();
@@ -96,7 +98,7 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
 
     @Override
     public void onComplete() {
-        if(isComplate) listener.onComplete();
+        if (isComplate) listener.onComplete();
         dismissProgressDialog();
         Log.e(TAG, "onComplete: ");
     }

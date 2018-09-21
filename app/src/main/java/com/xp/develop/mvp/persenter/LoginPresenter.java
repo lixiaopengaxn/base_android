@@ -52,7 +52,7 @@ public class LoginPresenter extends LoginContract.Presenter {
             }
 
             @Override
-            public void onCodeError(String code) {
+            public void onSuccessCodeError(String code) {
                 getView().onErrorMsg(code);
             }
 

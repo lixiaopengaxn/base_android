@@ -23,7 +23,7 @@ public interface ObserverResponseListener<T> {
     /***
      * 参数错误
      */
-    void onCodeError(String errorMsg);
+    abstract void onSuccessCodeError(String errorMsg);
 
     /***
      * 请求已完成

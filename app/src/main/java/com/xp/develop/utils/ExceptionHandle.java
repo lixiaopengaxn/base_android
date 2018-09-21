@@ -3,6 +3,7 @@ package com.xp.develop.utils;
 import android.net.ParseException;
 
 import com.google.gson.JsonParseException;
+import com.xp.develop.base.BaseResponse;
 
 import org.json.JSONException;
 
@@ -59,6 +60,7 @@ public class ExceptionHandle {
         } else if (e instanceof ConnectException) {
             ex = new ResponeThrowable(e, ERROR.NETWORD_ERROR);
             ex.message = "连接失败";
+            ToastUtil.showLongToast(ex.message);
             return ex;
         } else if (e instanceof javax.net.ssl.SSLHandshakeException) {
             ex = new ResponeThrowable(e, ERROR.SSL_ERROR);
@@ -68,6 +70,29 @@ public class ExceptionHandle {
             ex = new ResponeThrowable(e, ERROR.UNKNOWN);
             ex.message = "未知错误";
             return ex;
+        }
+
+    }
+
+    /***
+     *
+     * 请求成功 但是code不正确的 提示
+     * @param response
+     * @return
+     */
+    public static String getCodeString(BaseResponse response) {
+        switch (response.getCode()) {
+            case 0:
+
+
+                return response.getMsg();
+
+            default:
+
+
+                return "未知错误";
+
+
         }
     }
 
