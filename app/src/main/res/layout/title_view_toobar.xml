@@ -13,7 +13,7 @@
         style="@style/H_WRAP_W_MATCH.HOR">
 
         <TextView
-            android:background="@drawable/bg_view_corrugated"
+            android:background="@drawable/bg_title_view"
             android:id="@+id/title_left_text"
             style="@style/H_MATCH_W_WRAP"
             android:gravity="center"
@@ -35,7 +35,7 @@
 
         <TextView
             android:clickable="true"
-            android:background="@drawable/bg_view_corrugated"
+            android:background="@drawable/bg_title_view"
             android:id="@+id/title_center_text"
             style="@style/H_MATCH_W_WRAP"
             android:layout_centerInParent="true"
@@ -59,7 +59,7 @@
 
         <TextView
             android:clickable="true"
-            android:background="@drawable/bg_view_corrugated"
+            android:background="@drawable/bg_title_view"
             android:id="@+id/title_right_text"
             style="@style/H_MATCH_W_WRAP"
             android:paddingLeft="15dp"
