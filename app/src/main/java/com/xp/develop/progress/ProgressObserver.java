@@ -73,7 +73,6 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
 
     @Override
     public void onError(Throwable e) {
-
         Log.e(TAG, "onError: ", e);
         //自定义异常处理
         if (e instanceof ExceptionHandle.ResponeThrowable) {
@@ -93,7 +92,9 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
         } else {
             ToastUtil.showLongToast("请求失败");
         }
+
         dismissProgressDialog();
+
     }
 
     @Override

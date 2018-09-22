@@ -2,9 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/WelcomeTheme"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/transparency_bar">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:orientation="vertical"
@@ -18,7 +16,7 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/aaaaa"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="loading.json"
+            app:lottie_fileName="tile_grid_loading_animation.json"
             app:lottie_loop="true"
             android:layout_width="50dp"
             android:layout_height="50dp" />
