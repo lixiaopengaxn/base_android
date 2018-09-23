@@ -19,9 +19,10 @@ import com.xp.develop.base.BaseApplication;
 public class ToastUtil {
     private static Toast toast;
     private static TextView stoast;
+    private static View layout;
 
     public static void showShortToast(String msg) {
-        showToastInUiThread((Activity) BaseApplication.getContext(), msg);
+        showCustomToast(BaseApplication.getContext(), msg);
     }
 
     public static void showShortToast(int msgId) {
@@ -29,11 +30,11 @@ public class ToastUtil {
     }
 
     public static void showLongToast(String msg) {
-        showCustomToast(BaseApplication.getContext(), msg, Toast.LENGTH_LONG);
+        showCustomToast(BaseApplication.getContext(), msg, Toast.LENGTH_SHORT);
     }
 
     public static void showLongToast(int msgId) {
-        showCustomToast(BaseApplication.getContext(), msgId, Toast.LENGTH_LONG);
+        showCustomToast(BaseApplication.getContext(), msgId, Toast.LENGTH_SHORT);
     }
 
     public static void showToastInUiThread(final Activity activity, final String msg) {
@@ -74,31 +75,32 @@ public class ToastUtil {
         if (context == null) {
             return;
         }
-        if (Looper.myLooper() == Looper.getMainLooper()) {
+//        if (Looper.myLooper() == Looper.getMainLooper()) {
             showToast(context, msg, duration);
-        } else {
-            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                @Override
-                public void run() {
-                    showToast(context, msg, duration);
-                }
-            });
-        }
+//        } else {
+//            new Handler(Looper.getMainLooper()).post(new Runnable() {
+//                @Override
+//                public void run() {
+//                    showToast(context, msg, duration);
+//                }
+//            });
+//        }
     }
 
     private static void showToast(Context context, String msg, int duration) {
         if (null != context) {
-            if (toast == null) {
-                toast = new Toast(context);
-                LayoutInflater inflater = LayoutInflater.from(context);
-                View layout = inflater.inflate(R.layout.toast_layout, null);
-                stoast = layout.findViewById(R.id.message);
-                stoast.setText(msg);
-                toast.setDuration(duration);
-                toast.setView(layout);
-            }else {
-                stoast.setText(msg);
+            if (toast != null) {
+                toast.cancel();
+                toast = null;
             }
+            toast = new Toast(context);
+            if (layout == null) {
+                layout = LayoutInflater.from(context).inflate(R.layout.toast_layout, null);
+                stoast = layout.findViewById(R.id.message);
+            }
+            stoast.setText(msg);
+            toast.setDuration(duration);
+            toast.setView(layout);
             toast.show();
         }
     }

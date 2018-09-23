@@ -122,6 +122,18 @@ public class TitleView extends RelativeLayout {
     }
 
     /**
+     * 设置title的图标
+     *
+     * @param
+     */
+    public void setGoneLeftView() {
+        if (imgLeft != null) {
+            textLeft.setVisibility(View.GONE);
+            imgLeft.setVisibility(View.GONE);
+        }
+    }
+
+    /**
      * 设置title中间的文字
      *
      * @param res
@@ -143,8 +155,9 @@ public class TitleView extends RelativeLayout {
      *
      * @param res
      */
-    public void setRightText(String res) {
+    public void setRightText(int res) {
         if (textRight != null) {
+            textRight.setVisibility(View.VISIBLE);
             textRight.setText(res);
         }
     }
@@ -154,8 +167,9 @@ public class TitleView extends RelativeLayout {
      *
      * @param res
      */
-    public void setRightText(int res) {
+    public void setRightText(String res) {
         if (textRight != null) {
+            textRight.setVisibility(View.VISIBLE);
             textRight.setText(res);
         }
     }

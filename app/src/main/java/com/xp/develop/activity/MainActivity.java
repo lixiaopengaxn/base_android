@@ -74,6 +74,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
+        titleView.setGoneLeftView();
             uMPageName("主页");
 
             initData();

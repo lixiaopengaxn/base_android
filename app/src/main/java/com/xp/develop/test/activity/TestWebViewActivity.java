@@ -16,6 +16,7 @@ import com.xp.develop.base.BaseWebViewActivity;
 public class TestWebViewActivity extends BaseWebViewActivity {
     @Override
     protected void initView(Bundle savedInstanceState) {
+        titleView.setRightText("分享");
 
     }
     @Override
