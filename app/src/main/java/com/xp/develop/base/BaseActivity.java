@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.umeng.analytics.MobclickAgent;
 import com.xp.develop.R;
 import com.xp.develop.activity.MainActivity;
 import com.xp.develop.utils.SingleUtils;
@@ -46,10 +47,12 @@ import butterknife.ButterKnife;
  * time  :  2018/8/25
  * desc  :  父类->基类->动态指定类型->泛型设计（通过泛型指定动态类型->由子类指定，父类只需要规定范围即可）
  */
-public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity implements  BGASwipeBackHelper.Delegate, View.OnClickListener{
+public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity implements BGASwipeBackHelper.Delegate, View.OnClickListener {
 
 
     protected BGASwipeBackHelper mSwipeBackHelper;
+
+    private String umPageName = this.getClass().getSimpleName();
 
     //引用V层和P层
     private P mvpPresenter;
@@ -116,8 +119,6 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         presenter();
 
 
-
-
         /****
          * //标题栏左边默认的返回监听
          */
@@ -133,16 +134,11 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        initOnClick();
-    }
 
     /***
      * 创建 presenter 和 view
      */
-    private void presenter(){
+    private void presenter() {
 
         if (mvpPresenter == null) {
             mvpPresenter = createPresenter();
@@ -220,15 +216,6 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         mSwipeBackHelper.swipeBackward();
     }
 
-    @Override
-    public void onBackPressed() {
-        // 正在滑动返回的时候取消返回按钮事件
-        if (mSwipeBackHelper.isSliding()) {
-            return;
-        }
-        mSwipeBackHelper.backward();
-    }
-
 
     /***
      * 初始化子布局
@@ -291,7 +278,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     /**
      * setTempColor 标题栏，状态栏，navigationBar
      */
-    protected void setStatusBarNanigationBarTooBarColor(@ColorRes int color){
+    protected void setStatusBarNanigationBarTooBarColor(@ColorRes int color) {
         setTooBarColor(color);
         setNanigationBarColor(color);
         setStatusBarColor(color);
@@ -301,7 +288,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
      * 单独设置navigationbar
      * 的颜色
      */
-    protected void setNanigationBarColor(@ColorRes int color){
+    protected void setNanigationBarColor(@ColorRes int color) {
         Sofia.with(this)
                 .navigationBarBackground(ContextCompat.getColor(this, color));
     }
@@ -310,37 +297,17 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
      * 单独设置navigationbar
      * 的颜色
      */
-    protected void setStatusBarColor(@ColorRes int color){
+    protected void setStatusBarColor(@ColorRes int color) {
         Sofia.with(this).
-        statusBarBackground(ContextCompat.getColor(this,color));
+                statusBarBackground(ContextCompat.getColor(this, color));
     }
 
     /**
      * setTempColor 标题栏，状态栏
      */
-    protected void setStatusBarNanigationBarColor(@ColorRes int color){
+    protected void setStatusBarNanigationBarColor(@ColorRes int color) {
         setTooBarColor(color);
         setStatusBarColor(color);
-    }
-
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mvpPresenter != null) {
-            mvpPresenter.detachView();
-        }
-        if(mSwipeBackHelper != null){
-            mSwipeBackHelper = null;
-        }
-        if(tooBar != null || titleView != null){
-            tooBar = null;
-            titleView = null;
-        }
-        if(mBodyContent != null){
-            mBodyContent = null;
-        }
     }
 
 
@@ -445,7 +412,15 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         startActivityForResult(intent, requestCode);
     }
 
-
+    //自定义统计页面的名称
+    protected String uMPageName(String umName) {
+        if (!umName.isEmpty()) {
+            umPageName = umName;
+            return umPageName;
+        } else {
+            return umPageName;
+        }
+    }
 
 
     /**
@@ -474,4 +449,47 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 //    public float getSizeInDp() {
 //        return ApiConstants.AUTO_SIZE.DP;
 //    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initOnClick();
+        // //手动统计页面("SplashScreen"为页面名称，可自定义)
+        MobclickAgent.onPageStart(umPageName);
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(umPageName);
+        MobclickAgent.onPause(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // 正在滑动返回的时候取消返回按钮事件
+        if (mSwipeBackHelper.isSliding()) {
+            return;
+        }
+        mSwipeBackHelper.backward();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mvpPresenter != null) {
+            mvpPresenter.detachView();
+        }
+        if (mSwipeBackHelper != null) {
+            mSwipeBackHelper = null;
+        }
+        if (tooBar != null || titleView != null) {
+            tooBar = null;
+            titleView = null;
+        }
+        if (mBodyContent != null) {
+            mBodyContent = null;
+        }
+    }
+
 }

@@ -65,7 +65,7 @@ ext {
     textstring = [
             //string
             testInst  :  "android.support.test.runner.AndroidJUnitRunner",
-            applicationId : "com.xp.develop"
+            applicationId : "com.xp.develop.base"
     ]
 
     otherlib = [

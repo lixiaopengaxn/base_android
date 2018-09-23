@@ -12,11 +12,15 @@ public interface ApiConstants {
 
 //       String WEB_GITLAB_URL = "https://gitlab.com/lixiaopengaxn/base_android";
 
-        String WEB_GITLAB_URL = "https://www.baidu.com";
+        String WEB_GITLAB_URL = "http://www.pgyer.com/BaseNP";
 
     }
 
     interface AUTO_SIZE{
         int DP = 400;
+    }
+
+    interface UM{
+        String UM_KEY = "5ba78497b465f552b400039e";
     }
 }

@@ -110,18 +110,14 @@ public abstract class BaseWebViewActivity extends BaseActivity {
         mAgentWeb = AgentWeb.with(this)
                 .setAgentWebParent(baseContainer, new LinearLayout.LayoutParams(-1, -1))
                 .useDefaultIndicator(getIndicatorColor(), getIndicatorHeight())
-                .setWebChromeClient(getWebChromeClient())
-                .setWebViewClient(getWebViewClient())
                 .setWebView(webView)
                 .setPermissionInterceptor(getPermissionInterceptor())
                 .setWebLayout(getWebLayout())
                 .setAgentWebUIController(getAgentWebUIController())
                 .interceptUnkownUrl()
                 .setOpenOtherPageWays(getOpenOtherAppWay())
-                .setWebChromeClient(getWebChromeClient())
-                .setWebViewClient(getWebViewClient())
-                .useMiddlewareWebChrome(getMiddleWareWebChrome())
-                .useMiddlewareWebClient(getMiddleWareWebClient())
+                .setWebChromeClient(mWebChromeClient)
+                .setWebViewClient(mWebViewClient)
                 .setAgentWebWebSettings(getAgentWebSettings())
                 .setMainFrameErrorView(mErrorLayoutEntity.layoutRes, mErrorLayoutEntity.reloadId)
                 .setSecurityType(AgentWeb.SecurityType.STRICT_CHECK)
@@ -198,7 +194,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         mAgentWeb.getWebLifeCycle().onPause();
         super.onPause();
 

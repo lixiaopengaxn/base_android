@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.trello.rxlifecycle2.components.support.RxFragment;
+import com.umeng.analytics.MobclickAgent;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -51,6 +52,8 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
 
     public abstract void init(View view);
 
+    private String umPageName = this.getClass().getSimpleName();
+
     /**
      * 懒加载一次。如果只想在对用户可见时才加载数据，并且只加载一次数据，在子类中重写该方法
      */
@@ -83,22 +86,6 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
         super.setUserVisibleHint(isVisibleToUser);
         if (isResumed()) {
             handleOnVisibilityChangedToUser(isVisibleToUser);
-        }
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (getUserVisibleHint()) {
-            handleOnVisibilityChangedToUser(true);
-        }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (getUserVisibleHint()) {
-            handleOnVisibilityChangedToUser(false);
         }
     }
 
@@ -183,6 +170,36 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
         }
         if (unbinder != null) {
             unbinder.unbind();
+        }
+    }
+
+    //自定义统计页面的名称
+    protected String uMPageName(String umName) {
+        if (!umName.isEmpty()) {
+            umPageName = umName;
+            return umPageName;
+        } else {
+            return umPageName;
+        }
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // //统计页面("MainScreen"为页面名称，可自定义)
+        MobclickAgent.onPageStart(umPageName);
+        if (getUserVisibleHint()) {
+            handleOnVisibilityChangedToUser(true);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(umPageName);
+        if (getUserVisibleHint()) {
+            handleOnVisibilityChangedToUser(false);
         }
     }
 

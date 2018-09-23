@@ -160,6 +160,15 @@ dependencies {
     implementation rootProject.ext.otherlib.kotlin
 
 
+    //友盟
+    implementation 'com.umeng.sdk:common:1.5.0'
+
+
+    implementation 'com.umeng.sdk:utdid:1.1.5.3'
+    //友盟统计
+    implementation 'com.umeng.sdk:analytics:7.5.0'
+
+
     //    //KLog
 
     //    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
