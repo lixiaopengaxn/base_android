@@ -93,6 +93,12 @@
 -keep class android.support.** {*;}
 -keep public class * extends android.os.IInterface
 
+-keep class com.xp.develop.mvp.** {*;}
+-keep class com.xp.develop.base.** {*;}
+
+#相册裁剪混淆之后的问题
+-keep class com.xp.develop.utils.takephoto.**{*;}
+
 -keep public class * extends android.view.View{
     *** get*();
     void set*(***);
@@ -198,8 +204,7 @@
 -keep interface me.jessyan.autosize.** { *; }
 
 
-
-#---------------------------------------eventbus---------------------------------------------
+#-----------------------eventbus-----------------------------
 #EventBus3.0配置
 -keepattributes *Annotation*
 -keepclassmembers class ** {

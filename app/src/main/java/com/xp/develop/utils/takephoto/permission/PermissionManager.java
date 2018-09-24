@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class PermissionManager {
 
     public enum TPermission {
-        STORAGE(Manifest.permission.WRITE_EXTERNAL_STORAGE), CAMERA(Manifest.permission.CAMERA);
+         STORAGE(Manifest.permission.WRITE_EXTERNAL_STORAGE), CAMERA(Manifest.permission.CAMERA);
         String stringValue;
 
         TPermission(String stringValue) {

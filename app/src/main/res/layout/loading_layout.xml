@@ -16,7 +16,7 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/aaaaa"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="tile_grid_loading_animation.json"
+            app:lottie_fileName="loading_rotation.json"
             app:lottie_loop="true"
             android:layout_width="50dp"
             android:layout_height="50dp" />
