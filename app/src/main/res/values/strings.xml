@@ -3,6 +3,9 @@
     <string name="title">Title</string>
     <string name="back">返回</string>
 
+    <!--友盟 KEY-->
+    <string name="um_key">5ba78497b465f552b400039e</string>
+
 
 
 </resources>

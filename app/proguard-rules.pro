@@ -231,7 +231,7 @@
 #但是在开发者通过proguard等混淆/优化工具处理apk时，proguard可能会将R.java删除，
 #如果遇到这个问题，请添加如下配置：
 -keep public class com.xp.develop.R$*{
-public static final int *;
+    public static final int *;
 }
 
 

@@ -49,8 +49,6 @@ public class JinPingMeiActivity extends BaseActivity<JinPingMeiContract.View, Ji
     public void initOnClick() {
         String utl = "http://v.juhe.cn/historyWeather/province?key=8268580575e3e34aeeed29c34913d278";
 //        findViewById(R.id.text_view).setOnClickListener(v -> getPresenter().jinpingmei(utl));
-
-        getPresenter().jinpingmei("突突突突突突");
     }
 
     @Override

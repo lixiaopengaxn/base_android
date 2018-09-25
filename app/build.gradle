@@ -168,6 +168,10 @@ dependencies {
     //友盟统计
     implementation 'com.umeng.sdk:analytics:7.5.0'
 
+//    implementation 'com.umeng.sdk:common:latest.integration'
+//    implementation 'com.umeng.sdk:analytics:latest.integration'
+
+
 
     //    //KLog
 

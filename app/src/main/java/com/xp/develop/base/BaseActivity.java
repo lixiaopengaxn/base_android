@@ -20,6 +20,7 @@ import com.umeng.analytics.MobclickAgent;
 import com.xp.develop.R;
 import com.xp.develop.activity.MainActivity;
 import com.xp.develop.utils.SingleUtils;
+import com.xp.develop.utils.ToastUtil;
 import com.xp.develop.utils.pulltoview.TwinklingRefreshLayout;
 import com.xp.develop.utils.pulltoview.header.bezierlayout.BezierLayout;
 import com.xp.develop.utils.statusView.DensityUtils;
@@ -415,10 +416,10 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     //自定义统计页面的名称
     protected String uMPageName(String umName) {
         if (!umName.isEmpty()) {
-            umPageName = umName;
+            this.umPageName = umName;
             return umPageName;
         } else {
-            return umPageName;
+            return this.umPageName;
         }
     }
 
@@ -455,6 +456,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         initOnClick();
         // //手动统计页面("SplashScreen"为页面名称，可自定义)
         MobclickAgent.onPageStart(umPageName);
+        ToastUtil.showLongToast(umPageName);
         MobclickAgent.onResume(this);
     }
 

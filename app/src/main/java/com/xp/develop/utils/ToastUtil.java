@@ -75,33 +75,41 @@ public class ToastUtil {
         if (context == null) {
             return;
         }
-//        if (Looper.myLooper() == Looper.getMainLooper()) {
+        if (Looper.myLooper() == Looper.getMainLooper()) {
             showToast(context, msg, duration);
-//        } else {
-//            new Handler(Looper.getMainLooper()).post(new Runnable() {
-//                @Override
-//                public void run() {
-//                    showToast(context, msg, duration);
-//                }
-//            });
-//        }
+        } else {
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    showToast(context, msg, duration);
+                }
+            });
+        }
     }
 
     private static void showToast(Context context, String msg, int duration) {
         if (null != context) {
-            if (toast != null) {
-                toast.cancel();
-                toast = null;
-            }
-            toast = new Toast(context);
+
             if (layout == null) {
                 layout = LayoutInflater.from(context).inflate(R.layout.toast_layout, null);
                 stoast = layout.findViewById(R.id.message);
             }
+
+            if (toast != null) {
+                toast.cancel();
+                toast = null;
+            }
+
             stoast.setText(msg);
-            toast.setDuration(duration);
-            toast.setView(layout);
+
+            if (toast == null) {
+                toast = new Toast(context);
+                toast.setDuration(duration);
+                toast.setView(layout);
+            }
+
             toast.show();
+
         }
     }
 

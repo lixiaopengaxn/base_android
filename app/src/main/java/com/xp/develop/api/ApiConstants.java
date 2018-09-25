@@ -1,5 +1,8 @@
 package com.xp.develop.api;
 
+import com.xp.develop.R;
+import com.xp.develop.base.BaseApplication;
+
 /**
  * author :  xpxn
  * blog  :  https://blog.csdn.net/qq_38729449
@@ -21,6 +24,6 @@ public interface ApiConstants {
     }
 
     interface UM{
-        String UM_KEY = "5ba78497b465f552b400039e";
+        String UM_KEY = BaseApplication.getContext().getString(R.string.um_key);
     }
 }
