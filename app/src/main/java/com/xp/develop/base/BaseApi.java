@@ -55,7 +55,7 @@ public class BaseApi {
      * @return retrofit
      */
     public Retrofit getRetrofit(String baseUrl) {
-        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(message -> Log.e("okHttp"," \n详细日志---OkHttp==Message:"+message));
+        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(message -> Log.e("okHttpUrlInfo"," \n详细日志---OkHttp==Message:"+message));
         logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         //缓存
         File cacheFile = new File(BaseApplication.getContext().getCacheDir(), "cache");
