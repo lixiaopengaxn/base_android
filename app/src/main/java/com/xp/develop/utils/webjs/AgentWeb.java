@@ -311,9 +311,14 @@ public final class AgentWeb {
 		this.mWebLifeCycle.onDestroy();
 	}
 
+	public String getWebUrl(){
+		return PreAgentWeb.webUrl;
+	}
+
 	public static class PreAgentWeb {
 		private AgentWeb mAgentWeb;
 		private boolean isReady = false;
+		protected static String webUrl;
 
 		PreAgentWeb(AgentWeb agentWeb) {
 			this.mAgentWeb = agentWeb;
@@ -329,6 +334,7 @@ public final class AgentWeb {
 		}
 
 		public AgentWeb go(@Nullable String url) {
+			this.webUrl = url;
 			if (!isReady) {
 				ready();
 			}

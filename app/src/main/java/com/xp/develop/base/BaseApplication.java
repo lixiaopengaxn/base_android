@@ -43,7 +43,7 @@ public class BaseApplication extends Application {
         MobclickAgent.setScenarioType(mContext, MobclickAgent.EScenarioType.E_UM_NORMAL);
 //
 //        //secretkey设置接口，防止AppKey被盗用   需要企业认证
-        MobclickAgent.setSecret(mContext, "");
+//        MobclickAgent.setSecret(mContext, "");
 
         // 禁止默认的页面统计功能，这样将不会再自动统计Activity页面。
         MobclickAgent.openActivityDurationTrack(false);
