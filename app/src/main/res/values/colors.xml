@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--状态栏，toobar，导航栏的颜色-->
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">@color/def_app_color</color>
 
     <!--<color name="colorPrimary">#000000</color>-->
 
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimaryDark">@color/def_app_color</color>
+    <color name="colorAccent">@color/def_app_color</color>
 
     <!--纯颜色-->
     <color name="white">#ffffff</color>
@@ -18,7 +18,7 @@
 
 
     <!--所有app默认的颜色-->
-    <color name="def_blue">#303F9F</color>
+    <color name="def_app_color">#303F9F</color>
     <color name="def_blue_trans">#a9303F9F</color>
 
     <!--透明色-->

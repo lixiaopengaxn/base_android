@@ -12,9 +12,9 @@
         android:maxHeight="30dp"
         android:minHeight="30dp"
         android:rating="1.5"
-        app:mrb_progressBackgroundTint="@color/def_blue"
-        app:mrb_progressTint="@color/def_blue"
-        app:mrb_secondaryProgressTint="@color/def_blue" />
+        app:mrb_progressBackgroundTint="@color/def_app_color"
+        app:mrb_progressTint="@color/def_app_color"
+        app:mrb_secondaryProgressTint="@color/def_app_color" />
 
 
     <com.xp.develop.customview.RangeSeekbar

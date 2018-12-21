@@ -3,9 +3,6 @@ package com.xp.develop.test.activity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.umeng.socialize.ShareAction;
-import com.umeng.socialize.editorpage.ShareActivity;
-import com.umeng.socialize.media.UMWeb;
 import com.xp.develop.api.ApiConstants;
 import com.xp.develop.base.BasePresenter;
 import com.xp.develop.base.BaseView;
@@ -25,16 +22,6 @@ public class TestWebViewActivity extends BaseWebViewActivity {
         titleView.getRightTextView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                UMWeb web = new UMWeb(mAgentWeb.getWebUrl());
-                web.setTitle("This is music title");//标题
-//                web.setThumb(thumb);  //缩略图
-                web.setDescription("my description");//描述
-
-
-                new ShareAction(TestWebViewActivity.this)
-                        .withMedia(web)
-                        .share();
             }
         });
 

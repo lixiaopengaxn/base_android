@@ -87,13 +87,6 @@ dependencies {
     implementation project(':AndPermission')
     //今日头条的适配方案
     implementation project(':autosize')
-//    implementation files('libs/SecurityEnvSDK-release-1.1.0.jar')
-//    implementation files('libs/umeng-common-1.5.3.jar')
-//    implementation files('libs/umeng-share-core-6.9.3.jar')
-//    implementation files('libs/umeng-sharetool-6.9.3.jar')
-//    implementation files('libs/utdid4all-1.1.5.3_proguard.jar')
-//    implementation files('libs/alipaySdk-20170922.jar')
-//    implementation files('libs/umeng-shareboard-widget-6.9.3.jar')
 
     //test
 //    testImplementation rootProject.ext.dependencies.junit
@@ -168,10 +161,10 @@ dependencies {
 
 
     //友盟
-//    implementation 'com.umeng.sdk:common:latest.integration'
+    implementation 'com.umeng.sdk:common:latest.integration'
 
 
-//    implementation 'com.umeng.sdk:utdid:1.1.5.3'
+    implementation 'com.umeng.sdk:utdid:1.1.5.3'
     //友盟统计
     implementation 'com.umeng.sdk:analytics:7.5.0'
 
