@@ -45,10 +45,6 @@
             android:value="720"/>
 
 
-        <!--友盟-->
-        <meta-data android:value="@string/um_key" android:name="UMENG_APPKEY"/>
-        <meta-data android:value="Umeng" android:name="UMENG_CHANNEL"/>
-
         <activity
             android:name=".utils.webjs.ActionActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

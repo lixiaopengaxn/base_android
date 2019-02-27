@@ -32,7 +32,7 @@ public class OneFragment extends BaseFragment {
 
     @Override
     public void init(View view) {
-        uMPageName("OneFragment");
+//        uMPageName("OneFragment");
     }
 
     @Override

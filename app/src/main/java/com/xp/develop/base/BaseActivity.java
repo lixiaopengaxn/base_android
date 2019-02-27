@@ -16,7 +16,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
-import com.umeng.analytics.MobclickAgent;
 import com.xp.develop.R;
 import com.xp.develop.activity.MainActivity;
 import com.xp.develop.utils.SingleUtils;
@@ -443,17 +442,11 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     protected void onResume() {
         super.onResume();
         initOnClick();
-        // //手动统计页面("SplashScreen"为页面名称，可自定义)
-        MobclickAgent.onPageStart(umPageName);
-        ToastUtil.showLongToast(umPageName);
-        MobclickAgent.onResume(this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd(umPageName);
-        MobclickAgent.onPause(this);
     }
 
     @Override

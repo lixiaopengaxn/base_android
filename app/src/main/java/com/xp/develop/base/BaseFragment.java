@@ -5,14 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.trello.rxlifecycle2.components.support.RxFragment;
-import com.umeng.analytics.MobclickAgent;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -188,7 +186,6 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
     public void onResume() {
         super.onResume();
         // //统计页面("MainScreen"为页面名称，可自定义)
-        MobclickAgent.onPageStart(umPageName);
         if (getUserVisibleHint()) {
             handleOnVisibilityChangedToUser(true);
         }
@@ -197,7 +194,6 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd(umPageName);
         if (getUserVisibleHint()) {
             handleOnVisibilityChangedToUser(false);
         }

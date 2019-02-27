@@ -3,11 +3,6 @@ package com.xp.develop.base;
 import android.app.Application;
 import android.content.Context;
 
-import com.umeng.analytics.MobclickAgent;
-import com.umeng.commonsdk.UMConfigure;
-import com.xp.develop.R;
-import com.xp.develop.api.ApiConstants;
-import com.xp.develop.utils.SingleUtils;
 import com.xp.develop.utils.swipe.BGASwipeBackHelper;
 
 
@@ -29,30 +24,6 @@ public class BaseApplication extends Application {
 
         //对单位的自定义配置, 请在 App 启动时完成
 //        configUnits();
-
-
-
-
-        /*
-         * 注意：如果您已经在AndroidManifest.xml中配置过appkey和channel值，可以调用此版本初始化函数。
-         *
-         */
-        UMConfigure.init(mContext,UMConfigure.DEVICE_TYPE_PHONE,null);
-
-//        //场景类型设置接口
-        MobclickAgent.setScenarioType(mContext, MobclickAgent.EScenarioType.E_UM_NORMAL);
-//
-//        //secretkey设置接口，防止AppKey被盗用   需要企业认证
-//        MobclickAgent.setSecret(mContext, "");
-
-        // 禁止默认的页面统计功能，这样将不会再自动统计Activity页面。
-        MobclickAgent.openActivityDurationTrack(false);
-
-        /**
-         * 设置组件化的Log开关
-         * 参数: boolean 默认为false，如需查看LOG设置为true
-         */
-        UMConfigure.setLogEnabled(true);
 
 
         /**

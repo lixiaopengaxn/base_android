@@ -7,6 +7,7 @@ import com.xp.develop.R;
 import com.xp.develop.base.BaseActivity;
 import com.xp.develop.base.BasePresenter;
 import com.xp.develop.base.BaseView;
+import com.xp.develop.utils.ToastUtil;
 
 /**
  * author :  xpxn
@@ -17,12 +18,19 @@ import com.xp.develop.base.BaseView;
 public class NewActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
-        return R.layout.new_activity;
+        return R.layout.ne_test;
     }
 
     @Override
     protected void init(Bundle savedInstanceState) {
         setStatusBarNanigationBarTooBarColor(R.color.red);
+
+        findViewById(R.id.image_asen).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtil.showLongToast("0000");
+            }
+        });
     }
 
     @Override
