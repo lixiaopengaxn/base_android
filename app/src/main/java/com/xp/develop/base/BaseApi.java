@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.xp.develop.api.BasicParamsInterceptor;
 import com.xp.develop.utils.NetWorkUtil;
 
 import java.io.File;
@@ -60,16 +61,13 @@ public class BaseApi {
         //缓存
         File cacheFile = new File(BaseApplication.getContext().getCacheDir(), "cache");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); //100Mb
-        //增加头部信息
-        Interceptor headerInterceptor = new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request build = chain.request().newBuilder()
-                        .addHeader("Content-Type", "application/json")//设置允许请求json数据
+
+        BasicParamsInterceptor basicParamsInterceptor =
+                new BasicParamsInterceptor.Builder()
+                        .addHeaderParam("Content-Type", "application/json")
+                        .addParam("uid", "aaa")
+                        .addQueryParam("api_version", "1.1")
                         .build();
-                return chain.proceed(build);
-            }
-        };
 
         //创建一个OkHttpClient并设置超时时间
         OkHttpClient client = new OkHttpClient.Builder()
@@ -77,7 +75,7 @@ public class BaseApi {
                 .connectTimeout(CONNECT_TIME_OUT, TimeUnit.MILLISECONDS)
                 .addInterceptor(mRewriteCacheControlInterceptor)//没网的情况下
                 .addNetworkInterceptor(mRewriteCacheControlInterceptor)//有网的情况下
-                .addInterceptor(headerInterceptor)
+                .addInterceptor(basicParamsInterceptor)
                 .addInterceptor(logInterceptor)
                 .cache(cache)
                 .build();
