@@ -64,8 +64,10 @@ public class BaseApi {
 
         BasicParamsInterceptor basicParamsInterceptor =
                 new BasicParamsInterceptor.Builder()
+                        //添加头部参数
                         .addHeaderParam("Content-Type", "application/json")
                         .addParam("uid", "aaa")
+                        //添加公用的参数
                         .addQueryParam("api_version", "1.1")
                         .build();
 
