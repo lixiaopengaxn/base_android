@@ -159,6 +159,10 @@ dependencies {
     //kotlin
     implementation rootProject.ext.otherlib.kotlin
 
+    //s所有的对话框
+    implementation rootProject.ext.utils.xpopup
+    implementation rootProject.ext.utils.toast
+
 
 //    //友盟
 //    implementation 'com.umeng.sdk:common:latest.integration'

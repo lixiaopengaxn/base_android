@@ -21,6 +21,15 @@
 #-renamesourcefileattribute SourceFile
 
 
+#---------------------------------工具----------------------------
+
+#####      对话框
+-dontwarn com.lxj.xpopup.widget.**
+-keep class com.lxj.xpopup.widget.**{*;}
+
+
+
+
 #---------------------------------glide---------------------------------
 
 -keep public class * implements com.bumptech.glide.module.GlideModule

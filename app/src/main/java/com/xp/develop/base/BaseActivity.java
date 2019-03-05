@@ -1,6 +1,7 @@
 package com.xp.develop.base;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
@@ -15,17 +16,14 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 
+import com.tapadoo.alerter.Alerter;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.xp.develop.R;
 import com.xp.develop.activity.MainActivity;
-import com.xp.develop.utils.SingleUtils;
-import com.xp.develop.utils.ToastUtil;
-import com.xp.develop.utils.pulltoview.TwinklingRefreshLayout;
-import com.xp.develop.utils.pulltoview.header.bezierlayout.BezierLayout;
 import com.xp.develop.utils.statusView.DensityUtils;
 import com.xp.develop.utils.statusView.Sofia;
-import com.xp.develop.utils.statusView.TitleView;
 import com.xp.develop.utils.statusView.StatusbarUtils;
+import com.xp.develop.utils.statusView.TitleView;
 import com.xp.develop.utils.swipe.BGASwipeBackHelper;
 
 import butterknife.ButterKnife;
@@ -474,6 +472,42 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
         if (mBodyContent != null) {
             mBodyContent = null;
         }
+    }
+
+
+    protected void BaseToast(String title,String text){
+        Alerter.create(this)
+                .setTitle(title)
+                .setText(text)
+                .setDuration(2000)
+                .setOnClickListener(view -> {
+                })
+                .show();
+    }
+
+    protected void BaseToast(String text){
+        Alerter.create(this)
+                .setText(text)
+                .setDuration(1000)
+                .setBackgroundColor(R.color.title_status_color)
+                .setOnClickListener(view -> {
+                })
+                .show();
+    }
+
+    protected void BaseToast(String title, String text, @ColorRes int color){
+        Alerter.create(this)
+                .setTitle(title)
+                .setText(text)
+                .setDuration(2000)
+                .setBackgroundColor(color)
+                .setOnClickListener(view -> {
+                })
+                .show();
+    }
+
+    protected Context getContextActivity(){
+        return this;
     }
 
 }

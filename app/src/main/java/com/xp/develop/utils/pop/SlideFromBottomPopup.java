@@ -1,62 +1,56 @@
 package com.xp.develop.utils.pop;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.animation.Animation;
+import android.content.Context;
+import android.support.annotation.NonNull;
 
-
+import com.lxj.xpopup.animator.PopupAnimator;
+import com.lxj.xpopup.core.BottomPopupView;
 import com.xp.develop.R;
-import com.xp.develop.utils.pop.basepopup.BasePopupWindow;
 
 /**
- * author :
- * ---------------------------------------___           ___           ___         ___
- * ----------_____                       /  /\         /__/\         /__/|       /  /\
- * ---------/  /::\                     /  /::\        \  \:\       |  |:|      /  /:/
- * --------/  /:/\:\    ___     ___    /  /:/\:\        \  \:\      |  |:|     /__/::\
- * -------/  /:/~/::\  /__/\   /  /\  /  /:/~/::\   _____\__\:\   __|  |:|     \__\/\:\
- * ------/__/:/ /:/\:| \  \:\ /  /:/ /__/:/ /:/\:\ /__/::::::::\ /__/\_|:|____    \  \:\
- * ******\  \:\/:/~/:/  \  \:\  /:/  \  \:\/:/__\/ \  \:\~~\~~\/ \  \:\/:::::/     \__\:\
- * *******\  \::/ /:/    \  \:\/:/    \  \::/       \  \:\  ~~~   \  \::/~~~~      /  /:/
- * ********\  \:\/:/      \  \::/      \  \:\        \  \:\        \  \:\         /__/:/
- * *********\  \::/        \__\/        \  \:\        \  \:\        \  \:\        \__\/
- * **********\__\/                       \__\/         \__\/         \__\/
- * blog  :  https://blog.csdn.net/qq_38729449
- * time  :  2018/8/13
- * desc  :  utils about initialization
+ * @author : xp
+ * @blog :  https://blog.csdn.net/qq_38729449
+ * @create :  2019/3/5 16:39
+ * @Describe :  utils about initialization
  */
-public abstract class SlideFromBottomPopup extends BasePopupWindow {
+public class SlideFromBottomPopup extends BottomPopupView {
 
-    public View popupView;
 
-    public SlideFromBottomPopup(Activity context) {
+
+    //自定义弹窗本质是一个自定义View，但是只需重写这个构造，其他的不用重写
+    public SlideFromBottomPopup(@NonNull Context context) {
         super(context);
     }
 
+    // 返回自定义弹窗的布局
     @Override
-    protected Animation initShowAnimation() {
-        return getTranslateVerticalAnimation(1f, 0, 200);
+    protected int getImplLayoutId() {
+        return R.layout.popup_evaluate_layout;
     }
-
+    // 执行初始化操作，比如：findView，设置点击，或者任何你弹窗内的业务逻辑
     @Override
-    protected Animation initExitAnimation() {
-        return getTranslateVerticalAnimation(0, 1f, 200);
+    protected void onCreate() {
+        super.onCreate();
+//        findViewById(R.id.tv_close).setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dismiss(); // 关闭弹窗
+//            }
+//        });
     }
-
+    // 设置最大宽度，看需要而定
     @Override
-    public View onCreatePopupView() {
-        popupView = LayoutInflater.from(getContext()).inflate(getLayoutId(), null);
-        getPopView(popupView);
-        return popupView;
+    protected int getMaxWidth() {
+        return super.getMaxWidth();
     }
-
-    protected abstract void getPopView(View view);
-
-    protected abstract int getLayoutId();
-
+    // 设置最大高度，看需要而定
     @Override
-    public View initAnimaView() {
-        return popupView.findViewById(R.id.popup_anima);
+    protected int getMaxHeight() {
+        return super.getMaxHeight();
+    }
+    // 设置自定义动画器，看需要而定
+    @Override
+    protected PopupAnimator getPopupAnimator() {
+        return super.getPopupAnimator();
     }
 }

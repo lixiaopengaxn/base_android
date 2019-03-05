@@ -8,7 +8,7 @@ import com.xp.develop.base.BaseActivity
 import com.xp.develop.base.BasePresenter
 import com.xp.develop.base.BaseView
 import com.xp.develop.utils.ToastUtil
-import com.xp.develop.utils.log.LogUtils
+import me.jessyan.autosize.utils.LogUtils
 
 /**
  *  author :  xpxn
@@ -35,9 +35,9 @@ class KotlinActivity : BaseActivity<BaseView, BasePresenter<BaseView>>() {
         findViewById<Button>(R.id.kotlin_button_1).setOnClickListener {
             System.out.print(getIntNub(a, b))
 
-            LogUtils.trace("我是有返回值的ggetIntNub，我的结果是:" + getIntNub(a, b))
-            LogUtils.trace("我是有返回值的，我的结果是getNUm:" + getNum(b, a))
-            LogUtils.trace("我是有返回值的，getlist:" + getlist(arr))
+            LogUtils.e("我是有返回值的ggetIntNub，我的结果是:" + getIntNub(a, b))
+            LogUtils.e("我是有返回值的，我的结果是getNUm:" + getNum(b, a))
+            LogUtils.e("我是有返回值的，getlist:" + getlist(arr))
         }
     }
 

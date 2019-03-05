@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.xp.develop.utils.pop.LoadingView;
-import com.xp.develop.utils.pop.PopupController;
+import com.xp.develop.utils.pop.PopDialog;
 
 
 /**
@@ -16,7 +16,7 @@ public class ProgressDialogHandler extends Handler {
     public static final int SHOW_PROGRESS_DIALOG = 1;
     public static final int DISMISS_PROGRESS_DIALOG = 2;
 
-    private LoadingView sad;
+    private LoadingView loadingView;
     private Context context;
     //取消对话框
     private boolean cancelable;
@@ -31,28 +31,35 @@ public class ProgressDialogHandler extends Handler {
     }
 
     private void initProgressDialog() {
-        if (sad == null) {
-            sad = new LoadingView(context);
 
-            if (!sad.isShowing()) {
 
-                if (cancelable) {
-                    sad.setDismissWhenTouchOutside(true);
-                } else {
-                    sad.setDismissWhenTouchOutside(false);
-                }
-                sad.showPopupWindow();
+        PopDialog.getInstance().asCustom(context,new LoadingView(context));
 
-            }
-        }
+//        if (loadingView == null) {
+//            loadingView = new LoadingView(context);
+//
+//            if (!loadingView.isShown()) {
+//
+//                if (cancelable) {
+//
+//                    loadingView.doShowAnimation();
+//
+//                    loadingView.setDismissWhenTouchOutside(true);
+//                } else {
+//                    loadingView.setDismissWhenTouchOutside(false);
+//                }
+//
+//            }
+//        }
     }
 
     private void dismissProgressDialog() {
-        if (sad != null) {
+//        if (loadingView != null) {
+        PopDialog.getInstance().dismiss(context);
             mProgressCancelListener.onCancelProgress();
-            sad.dismiss();
-            sad = null;
-        }
+//            loadingView.dismiss();
+//            loadingView = null;
+//        }
     }
 
     @Override

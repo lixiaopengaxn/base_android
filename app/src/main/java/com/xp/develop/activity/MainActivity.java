@@ -7,18 +7,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
 
+import com.lxj.xpopup.interfaces.OnConfirmListener;
+import com.lxj.xpopup.interfaces.OnInputConfirmListener;
 import com.xp.develop.R;
 import com.xp.develop.base.BaseActivity;
 import com.xp.develop.base.BasePresenter;
 import com.xp.develop.base.BaseView;
 import com.xp.develop.kotlin.KotlinActivity;
 import com.xp.develop.test.activity.JinPingMeiActivity;
-import com.xp.develop.test.activity.NewActivity;
 import com.xp.develop.test.activity.TestActivity;
 import com.xp.develop.test.activity.TestPingFenActivity;
 import com.xp.develop.test.activity.TestScrollActivity;
 import com.xp.develop.test.activity.TestTaskPhotoActivity;
 import com.xp.develop.test.activity.TestWebViewActivity;
+import com.xp.develop.utils.pop.PopDialog;
 import com.xp.develop.utils.pulltoview.TwinklingRefreshLayout;
 import com.xp.develop.utils.recycler.BaseQuickAdapter;
 import com.xp.develop.utils.recycler.BaseViewHolder;
@@ -81,10 +83,26 @@ public class MainActivity extends BaseActivity {
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                if(position != 0){
-                    openActivity(jumpClass.get(position - 1));
+
+
+
+                if(position == 0){
+                    PopDialog.getInstance().asConfirm(getContextActivity(), "我是标题", "我是内容", new OnConfirmListener() {
+                        @Override
+                        public void onConfirm() {
+                            BaseToast("你点击我了，那我可提交了啊");
+                            openActivity(TestActivity.class);
+                        }
+                    });
+                } else if (position == 1){
+                    PopDialog.getInstance().asInputConfirm(getContextActivity(), "我是标题", "我是内容", new OnInputConfirmListener() {
+                        @Override
+                        public void onConfirm(String text) {
+                            BaseToast("你点击我了，那我可提交了啊");
+                        }
+                    });
                 } else {
-                    openActivity(TestActivity.class);
+                    openActivity(jumpClass.get(position));
                 }
             }
         });
@@ -97,7 +115,6 @@ public class MainActivity extends BaseActivity {
         textTitle.add("评分");
         textTitle.add("选择图片");
         textTitle.add("滑动状态栏沉浸式");
-        textTitle.add("newActivity");
         textTitle.add("MVP请求");
         textTitle.add("Kotlin");
 
@@ -107,7 +124,6 @@ public class MainActivity extends BaseActivity {
         jumpClass.add(TestPingFenActivity.class);
         jumpClass.add(TestTaskPhotoActivity.class);
         jumpClass.add(TestScrollActivity.class);
-        jumpClass.add(NewActivity.class);
         jumpClass.add(JinPingMeiActivity.class);
         jumpClass.add(KotlinActivity.class);
     }
