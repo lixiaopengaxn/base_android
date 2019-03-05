@@ -120,6 +120,7 @@ public class MainActivity extends BaseActivity {
 
 
         jumpClass.add(TestActivity.class);
+        jumpClass.add(JinPingMeiActivity.class);
         jumpClass.add(TestWebViewActivity.class);
         jumpClass.add(TestPingFenActivity.class);
         jumpClass.add(TestTaskPhotoActivity.class);
