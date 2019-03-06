@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // support
+    implementation rootProject.ext.dependencies.appcompatV7
+
+    //recyclerView
+    implementation rootProject.ext.dependencies.recyclerview
+
+    //design
+    implementation rootProject.ext.dependencies.designConfig
+
+    //卡片效果
+    implementation rootProject.ext.dependencies.cardView
+    implementation 'com.lxj:easyadapter:1.0.1'
+}
+
