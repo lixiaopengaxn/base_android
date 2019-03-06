@@ -111,14 +111,18 @@ public class PopDialog {
      * @param context
      * @param basePopupView
      */
-    public void asCustom(Context context,BasePopupView basePopupView){
+    public void asCustom(Context context,LoadingView basePopupView){
         XPopup.get(context)
                 .asCustom(basePopupView)
+                .dismissOnTouchOutside(false)
+                .dismissOnBackPressed(false)
+                .autoDismiss(false)
                 .show();
     }
 
     /***
-     * 自定义布局的网络请求的对话框
+     * 自定义布局的对话框
+     * 自选动画
      * @param context
      * @param basePopupView
      */
@@ -126,6 +130,17 @@ public class PopDialog {
         XPopup.get(context)
                 .asCustom(basePopupView)
                 .popupAnimation(popupAnimation)
+                .show();
+    }
+
+    /***
+     * 自定义布局的对话框
+     * @param context
+     * @param basePopupView
+     */
+    public void asCustom(Context context, BasePopupView basePopupView){
+        XPopup.get(context)
+                .asCustom(basePopupView)
                 .show();
     }
 

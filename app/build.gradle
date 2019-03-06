@@ -88,6 +88,8 @@ dependencies {
     //今日头条的适配方案
     implementation project(':autosize')
 
+    implementation project(':popup')
+
     //test
 //    testImplementation rootProject.ext.dependencies.junit
 
@@ -160,7 +162,7 @@ dependencies {
     implementation rootProject.ext.otherlib.kotlin
 
     //s所有的对话框
-    implementation rootProject.ext.utils.xpopup
+//    implementation rootProject.ext.utils.xpopup
     implementation rootProject.ext.utils.toast
 
 

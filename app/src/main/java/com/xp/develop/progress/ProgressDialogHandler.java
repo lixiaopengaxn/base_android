@@ -55,7 +55,7 @@ public class ProgressDialogHandler extends Handler {
 
     private void dismissProgressDialog() {
 //        if (loadingView != null) {
-        PopDialog.getInstance().dismiss(context);
+//        PopDialog.getInstance().dismiss(context);
             mProgressCancelListener.onCancelProgress();
 //            loadingView.dismiss();
 //            loadingView = null;

@@ -72,7 +72,7 @@ public class BasicParamsInterceptor implements Interceptor {
 
 
         // process post body inject
-        if (request.method().equals("POST") && request.body().contentType().subtype().equals("x-www-form-urlencoded")) {
+        if (request.method().equals("GET") || request.method().equals("POST") && request.body().contentType().subtype().equals("x-www-form-urlencoded")) {
             FormBody.Builder formBodyBuilder = new FormBody.Builder();
             if (paramsMap.size() > 0) {
                 Iterator iterator = paramsMap.entrySet().iterator();

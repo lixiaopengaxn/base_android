@@ -95,7 +95,7 @@ ext {
     ]
 
     utils = [
-            xpopup : "com.lxj:xpopup:1.4.4",
+//            xpopup : "com.lxj:xpopup:1.4.4",
             toast  : "com.tapadoo.android:alerter:1.0.1"
     ]
 

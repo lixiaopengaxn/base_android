@@ -31,6 +31,7 @@ public class LoadingView extends CenterPopupView {
     @Override
     protected void onCreate() {
         super.onCreate();
+
 //        findViewById(R.id.tv_close).setOnClickListener(new OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
