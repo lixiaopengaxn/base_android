@@ -2,11 +2,8 @@ package com.xp.develop.mvp.model;
 
 import android.content.Context;
 
-import com.xp.develop.api.Api;
 import com.xp.develop.base.BaseModel;
 import com.xp.develop.progress.ObserverResponseListener;
-
-import java.util.HashMap;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableTransformer;
@@ -30,11 +27,11 @@ import io.reactivex.ObservableTransformer;
  */
 public class OkHttpModel<T> extends BaseModel {
 
-    public void okHttpPost(Context context, HashMap<String, String> map, boolean isDialog, boolean cancelable,
+    public void okHttpPost(Context context,  Observable<T> observable, boolean isDialog, boolean cancelable,
                       ObservableTransformer<T, T> transformer, ObserverResponseListener observerListener) {
 
 
-        subscribe(context, Api.getApiService().login(map), observerListener, transformer, isDialog, cancelable);
+        subscribe(context, observable, observerListener, transformer, isDialog, cancelable);
     }
 
     /***

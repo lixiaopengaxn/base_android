@@ -1,6 +1,7 @@
 package com.xp.develop.progress;
 
 import android.content.Context;
+import android.os.Handler;
 import android.util.Log;
 
 import com.xp.develop.utils.ExceptionHandle;
@@ -91,8 +92,13 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
             ToastUtil.showLongToast("请求失败");
         }
 
-        dismissProgressDialog();
-
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                dismissProgressDialog();
+            }
+        },2000);
     }
 
     @Override

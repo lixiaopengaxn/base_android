@@ -44,9 +44,6 @@ public class BasicParamsInterceptor implements Interceptor {
 
         Request.Builder requestBuilder = request.newBuilder();
 
-        requestBuilder.removeHeader("User-Agent");
-        requestBuilder.addHeader("User-Agent","Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:0.9.4)");
-
         // process header params inject
         Headers.Builder headerBuilder = request.headers().newBuilder();
         if (headerParamsMap.size() > 0) {
@@ -79,7 +76,7 @@ public class BasicParamsInterceptor implements Interceptor {
 
 
         // process post body inject
-        if (request.method().equals("GET") || request.method().equals("POST") && request.body().contentType().subtype().equals("application/json")) {
+        if (request.method().equals("POST") && request.body().contentType().subtype().equals("application/x-www-form-urlencoded")) {
             FormBody.Builder formBodyBuilder = new FormBody.Builder();
             if (paramsMap.size() > 0) {
                 Iterator iterator = paramsMap.entrySet().iterator();
@@ -91,7 +88,7 @@ public class BasicParamsInterceptor implements Interceptor {
             RequestBody formBody = formBodyBuilder.build();
             String postBodyString = bodyToString(request.body());
             postBodyString += ((postBodyString.length() > 0) ? "&" : "") +  bodyToString(formBody);
-            requestBuilder.post(RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), postBodyString));
+            requestBuilder.post(RequestBody.create(MediaType.parse("application/x-www-form-urlencoded;charset=UTF-8"), postBodyString));
         } else {    // can't inject into body, then inject into url
             injectParamsIntoUrl(request, requestBuilder, paramsMap);
         }

@@ -8,9 +8,8 @@ import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.support.v7.widget.RecyclerView;
 import android.view.animation.DecelerateInterpolator;
 
-
+import com.xp.develop.utils.UtilsLog;
 import com.xp.develop.utils.pulltoview.TwinklingRefreshLayout;
-import com.xp.develop.utils.pulltoview.utils.LogUtil;
 import com.xp.develop.utils.pulltoview.utils.ScrollingUtil;
 
 import java.util.LinkedList;
@@ -108,12 +107,12 @@ public class AnimProcessor implements IAnimRefresh, IAnimOverScroll {
     }
 
     private int getVisibleHeadHeight() {
-        LogUtil.i("header translationY:" + cp.getHeader().getTranslationY() + ",Visible head height:" + (cp.getHeader().getLayoutParams().height + cp.getHeader().getTranslationY()));
+        UtilsLog.i("header translationY:" + cp.getHeader().getTranslationY() + ",Visible head height:" + (cp.getHeader().getLayoutParams().height + cp.getHeader().getTranslationY()));
         return (int) (cp.getHeader().getLayoutParams().height + cp.getHeader().getTranslationY());
     }
 
     private int getVisibleFootHeight() {
-        LogUtil.i("footer translationY:" + cp.getFooter().getTranslationY() + "");
+        UtilsLog.i("footer translationY:" + cp.getFooter().getTranslationY() + "");
         return (int) (cp.getFooter().getLayoutParams().height - cp.getFooter().getTranslationY());
     }
 
@@ -131,7 +130,7 @@ public class AnimProcessor implements IAnimRefresh, IAnimOverScroll {
      * 1.满足进入刷新的条件或者主动刷新时，把Head位移到刷新位置（当前位置 ~ HeadHeight）
      */
     public void animHeadToRefresh() {
-        LogUtil.i("animHeadToRefresh:");
+        UtilsLog.i("animHeadToRefresh:");
         isAnimHeadToRefresh = true;
         animLayoutByTime(getVisibleHeadHeight(), cp.getHeadHeight(), animHeadUpListener, new AnimatorListenerAdapter() {
             @Override
@@ -164,7 +163,7 @@ public class AnimProcessor implements IAnimRefresh, IAnimOverScroll {
      * 2.动画结束或不满足进入刷新状态的条件，收起头部（当前位置 ~ 0）
      */
     public void animHeadBack(final boolean isFinishRefresh) {
-        LogUtil.i("animHeadBack：finishRefresh?->" + isFinishRefresh);
+        UtilsLog.i("animHeadBack：finishRefresh?->" + isFinishRefresh);
         isAnimHeadBack = true;
         if (isFinishRefresh && scrollHeadLocked && cp.isEnableKeepIView()) {
             cp.setPrepareFinishRefresh(true);
@@ -192,7 +191,7 @@ public class AnimProcessor implements IAnimRefresh, IAnimOverScroll {
      * 3.满足进入加载更多的条件或者主动加载更多时，把Footer移到加载更多位置（当前位置 ~ BottomHeight）
      */
     public void animBottomToLoad() {
-        LogUtil.i("animBottomToLoad");
+        UtilsLog.i("animBottomToLoad");
         isAnimBottomToLoad = true;
         animLayoutByTime(getVisibleFootHeight(), cp.getBottomHeight(), animBottomUpListener, new AnimatorListenerAdapter() {
             @Override
@@ -224,7 +223,7 @@ public class AnimProcessor implements IAnimRefresh, IAnimOverScroll {
      * 4.加载更多完成或者不满足进入加载更多模式的条件时，收起尾部（当前位置 ~ 0）
      */
     public void animBottomBack(final boolean isFinishLoading) {
-        LogUtil.i("animBottomBack：finishLoading?->" + isFinishLoading);
+        UtilsLog.i("animBottomBack：finishLoading?->" + isFinishLoading);
         isAnimBottomBack = true;
         if (isFinishLoading && scrollBottomLocked && cp.isEnableKeepIView()) {
             cp.setPrepareFinishLoadMore(true);
@@ -277,7 +276,7 @@ public class AnimProcessor implements IAnimRefresh, IAnimOverScroll {
     public void animHeadHideByVy(int vy) {
         if (isAnimHeadHide) return;
         isAnimHeadHide = true;
-        LogUtil.i("animHeadHideByVy：vy->" + vy);
+        UtilsLog.i("animHeadHideByVy：vy->" + vy);
         vy = Math.abs(vy);
         if (vy < 5000) vy = 8000;
         animLayoutByTime(getVisibleHeadHeight(), 0, 5 * Math.abs(getVisibleHeadHeight() * 1000 / vy), animHeadUpListener, new AnimatorListenerAdapter() {
@@ -302,7 +301,7 @@ public class AnimProcessor implements IAnimRefresh, IAnimOverScroll {
      * @param vy 手指向下滑动的速度
      */
     public void animBottomHideByVy(int vy) {
-        LogUtil.i("animBottomHideByVy：vy->" + vy);
+        UtilsLog.i("animBottomHideByVy：vy->" + vy);
         if (isAnimBottomHide) return;
         isAnimBottomHide = true;
         vy = Math.abs(vy);
@@ -332,7 +331,7 @@ public class AnimProcessor implements IAnimRefresh, IAnimOverScroll {
      * @param computeTimes 从满足条件到滚动到顶部总共计算的次数 Calculation times from sliding to top.
      */
     public void animOverScrollTop(float vy, int computeTimes) {
-        LogUtil.i("animOverScrollTop：vy->" + vy + ",computeTimes->" + computeTimes);
+        UtilsLog.i("animOverScrollTop：vy->" + vy + ",computeTimes->" + computeTimes);
         if (isOverScrollTopLocked) return;
         isOverScrollTopLocked = true;
         isAnimOsTop = true;
@@ -370,7 +369,7 @@ public class AnimProcessor implements IAnimRefresh, IAnimOverScroll {
      * @param computeTimes 从满足条件到滚动到顶部总共计算的次数
      */
     public void animOverScrollBottom(float vy, int computeTimes) {
-        LogUtil.i("animOverScrollBottom：vy->" + vy + ",computeTimes->" + computeTimes);
+        UtilsLog.i("animOverScrollBottom：vy->" + vy + ",computeTimes->" + computeTimes);
         if (isOverScrollBottomLocked) return;
         cp.setStatePBU();
         int oh = (int) Math.abs(vy / computeTimes / 2);

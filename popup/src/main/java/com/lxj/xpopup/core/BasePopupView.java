@@ -2,11 +2,9 @@ package com.lxj.xpopup.core;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.opengl.ETC1;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -341,7 +339,7 @@ public abstract class BasePopupView extends FrameLayout implements PopupInterfac
     }
 
     Runnable dismissWithRunnable;
-    protected void dismissWith(Runnable runnable){
+    public void dismissWith(Runnable runnable){
         this.dismissWithRunnable = runnable;
         dismiss();
     }

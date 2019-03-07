@@ -1,14 +1,11 @@
 package com.xp.develop.base;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.xp.develop.api.BasicParamsInterceptor;
+import com.xp.develop.progress.HttpLoggingInterceptorHelper;
 import com.xp.develop.utils.NetWorkUtil;
-
-import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
-import org.apache.http.conn.ssl.SSLSocketFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +17,6 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -59,14 +55,7 @@ public class BaseApi {
      * @return retrofit
      */
     public Retrofit getRetrofit(String baseUrl) {
-        SSLSocketFactory.getSocketFactory().setHostnameVerifier(new AllowAllHostnameVerifier());
-        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(message ->
-        {
-            Log.e("okHttpUrlInfo"," \n详细日志---OkHttp==Message:"+message);
-//            Log.e("header=>source-terminal", "Android--" + request.url());
-
-        });
-        logInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+//        SSLSocketFactory.getSocketFactory().setHostnameVerifier(new AllowAllHostnameVerifier());
 
         //缓存
         File cacheFile = new File(BaseApplication.getContext().getCacheDir(), "cache");
@@ -89,8 +78,8 @@ public class BaseApi {
                 .addInterceptor(mRewriteCacheControlInterceptor)//没网的情况下
                 .addNetworkInterceptor(mRewriteCacheControlInterceptor)//有网的情况下
                 .addInterceptor(basicParamsInterceptor)
-                .addInterceptor(logInterceptor)
-//                .cache(cache)
+                .addInterceptor(new HttpLoggingInterceptorHelper())
+                .cache(cache)
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()

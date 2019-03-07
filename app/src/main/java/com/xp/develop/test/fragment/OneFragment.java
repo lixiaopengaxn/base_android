@@ -32,11 +32,10 @@ public class OneFragment extends BaseFragment {
 
     @Override
     public void init(View view) {
-//        uMPageName("OneFragment");
     }
 
     @Override
-    protected void onLazyLoadOnce() {
+    protected void onSoleLoadOnce() {
 
     }
 
