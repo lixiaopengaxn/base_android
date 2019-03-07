@@ -7,6 +7,9 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.xp.develop.api.BasicParamsInterceptor;
 import com.xp.develop.utils.NetWorkUtil;
 
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -56,8 +59,15 @@ public class BaseApi {
      * @return retrofit
      */
     public Retrofit getRetrofit(String baseUrl) {
-        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(message -> Log.e("okHttpUrlInfo"," \n详细日志---OkHttp==Message:"+message));
-        logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        SSLSocketFactory.getSocketFactory().setHostnameVerifier(new AllowAllHostnameVerifier());
+        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(message ->
+        {
+            Log.e("okHttpUrlInfo"," \n详细日志---OkHttp==Message:"+message);
+//            Log.e("header=>source-terminal", "Android--" + request.url());
+
+        });
+        logInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+
         //缓存
         File cacheFile = new File(BaseApplication.getContext().getCacheDir(), "cache");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); //100Mb
@@ -66,9 +76,10 @@ public class BaseApi {
                 new BasicParamsInterceptor.Builder()
                         //添加头部参数
                         .addHeaderParam("Content-Type", "application/json")
-                        .addParam("uid", "aaa")
                         //添加公用的参数
-                        .addQueryParam("api_version", "1.1")
+                        .addQueryParam("key", "MJX11XSAPG")
+                        .addQueryParam("language", "zh-Hans")
+                        .addQueryParam("unit", "c")
                         .build();
 
         //创建一个OkHttpClient并设置超时时间
@@ -79,7 +90,7 @@ public class BaseApi {
                 .addNetworkInterceptor(mRewriteCacheControlInterceptor)//有网的情况下
                 .addInterceptor(basicParamsInterceptor)
                 .addInterceptor(logInterceptor)
-                .cache(cache)
+//                .cache(cache)
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()

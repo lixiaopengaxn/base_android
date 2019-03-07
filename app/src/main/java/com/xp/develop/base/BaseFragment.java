@@ -50,12 +50,10 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
 
     public abstract void init(View view);
 
-    private String umPageName = this.getClass().getSimpleName();
-
     /**
      * 懒加载一次。如果只想在对用户可见时才加载数据，并且只加载一次数据，在子类中重写该方法
      */
-    protected abstract void onLazyLoadOnce();
+    protected abstract void onSoleLoadOnce();
 
     /**
      * 对用户可见时触发该方法。如果只想在对用户可见时才加载数据，在子类中重写该方法
@@ -100,10 +98,20 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
 
 //        AutoSize.autoConvertDensity(getActivity(), ApiConstants.AUTO_SIZE.DP, true);
 
-        View mContentView = inflater.inflate(getLayoutId(), container, false);
-        unbinder = ButterKnife.bind(this, mContentView);
-
         getPresent();
+
+
+        if(mContentView == null){
+            mContentView = inflater.inflate(getLayoutId(), container, false);
+            unbinder = ButterKnife.bind(this, mContentView);
+        } else {
+            ViewGroup parent = (ViewGroup) mContentView.getParent();
+            if (parent != null) {
+                parent.removeView(mContentView);
+            }
+        }
+/*
+
 
         // 避免多次从xml中加载布局文件
         if (mContentView == null) {
@@ -113,7 +121,7 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
             if (parent != null) {
                 parent.removeView(mContentView);
             }
-        }
+        }*/
 
         return mContentView;
     }
@@ -144,7 +152,7 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
             // 对用户可见
             if (!mIsLoadedData) {
                 mIsLoadedData = true;
-                onLazyLoadOnce();
+                onSoleLoadOnce();
             }
             onVisibleToUser();
         } else {
@@ -174,10 +182,10 @@ public abstract class BaseFragment<V extends BaseView, P extends BasePresenter<V
     //自定义统计页面的名称
     protected String uMPageName(String umName) {
         if (!umName.isEmpty()) {
-            umPageName = umName;
-            return umPageName;
+            TAG = umName;
+            return TAG;
         } else {
-            return umPageName;
+            return TAG;
         }
     }
 

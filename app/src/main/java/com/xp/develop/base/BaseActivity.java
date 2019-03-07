@@ -36,6 +36,7 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V>> extends RxAppCompatActivity implements BGASwipeBackHelper.Delegate, View.OnClickListener {
 
+    protected String TAG = this.getClass().getSimpleName();
 
     protected BGASwipeBackHelper mSwipeBackHelper;
 

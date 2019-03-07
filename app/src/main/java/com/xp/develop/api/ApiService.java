@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import retrofit2.http.FieldMap;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 
@@ -20,12 +23,13 @@ import retrofit2.http.QueryMap;
  */
 public interface ApiService {
 
-    @POST("ranger/platform/auth/rest/authByLoginName")
-//    @POST("province-count")
-    Observable<LoginModel> login(@QueryMap Map<String, String> map);
+    @GET("v3/weather/now.json")
+    Observable<LoginModel> login(@QueryMap() Map<String, String> map);
 
+
+    @FormUrlEncoded()
     @POST("query")
-    Observable<BaseResponse<List<Login>>> logout(@QueryMap Map<String, String> map);
+    Observable<BaseResponse<List<Login>>> logout(@FieldMap() Map<String, String> map);
 
 //    // 登录的请求
 //    @POST("loginManage/login")

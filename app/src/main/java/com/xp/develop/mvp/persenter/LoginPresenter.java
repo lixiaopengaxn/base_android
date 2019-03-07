@@ -3,13 +3,11 @@ package com.xp.develop.mvp.persenter;
 import android.content.Context;
 
 import com.xp.develop.api.Api;
-import com.xp.develop.base.BaseResponse;
 import com.xp.develop.mvp.contract.LoginContract;
 import com.xp.develop.mvp.entity.LoginModel;
 import com.xp.develop.mvp.model.OkHttpModel;
 import com.xp.develop.progress.ObserverResponseListener;
 import com.xp.develop.utils.ExceptionHandle;
-import com.xp.develop.utils.ToastUtil;
 
 import java.util.HashMap;
 
@@ -32,9 +30,10 @@ public class LoginPresenter extends LoginContract.Presenter {
     @Override
     public void requsetLogin(String companyName, String uName, String uPassword) {
         HashMap map = new HashMap();
-        map.put("orgCode", companyName);
-        map.put("loginName", uName);
-        map.put("loginPass", uPassword);
+        map.put("location", companyName);
+        map.put("key", "MJX11XSAPG");
+        map.put("language", "zh-Hans");
+        map.put("unit", "c");
         model.okHttp(context, Api.getApiService().login(map), getView().bindLifecycle(), new ObserverResponseListener<LoginModel>() {
             @Override
             public void onNext(LoginModel model) {

@@ -7,8 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
 
-import com.lxj.xpopup.interfaces.OnConfirmListener;
-import com.lxj.xpopup.interfaces.OnInputConfirmListener;
 import com.xp.develop.R;
 import com.xp.develop.base.BaseActivity;
 import com.xp.develop.base.BasePresenter;
@@ -20,7 +18,6 @@ import com.xp.develop.test.activity.TestPingFenActivity;
 import com.xp.develop.test.activity.TestScrollActivity;
 import com.xp.develop.test.activity.TestTaskPhotoActivity;
 import com.xp.develop.test.activity.TestWebViewActivity;
-import com.xp.develop.utils.pop.PopDialog;
 import com.xp.develop.utils.pulltoview.TwinklingRefreshLayout;
 import com.xp.develop.utils.recycler.BaseQuickAdapter;
 import com.xp.develop.utils.recycler.BaseViewHolder;
@@ -86,24 +83,24 @@ public class MainActivity extends BaseActivity {
 
 
 
-                if(position == 0){
-                    PopDialog.getInstance().asConfirm(getContextActivity(), "我是标题", "我是内容", new OnConfirmListener() {
-                        @Override
-                        public void onConfirm() {
-                            BaseToast("你点击我了，那我可提交了啊");
-                            openActivity(TestActivity.class);
-                        }
-                    });
-                } else if (position == 1){
-                    PopDialog.getInstance().asInputConfirm(getContextActivity(), "我是标题", "我是内容", new OnInputConfirmListener() {
-                        @Override
-                        public void onConfirm(String text) {
-                            BaseToast("你点击我了，那我可提交了啊");
-                        }
-                    });
-                } else {
+//                if(position == 0){
+//                    PopDialog.getInstance().asConfirm(getContextActivity(), "我是标题", "我是内容", new OnConfirmListener() {
+//                        @Override
+//                        public void onConfirm() {
+//                            BaseToast("你点击我了，那我可提交了啊");
+//                            openActivity(TestActivity.class);
+//                        }
+//                    });
+//                } else if (position == 5){
+//                    PopDialog.getInstance().asInputConfirm(getContextActivity(), "我是标题", "我是内容", new OnInputConfirmListener() {
+//                        @Override
+//                        public void onConfirm(String text) {
+//                            BaseToast("你点击我了，那我可提交了啊");
+//                        }
+//                    });
+//                } else {
                     openActivity(jumpClass.get(position));
-                }
+//                }
             }
         });
     }

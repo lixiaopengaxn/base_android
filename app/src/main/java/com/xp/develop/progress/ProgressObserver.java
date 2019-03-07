@@ -3,15 +3,12 @@ package com.xp.develop.progress;
 import android.content.Context;
 import android.util.Log;
 
-
-import com.xp.develop.base.BaseResponse;
 import com.xp.develop.utils.ExceptionHandle;
 import com.xp.develop.utils.ToastUtil;
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-import java.nio.channels.SocketChannel;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -59,17 +56,17 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
     @Override
     public void onNext(T t) {
         //可定制接口，通过code回调处理不同的业务
-        int code = ((BaseResponse) t).getCode();
-        String str = ((BaseResponse) t).getMsg();
-        if (code == 0) {
-            isComplate = true;
+//        int code = ((BaseResponse) t).getCode();
+//        String str = ((BaseResponse) t).getMsg();
+//        if (code == 0) {
+//            isComplate = true;
             listener.onNext(t);
-        } else {
-            isComplate = false;
-            //全局的请求成功但是code不正确的提示
-            ToastUtil.showLongToast(str);
-            listener.onSuccessCodeError(str);
-        }
+//        } else {
+//            isComplate = false;
+//            //全局的请求成功但是code不正确的提示
+//            ToastUtil.showLongToast(str);
+//            listener.onSuccessCodeError(str);
+//        }
     }
 
     @Override

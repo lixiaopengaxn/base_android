@@ -1,5 +1,7 @@
 package com.xp.develop.api;
 
+import android.annotation.SuppressLint;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,11 +36,16 @@ public class BasicParamsInterceptor implements Interceptor {
 
     }
 
+    @SuppressLint("NewApi")
     @Override
     public Response intercept(Chain chain) throws IOException {
 
         Request request = chain.request();
+
         Request.Builder requestBuilder = request.newBuilder();
+
+        requestBuilder.removeHeader("User-Agent");
+        requestBuilder.addHeader("User-Agent","Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:0.9.4)");
 
         // process header params inject
         Headers.Builder headerBuilder = request.headers().newBuilder();
@@ -72,7 +79,7 @@ public class BasicParamsInterceptor implements Interceptor {
 
 
         // process post body inject
-        if (request.method().equals("GET") || request.method().equals("POST") && request.body().contentType().subtype().equals("x-www-form-urlencoded")) {
+        if (request.method().equals("GET") || request.method().equals("POST") && request.body().contentType().subtype().equals("application/json")) {
             FormBody.Builder formBodyBuilder = new FormBody.Builder();
             if (paramsMap.size() > 0) {
                 Iterator iterator = paramsMap.entrySet().iterator();
@@ -84,7 +91,7 @@ public class BasicParamsInterceptor implements Interceptor {
             RequestBody formBody = formBodyBuilder.build();
             String postBodyString = bodyToString(request.body());
             postBodyString += ((postBodyString.length() > 0) ? "&" : "") +  bodyToString(formBody);
-            requestBuilder.post(RequestBody.create(MediaType.parse("application/x-www-form-urlencoded;charset=UTF-8"), postBodyString));
+            requestBuilder.post(RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), postBodyString));
         } else {    // can't inject into body, then inject into url
             injectParamsIntoUrl(request, requestBuilder, paramsMap);
         }
@@ -128,6 +135,7 @@ public class BasicParamsInterceptor implements Interceptor {
 
         public Builder() {
             interceptor = new BasicParamsInterceptor();
+
         }
 
         public Builder addParam(String key, String value) {
