@@ -7,6 +7,9 @@ import com.xp.develop.api.BasicParamsInterceptor;
 import com.xp.develop.progress.HttpLoggingInterceptorHelper;
 import com.xp.develop.utils.NetWorkUtil;
 
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -55,8 +58,8 @@ public class BaseApi {
      * @return retrofit
      */
     public Retrofit getRetrofit(String baseUrl) {
-//        SSLSocketFactory.getSocketFactory().setHostnameVerifier(new AllowAllHostnameVerifier());
 
+        SSLSocketFactory.getSocketFactory().setHostnameVerifier(new AllowAllHostnameVerifier());
         //缓存
         File cacheFile = new File(BaseApplication.getContext().getCacheDir(), "cache");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); //100Mb

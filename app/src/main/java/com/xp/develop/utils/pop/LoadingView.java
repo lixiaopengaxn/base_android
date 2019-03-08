@@ -31,7 +31,6 @@ public class LoadingView extends CenterPopupView {
     @Override
     protected void onCreate() {
         super.onCreate();
-
 //        findViewById(R.id.tv_close).setOnClickListener(new OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -52,6 +51,6 @@ public class LoadingView extends CenterPopupView {
     // 设置自定义动画器，看需要而定
     @Override
     protected PopupAnimator getPopupAnimator() {
-        return super.getPopupAnimator();
+        return null;
     }
 }

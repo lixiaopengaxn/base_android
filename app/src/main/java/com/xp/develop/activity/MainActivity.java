@@ -18,7 +18,6 @@ import com.xp.develop.test.activity.TestPingFenActivity;
 import com.xp.develop.test.activity.TestScrollActivity;
 import com.xp.develop.test.activity.TestTaskPhotoActivity;
 import com.xp.develop.test.activity.TestWebViewActivity;
-import com.xp.develop.utils.pulltoview.TwinklingRefreshLayout;
 import com.xp.develop.utils.recycler.BaseQuickAdapter;
 import com.xp.develop.utils.recycler.BaseViewHolder;
 
@@ -39,16 +38,13 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.base_recycler)
     RecyclerView recyclerView;
 
-    @BindView(R.id.refresh)
-    TwinklingRefreshLayout refreshLayout;
-
     private List<String> textTitle = new ArrayList<>();
 
     private List<Class> jumpClass = new ArrayList<>();
 
     @Override
     public int getLayoutId() {
-        return R.layout.base_recycler_no_scroll_layout;
+        return R.layout.base_recycler_view;
     }
 
     @Override
@@ -75,7 +71,7 @@ public class MainActivity extends BaseActivity {
         HomeAdapter adapter = new HomeAdapter(textTitle);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        refreshLayout.setPureScrollModeOn();
+//        refreshLayout.setPureScrollModeOn();
 
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override

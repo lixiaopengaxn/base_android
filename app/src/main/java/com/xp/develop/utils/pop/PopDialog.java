@@ -113,6 +113,8 @@ public class PopDialog {
      */
     public void asCustom(Context context,LoadingView basePopupView){
         XPopup.get(context)
+                .hasShadowBg(false)
+                .customAnimator(new AlphaAnimator())
                 .asCustom(basePopupView)
                 .dismissOnTouchOutside(false)
                 .dismissOnBackPressed(false)

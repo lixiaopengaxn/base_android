@@ -22,6 +22,8 @@ public class ProgressDialogHandler extends Handler {
     //取消请求
     private ProgressCancelListener mProgressCancelListener;
 
+    private LoadingView loadingView;
+
     public ProgressDialogHandler(Context context, ProgressCancelListener mProgressCancelListener, boolean cancelable) {
         super();
         this.context = context;
@@ -31,18 +33,29 @@ public class ProgressDialogHandler extends Handler {
 
     private void initProgressDialog() {
 
-            if (cancelable) {
-                PopDialog.getInstance().asCustom(context, new LoadingView(context));
-            } else {
-                PopDialog.getInstance().asCustom(context, new LoadingView(context));
-            }
+        if (loadingView == null) {
+            loadingView = new LoadingView(context);
+        }
+
+
+        if (cancelable) {
+            PopDialog.getInstance().asCustom(context, loadingView);
+        } else {
+            PopDialog.getInstance().asCustom(context, loadingView);
+        }
+
+
 
     }
 
     private void dismissProgressDialog() {
-        PopDialog.getInstance().getXp(context).dismiss();
 
-        mProgressCancelListener.onCancelProgress();
+        if (loadingView != null) {
+            loadingView.dismiss();
+            mProgressCancelListener.onCancelProgress();
+        } else {
+            mProgressCancelListener.onCancelProgress();
+        }
     }
 
     @Override

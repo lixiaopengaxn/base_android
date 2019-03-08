@@ -107,6 +107,10 @@
         <activity android:name=".kotlin.KotlinActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".base.BaseWebViewActivity"
+            android:launchMode="singleTask"
+            android:process=":web_view_process"/>
+
         <!-- test -->
 
         <activity android:name=".test.activity.TestRxJavaActivity">

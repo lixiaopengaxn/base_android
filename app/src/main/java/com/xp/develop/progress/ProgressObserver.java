@@ -61,7 +61,7 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
 //        String str = ((BaseResponse) t).getMsg();
 //        if (code == 0) {
 //            isComplate = true;
-            listener.onNext(t);
+        listener.onNext(t);
 //        } else {
 //            isComplate = false;
 //            //全局的请求成功但是code不正确的提示
@@ -92,25 +92,24 @@ public class ProgressObserver<T> implements Observer<T>, ProgressCancelListener 
             ToastUtil.showLongToast("请求失败");
         }
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
                 dismissProgressDialog();
-            }
-        },2000);
+
+
+
     }
 
     @Override
     public void onComplete() {
         if (isComplate) listener.onComplete();
-        dismissProgressDialog();
-        Log.e(TAG, "onComplete: ");
+
+                dismissProgressDialog();
+
+        Log.e(TAG, "onComplete:请求完成 ");
     }
 
     @Override
     public void onCancelProgress() {
-        Log.e("requestCancel", "requestCancel: 我取消了");
+        Log.e("requestCancel", "requestCancel: 我取消了本次网络请求的订阅");
         //如果处于订阅状态，则取消订阅
         if (!disposable.isDisposed()) {
             disposable.dispose();

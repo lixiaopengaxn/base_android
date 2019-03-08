@@ -217,7 +217,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //mAgentWeb.destroy();
+        mAgentWeb.destroy();
         mAgentWeb.getWebLifeCycle().onDestroy();
     }
 

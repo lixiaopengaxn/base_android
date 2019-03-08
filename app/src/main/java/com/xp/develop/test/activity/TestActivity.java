@@ -92,7 +92,7 @@ public class TestActivity extends BaseActivity<LoginContract.LoginView,LoginCont
 
     @Override
     public void loginData(LoginModel loginModel) {
-//        ToastUtil.showLongToast(loginModel.getData() + ""+loginModel.getMsg());
+        ToastUtil.showLongToast(loginModel.getResults().toString());
     }
 
     @Override
