@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -98,7 +99,9 @@ public abstract class BaseWebViewActivity extends BaseActivity {
                 .createAgentWeb()
                 .ready()
                 .go(getUrl());
-        addBGChild(mAgentWeb.getWebCreator().getWebParentLayout()); // 得到 AgentWeb 最底层的控件
+
+
+//        addBGChild(mAgentWeb.getWebCreator().getWebParentLayout()); // 得到 AgentWeb 最底层的控件
     }
 
     /***
@@ -124,6 +127,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
                 .createAgentWeb()
                 .ready()
                 .go(getUrl());
+
     }
 
     protected @NonNull
@@ -208,7 +212,6 @@ public abstract class BaseWebViewActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
         Log.i("Info", "onResult:" + requestCode + " onResult:" + resultCode);
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -217,7 +220,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mAgentWeb.destroy();
+        mAgentWeb.clearWebCache();
         mAgentWeb.getWebLifeCycle().onDestroy();
     }
 
@@ -231,7 +234,7 @@ public abstract class BaseWebViewActivity extends BaseActivity {
         }
     }
 
-    protected void addBGChild(FrameLayout frameLayout) {
+    protected void addBGChild(ViewGroup frameLayout) {
 
         TextView mTextView = new TextView(frameLayout.getContext());
         mTextView.setText("技术由 北京华云智汇科技有限公司 提供");

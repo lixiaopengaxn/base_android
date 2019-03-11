@@ -16,6 +16,11 @@ public class BaseApplication extends Application {
 
     private static Context mContext;//全局上下文对象
 
+
+    public static Context getContext() {
+        return mContext;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -36,14 +41,6 @@ public class BaseApplication extends Application {
 
 
 
-    }
-
-
-
-
-
-    public static Context getContext() {
-        return mContext;
     }
 
 }

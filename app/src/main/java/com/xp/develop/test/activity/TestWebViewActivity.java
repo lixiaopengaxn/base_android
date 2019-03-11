@@ -1,7 +1,6 @@
 package com.xp.develop.test.activity;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.xp.develop.api.ApiConstants;
 import com.xp.develop.base.BasePresenter;
@@ -17,14 +16,8 @@ import com.xp.develop.base.BaseWebViewActivity;
 public class TestWebViewActivity extends BaseWebViewActivity {
     @Override
     protected void initView(Bundle savedInstanceState) {
+
         titleView.setRightText("分享");
-
-        titleView.getRightTextView().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-
 
     }
     @Override

@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
@@ -224,7 +223,7 @@ public class BGASwipeBackLayout extends ViewGroup {
     void attachToActivity(Activity activity) {
         mActivity = activity;
 
-        setSliderFadeColor(ContextCompat.getColor(activity,R.color.colorPrimary));
+        setSliderFadeColor(ContextCompat.getColor(activity, R.color.trans_bar_7));
 
         mShadowView = new BGASwipeBackShadowView(activity);
 

@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
@@ -37,6 +38,8 @@
         <!-- <meta-data -->
         <!-- android:name="design_height_in_dp" -->
         <!-- android:value="1960"/> -->
+
+
         <meta-data
             android:name="design_width_in_dp"
             android:value="390"/>
@@ -80,6 +83,7 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
 
         <!-- test -->
@@ -93,7 +97,8 @@
         <activity
             android:name=".test.activity.TestWebViewActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
+            android:configChanges="orientation"
+            android:screenOrientation="user" />
         <activity
             android:name=".test.activity.TestPingFenActivity"
             android:screenOrientation="portrait"/>

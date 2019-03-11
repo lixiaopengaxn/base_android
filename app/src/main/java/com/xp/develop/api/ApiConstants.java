@@ -11,19 +11,21 @@ import com.xp.develop.base.BaseApplication;
  */
 public interface ApiConstants {
 
-    interface WEB_VIEW{
+    interface WEB_VIEW {
 
-       String WEB_GITLAB_URL = "https://gitlab.com/lixiaopengaxn/base_android";
+//        String WEB_GITLAB_URL = "https://gitlab.com/lixiaopengaxn/base_android";
 
 //        String WEB_GITLAB_URL = "http://www.pgyer.com/BaseNP";
 
+        String WEB_GITLAB_URL = "https://www.baidu.com";
+
     }
 
-    interface AUTO_SIZE{
+    interface AUTO_SIZE {
         int DP = 400;
     }
 
-    interface UM{
+    interface UM {
         String UM_KEY = BaseApplication.getContext().getString(R.string.um_key);
     }
 }
