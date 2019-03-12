@@ -12,6 +12,7 @@ import com.xp.develop.R;
 import com.xp.develop.base.BasePresenter;
 import com.xp.develop.base.BaseTakePhotoActivity;
 import com.xp.develop.base.BaseView;
+import com.xp.develop.utils.ToastUtil;
 import com.xp.develop.utils.pop.PopDialog;
 import com.xp.develop.utils.pop.SlideFromBottomPopup;
 import com.xp.develop.utils.recycler.BaseQuickAdapter;
@@ -71,57 +72,50 @@ public class TestTaskPhotoActivity extends BaseTakePhotoActivity {
      */
     private void showDialog() {
 
-        PopDialog.getInstance().asCustom(getContextActivity(),new SlideFromBottomPopup(getContextActivity()));
-//        slidePopup = new SlideFromBottomPopup(this) {
-//            @Override
-//            protected void getPopView(View view) {
-//                view.findViewById(R.id.pop_evaluate_camera).setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        int i = 9 - homeAdapter.getData().size();
-//                        if(i > 0){
-//                            //裁剪
-////                            takePhoto.onPickFromCaptureWithCrop(imageUri, getCropOptions());
-//                            //不裁剪
-//                            takePhoto.onPickFromCapture(imageUri);
-//                        } else {
-//                            ToastUtil.showShortToast("最多添加9张张片");
-////                            slidePopup.dismiss();
-//                        }
-//
-//                    }
-//                });
-//                view.findViewById(R.id.pop_evaluate_photo).setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        int i = 9 - homeAdapter.getData().size();
-//                        if (i > 0) {
-//                            //裁剪
-////                            takePhoto.onPickMultipleWithCrop(i, getCropOptions());
-//                            //不裁剪
-//                            takePhoto.onPickMultiple(i);
-//                            return;
-//                        }
-//                        if(i > 0){
-//                            //裁剪
-////                            takePhoto.onPickFromGalleryWithCrop(imageUri, getCropOptions());
-//                            //不裁剪
-//                            takePhoto.onPickFromGallery();
-//                        } else {
-//                            ToastUtil.showShortToast("最多显示9张张片");
-////                            slidePopup.dismiss();
-//                        }
-//
-//                    }
-//                });
-//            }
-//
-//            @Override
-//            protected int getLayoutId() {
-//                return R.layout.popup_evaluate_layout;
-//            }
-//        };
-//        slidePopup.setBlurBackgroundEnable(true).showPopupWindow();
+        PopDialog.getInstance().asCustomPopup(getContextActivity(), new SlideFromBottomPopup(getContextActivity()) {
+            @Override
+            protected void initView() {
+                findViewById(R.id.pop_evaluate_camera).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int i = 9 - homeAdapter.getData().size();
+                        if(i > 0){
+                            //裁剪
+//                            takePhoto.onPickFromCaptureWithCrop(imageUri, getCropOptions());
+                            //不裁剪
+                            takePhoto.onPickFromCapture(imageUri);
+                        } else {
+                            ToastUtil.showShortToast("最多添加9张张片");
+                            dismiss();
+                        }
+
+                    }
+                });
+                findViewById(R.id.pop_evaluate_photo).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int i = 9 - homeAdapter.getData().size();
+                        if (i > 0) {
+                            //裁剪
+//                            takePhoto.onPickMultipleWithCrop(i, getCropOptions());
+                            //不裁剪
+                            takePhoto.onPickMultiple(i);
+                            return;
+                        }
+                        if(i > 0){
+                            //裁剪
+//                            takePhoto.onPickFromGalleryWithCrop(imageUri, getCropOptions());
+                            //不裁剪
+                            takePhoto.onPickFromGallery();
+                        } else {
+                            ToastUtil.showShortToast("最多显示9张张片");
+                            dismiss();
+                        }
+
+                    }
+                });
+            }
+        });
     }
 
     public class HomeAdapter extends BaseQuickAdapter<String,BaseViewHolder> {

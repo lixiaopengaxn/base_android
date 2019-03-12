@@ -15,9 +15,11 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
-import com.tapadoo.alerter.Alerter;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.xn.xp.customtoast.BottomToast;
+import com.xn.xp.customtoast.TopToast;
 import com.xp.develop.R;
 import com.xp.develop.activity.MainActivity;
 import com.xp.develop.utils.statusView.DensityUtils;
@@ -470,35 +472,20 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     }
 
 
-    protected void BaseToast(String title,String text){
-        Alerter.create(this)
-                .setTitle(title)
-                .setText(text)
-                .setDuration(2000)
-                .setOnClickListener(view -> {
-                })
-                .show();
-    }
-
     protected void BaseToast(String text){
-        Alerter.create(this)
-                .setText(text)
-                .setDuration(1000)
-                .setBackgroundColor(R.color.title_status_color)
-                .setOnClickListener(view -> {
-                })
-                .show();
+        TopToast.make(this, text, Toast.LENGTH_SHORT).show();
     }
 
-    protected void BaseToast(String title, String text, @ColorRes int color){
-        Alerter.create(this)
-                .setTitle(title)
-                .setText(text)
-                .setDuration(2000)
-                .setBackgroundColor(color)
-                .setOnClickListener(view -> {
-                })
-                .show();
+    protected void BaseTopToast(String text){
+        TopToast.make(mBodyContent, text, Toast.LENGTH_SHORT).show();
+    }
+
+    protected void BaseBottomToast(String text){
+        BottomToast.make(mBodyContent, text, Toast.LENGTH_SHORT).show();
+    }
+
+    protected void BaseWindowToast(String text){
+        BottomToast.make(this, text, Toast.LENGTH_SHORT).show();
     }
 
     protected Context getContextActivity(){

@@ -90,6 +90,9 @@ dependencies {
 
     implementation project(':popup')
 
+    implementation project(':customtoast')
+
+
     //test
 //    testImplementation rootProject.ext.dependencies.junit
 
@@ -163,7 +166,7 @@ dependencies {
 
     //s所有的对话框
 //    implementation rootProject.ext.utils.xpopup
-    implementation rootProject.ext.utils.toast
+//    implementation rootProject.ext.utils.toast
 
 
 //    //友盟

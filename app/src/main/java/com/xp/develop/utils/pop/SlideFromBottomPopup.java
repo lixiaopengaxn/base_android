@@ -13,9 +13,9 @@ import com.xp.develop.R;
  * @create :  2019/3/5 16:39
  * @Describe :  utils about initialization
  */
-public class SlideFromBottomPopup extends BottomPopupView {
+public abstract class SlideFromBottomPopup extends BottomPopupView {
 
-
+    protected abstract void initView();
 
     //自定义弹窗本质是一个自定义View，但是只需重写这个构造，其他的不用重写
     public SlideFromBottomPopup(@NonNull Context context) {
@@ -31,12 +31,7 @@ public class SlideFromBottomPopup extends BottomPopupView {
     @Override
     protected void onCreate() {
         super.onCreate();
-//        findViewById(R.id.tv_close).setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dismiss(); // 关闭弹窗
-//            }
-//        });
+        initView();
     }
     // 设置最大宽度，看需要而定
     @Override
@@ -53,4 +48,5 @@ public class SlideFromBottomPopup extends BottomPopupView {
     protected PopupAnimator getPopupAnimator() {
         return super.getPopupAnimator();
     }
+
 }

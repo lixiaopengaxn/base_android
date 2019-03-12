@@ -1,1 +1,1 @@
-include ':app', 'AndPermission', 'autosize', ':popup'
+include ':app', ':customtoast', 'AndPermission', 'autosize', ':popup'

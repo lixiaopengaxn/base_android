@@ -1,6 +1,7 @@
 package com.xp.develop.utils.pop;
 
 import android.content.Context;
+import android.support.annotation.DrawableRes;
 import android.view.View;
 
 import com.lxj.xpopup.XPopup;
@@ -8,6 +9,7 @@ import com.lxj.xpopup.core.BasePopupView;
 import com.lxj.xpopup.enums.PopupAnimation;
 import com.lxj.xpopup.interfaces.OnConfirmListener;
 import com.lxj.xpopup.interfaces.OnInputConfirmListener;
+import com.lxj.xpopup.interfaces.OnSelectListener;
 
 /**
  * @author : xp
@@ -20,7 +22,8 @@ public class PopDialog {
 
     private static volatile PopDialog singleton;
 
-    private PopDialog() {}
+    private PopDialog() {
+    }
 
     public static PopDialog getInstance() {
         if (singleton == null) {
@@ -40,8 +43,8 @@ public class PopDialog {
      * @param text
      * @param onConfirmListener
      */
-    public void asConfirm(Context context,String title,String text,OnConfirmListener onConfirmListener){
-        XPopup.get(context).asConfirm("我是标题", "我是内容",onConfirmListener)
+    public void asConfirm(Context context, String title, String text, OnConfirmListener onConfirmListener) {
+        XPopup.get(context).asConfirm("我是标题", "我是内容", onConfirmListener)
                 .show();
     }
 
@@ -52,8 +55,8 @@ public class PopDialog {
      * @param text
      * @param onInputConfirmListener
      */
-    public void asInputConfirm(Context context,String title,String text,OnInputConfirmListener onInputConfirmListener){
-        XPopup.get(context).asInputConfirm("我是标题", "我是内容",onInputConfirmListener)
+    public void asInputConfirm(Context context, String title, String text, OnInputConfirmListener onInputConfirmListener) {
+        XPopup.get(context).asInputConfirm("我是标题", "我是内容", onInputConfirmListener)
                 .show();
     }
 
@@ -62,7 +65,7 @@ public class PopDialog {
      * @param context
      * @param title
      */
-    public void asLoading(Context context,String title){
+    public void asLoading(Context context, String title) {
         XPopup.get(context).asLoading(title)
                 .show();
     }
@@ -71,7 +74,7 @@ public class PopDialog {
      * 关闭弹窗
      * @param context
      */
-    public void dismiss(Context context){
+    public void dismiss(Context context) {
         XPopup.get(context).dismiss();
     }
 
@@ -80,7 +83,7 @@ public class PopDialog {
      * @param context
      * @return
      */
-    public XPopup getXp(Context context){
+    public XPopup getXp(Context context) {
         return XPopup.get(context);
     }
 
@@ -90,7 +93,7 @@ public class PopDialog {
      * @param atView
      * @param customPartShadowPopupView   弹窗里面的UI和逻辑需要你自己继承PartShadowPopupView来做
      */
-    public void atView(Context context,View atView,CustomPartShadowPopupView customPartShadowPopupView){
+    public void atView(Context context, View atView, CustomPartShadowPopupView customPartShadowPopupView) {
         XPopup.get(context)
                 .asCustom(customPartShadowPopupView)
                 .atView(atView)
@@ -111,7 +114,7 @@ public class PopDialog {
      * @param context
      * @param basePopupView
      */
-    public void asCustom(Context context,LoadingView basePopupView){
+    public void asCustom(Context context, LoadingView basePopupView) {
         XPopup.get(context)
                 .hasShadowBg(false)
                 .customAnimator(new AlphaAnimator())
@@ -128,24 +131,41 @@ public class PopDialog {
      * @param context
      * @param basePopupView
      */
-    public void asCustom(Context context, BasePopupView basePopupView, PopupAnimation popupAnimation){
+    public void asCustom(Context context, BasePopupView basePopupView, PopupAnimation popupAnimation) {
         XPopup.get(context)
                 .asCustom(basePopupView)
                 .popupAnimation(popupAnimation)
                 .show();
     }
 
-    /***
-     * 自定义布局的对话框
+    /***    通用的对话框
+     * 自定义布局通用的对话框的对话框
      * @param context
      * @param basePopupView
      */
-    public void asCustom(Context context, BasePopupView basePopupView){
+    public void asCustomPopup(Context context, BasePopupView basePopupView) {
         XPopup.get(context)
                 .asCustom(basePopupView)
                 .show();
     }
 
+    /***
+     * 自定义布局的对话框
+     * @param context
+     * @param
+     */
+    public void asBootomList(Context context, String title, OnSelectListener onSelectListener, String... item) {
+        XPopup.get(context).asBottomList(title, item, onSelectListener)
+                .show();
+
+    }
+
+    public void asAtView(Context context, View atView, @DrawableRes int[] itemRes, OnSelectListener onSelectListener,PopupAnimation popupAnimation,String... item) {
+        XPopup.get(context).asAttachList(item, itemRes, onSelectListener)
+                .popupAnimation(popupAnimation)
+                .atView(atView)  // 如果是要依附某个View，必须设置
+                .show();
+    }
 
 
 }
