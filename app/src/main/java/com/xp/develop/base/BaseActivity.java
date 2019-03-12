@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.xn.xp.customtoast.BottomToast;
 import com.xn.xp.customtoast.TopToast;
+import com.xn.xp.customtoast.topbottomsnack.TBSnackbar;
 import com.xp.develop.R;
 import com.xp.develop.activity.MainActivity;
 import com.xp.develop.utils.statusView.DensityUtils;
@@ -484,5 +486,36 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     protected Context getContextActivity(){
         return this;
     }
+
+
+
+    protected void BaseTopSnackBar(String text) {
+        TBSnackbar.make(mBodyContent, text, TBSnackbar.LENGTH_SHORT, TBSnackbar.STYLE_SHOW_TOP).show();
+    }
+
+    protected void BaseBottomSnackBar(String text) {
+        TBSnackbar.make(mBodyContent, text, TBSnackbar.LENGTH_SHORT, TBSnackbar.STYLE_SHOW_BOTTOM).show();
+    }
+
+    public void BaseTopSnackBarIc(String text, @DrawableRes int res) {
+        TBSnackbar snackbar = TBSnackbar.make(mBodyContent, text, TBSnackbar.LENGTH_SHORT, TBSnackbar.STYLE_SHOW_TOP);
+        snackbar.setIconLeft(R.mipmap.ic_arrow,24);
+        snackbar.show();
+    }
+    public void BaseTopSnackBarShowAction(String text) {
+
+        final TBSnackbar snackbar = TBSnackbar.make(mBodyContent,text, TBSnackbar.LENGTH_INDEFINITE, TBSnackbar.STYLE_SHOW_TOP);
+        snackbar.setAction("Action", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+            }
+        });
+        snackbar.show();
+    }
+
+
+
+
 
 }

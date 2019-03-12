@@ -106,10 +106,10 @@ public class MainActivity extends BaseActivity {
                                     BaseTopToast(text);
                                     break;
                                 case 1:
-                                    BaseTopToast(text);
+                                    BaseTopSnackBar(text);
                                     break;
                                 case 2:
-                                    BaseBottomToast(text);
+                                    BaseBottomSnackBar(text);
                                     break;
                                 case 3:
                                     BaseTopToast(text);
@@ -119,7 +119,7 @@ public class MainActivity extends BaseActivity {
                     },PopupAnimation.TranslateFromBottom,"windows","top","bottom","4");
                 } else {
 //                    openActivity(jumpClass.get(position));
-                    BaseTopToast("sdfasdfasd");
+                    BaseTopSnackBar("sdfasdfasd");
 
                 }
             }
