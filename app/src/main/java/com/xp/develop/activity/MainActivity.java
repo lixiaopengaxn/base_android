@@ -86,7 +86,7 @@ public class MainActivity extends BaseActivity {
                     PopDialog.getInstance().asConfirm(getContextActivity(), "我是标题", "我是内容", new OnConfirmListener() {
                         @Override
                         public void onConfirm() {
-                            BaseToast("你点击我了，那我可提交了啊");
+                            BaseTopToast("你点击我了，那我可提交了啊");
                             openActivity(TestActivity.class);
                         }
                     });
@@ -94,7 +94,7 @@ public class MainActivity extends BaseActivity {
                     PopDialog.getInstance().asInputConfirm(getContextActivity(), "我是标题", "我是内容", new OnInputConfirmListener() {
                         @Override
                         public void onConfirm(String text) {
-                            BaseToast("你点击我了，那我可提交了啊");
+                            BaseTopToast("你点击我了，那我可提交了啊");
                         }
                     });
                 } else if (position == 3){
@@ -103,7 +103,7 @@ public class MainActivity extends BaseActivity {
                         public void onSelect(int position, String text) {
                             switch (position){
                                 case 0:
-                                    BaseToast(text);
+                                    BaseTopToast(text);
                                     break;
                                 case 1:
                                     BaseTopToast(text);
@@ -112,13 +112,15 @@ public class MainActivity extends BaseActivity {
                                     BaseBottomToast(text);
                                     break;
                                 case 3:
-                                    BaseWindowToast(text);
+                                    BaseTopToast(text);
                                     break;
                             }
                         }
                     },PopupAnimation.TranslateFromBottom,"windows","top","bottom","4");
                 } else {
-                    openActivity(jumpClass.get(position));
+//                    openActivity(jumpClass.get(position));
+                    BaseTopToast("sdfasdfasd");
+
                 }
             }
         });

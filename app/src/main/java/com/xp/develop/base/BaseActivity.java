@@ -472,9 +472,6 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     }
 
 
-    protected void BaseToast(String text){
-        TopToast.make(this, text, Toast.LENGTH_SHORT).show();
-    }
 
     protected void BaseTopToast(String text){
         TopToast.make(mBodyContent, text, Toast.LENGTH_SHORT).show();
@@ -482,10 +479,6 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
     protected void BaseBottomToast(String text){
         BottomToast.make(mBodyContent, text, Toast.LENGTH_SHORT).show();
-    }
-
-    protected void BaseWindowToast(String text){
-        BottomToast.make(this, text, Toast.LENGTH_SHORT).show();
     }
 
     protected Context getContextActivity(){
