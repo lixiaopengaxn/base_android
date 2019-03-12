@@ -11,10 +11,6 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-
-/**
- * Created by Swifty on 2016/2/6.
- */
 public class FloatWindowService extends Service {
 
     public static String SERVICE_WINDOWS_PARENT = "service_parent";

@@ -4,10 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * Created by swifty on 20/7/2017.
- */
-
 public class Utils {
 
     private static Boolean MIUI8orLater;

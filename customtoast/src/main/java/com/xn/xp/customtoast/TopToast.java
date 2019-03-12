@@ -4,9 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 
-/**
- * Created by Swifty on 2016/2/6.
- */
 public class TopToast extends Toast {
 
     private TopToast(Context context) {

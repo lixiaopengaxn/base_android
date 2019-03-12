@@ -30,9 +30,6 @@ import java.util.Set;
 
 import static com.xn.xp.customtoast.FloatWindowService.SERVICE_WINDOWS_PARENT;
 
-/**
- * Created by swifty on 22/11/2016.
- */
 public class Toast extends FrameLayout {
 
     //dropdown duration

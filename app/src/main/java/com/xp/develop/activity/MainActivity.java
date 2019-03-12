@@ -9,7 +9,6 @@ import android.view.View;
 
 import com.lxj.xpopup.enums.PopupAnimation;
 import com.lxj.xpopup.interfaces.OnConfirmListener;
-import com.lxj.xpopup.interfaces.OnInputConfirmListener;
 import com.lxj.xpopup.interfaces.OnSelectListener;
 import com.xp.develop.R;
 import com.xp.develop.base.BaseActivity;
@@ -91,12 +90,15 @@ public class MainActivity extends BaseActivity {
                         }
                     });
                 } else if (position == 1){
-                    PopDialog.getInstance().asInputConfirm(getContextActivity(), "我是标题", "我是内容", new OnInputConfirmListener() {
-                        @Override
-                        public void onConfirm(String text) {
-                            BaseTopToast("你点击我了，那我可提交了啊");
-                        }
-                    });
+
+                    BaseTopToast("你点击我了，那我可提交了啊");
+
+//                    PopDialog.getInstance().asInputConfirm(getContextActivity(), "我是标题", "我是内容", new OnInputConfirmListener() {
+//                        @Override
+//                        public void onConfirm(String text) {
+//
+//                        }
+//                    });
                 } else if (position == 3){
                     PopDialog.getInstance().asAtView(getContextActivity(), view, null, new OnSelectListener() {
                         @Override
@@ -119,7 +121,7 @@ public class MainActivity extends BaseActivity {
                     },PopupAnimation.TranslateFromBottom,"windows","top","bottom","4");
                 } else {
 //                    openActivity(jumpClass.get(position));
-                    BaseTopSnackBar("sdfasdfasd");
+                    BaseTopSnackBar("我是土司");
 
                 }
             }

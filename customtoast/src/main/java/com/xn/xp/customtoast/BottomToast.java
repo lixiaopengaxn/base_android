@@ -4,10 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 
-/**
- * Created by swifty on 22/11/2016.
- */
-
 public class BottomToast extends Toast {
 
     private BottomToast(Context context) {
