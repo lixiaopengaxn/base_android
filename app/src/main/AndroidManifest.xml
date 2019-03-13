@@ -84,6 +84,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask"
+            android:fitsSystemWindows="true"
             android:screenOrientation="portrait"/>
 
         <!-- test -->

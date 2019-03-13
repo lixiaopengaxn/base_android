@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity {
                     PopDialog.getInstance().asConfirm(getContextActivity(), "我是标题", "我是内容", new OnConfirmListener() {
                         @Override
                         public void onConfirm() {
-                            BaseTopToast("你点击我了，那我可提交了啊");
+                            BaseTopSnackBar("你点击我了，那我可提交了啊");
                             openActivity(TestActivity.class);
                         }
                     });
@@ -120,8 +120,8 @@ public class MainActivity extends BaseActivity {
                         }
                     },PopupAnimation.TranslateFromBottom,"windows","top","bottom","4");
                 } else {
-//                    openActivity(jumpClass.get(position));
-                    BaseTopSnackBar("我是土司");
+                    openActivity(jumpClass.get(position));
+//                    BaseTopSnackBar("我是土司");
 
                 }
             }

@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -182,7 +183,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
      */
     @Override
     public void onSwipeBackLayoutSlide(float slideOffset) {
-//        titleView.setAlpha(1 - slideOffset);
+        titleView.setAlpha(1 - slideOffset);
     }
 
     /**
@@ -229,18 +230,14 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
             if (isTemp() == 1) {
                 //全屏,且不显示状态栏
                 tooBar.setVisibility(View.GONE);
-                tooBar = null;
                 StatusbarUtils.hideToobar(this);
             } else if (isTemp() == 2) {
                 //全屏，且显示状态栏
                 tooBar.setVisibility(View.GONE);
-                tooBar = null;
                 setStatusBarNanigationBarColor(R.color.colorPrimary);
             } else if (isTemp() == 3) {
-
                 //全屏,且显示透明状态栏
                 tooBar.setVisibility(View.GONE);
-                tooBar = null;
                 StatusbarUtils.enableTranslucentStatusbar(this);
             } else {
                 tooBar.setVisibility(View.VISIBLE);
@@ -274,7 +271,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
      * 的颜色
      */
     protected void setNanigationBarColor(@ColorRes int color) {
-        Sofia.with(this)
+        Sofia.with(this).statusBarDarkFont()
                 .navigationBarBackground(ContextCompat.getColor(this, color));
     }
 
@@ -490,7 +487,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
 
     protected void BaseTopSnackBar(String text) {
-        TBSnackbar.make(mBodyContent, text, TBSnackbar.LENGTH_SHORT, TBSnackbar.STYLE_SHOW_TOP).show();
+        TBSnackbar.make(findViewById(android.R.id.content), text, TBSnackbar.LENGTH_SHORT, TBSnackbar.STYLE_SHOW_TOP).show();
     }
 
     protected void BaseBottomSnackBar(String text) {
@@ -498,13 +495,13 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     }
 
     public void BaseTopSnackBarIc(String text, @DrawableRes int res) {
-        TBSnackbar snackbar = TBSnackbar.make(mBodyContent, text, TBSnackbar.LENGTH_SHORT, TBSnackbar.STYLE_SHOW_TOP);
+        TBSnackbar snackbar = TBSnackbar.make((ViewGroup) findViewById(android.R.id.content), text, TBSnackbar.LENGTH_SHORT, TBSnackbar.STYLE_SHOW_TOP);
         snackbar.setIconLeft(R.mipmap.ic_arrow,24);
         snackbar.show();
     }
     public void BaseTopSnackBarShowAction(String text) {
 
-        final TBSnackbar snackbar = TBSnackbar.make(mBodyContent,text, TBSnackbar.LENGTH_INDEFINITE, TBSnackbar.STYLE_SHOW_TOP);
+        final TBSnackbar snackbar = TBSnackbar.make((ViewGroup) findViewById(android.R.id.content),text, TBSnackbar.LENGTH_INDEFINITE, TBSnackbar.STYLE_SHOW_TOP);
         snackbar.setAction("Action", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
