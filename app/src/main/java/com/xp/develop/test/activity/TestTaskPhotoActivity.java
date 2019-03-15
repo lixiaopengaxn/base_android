@@ -86,8 +86,10 @@ public class TestTaskPhotoActivity extends BaseTakePhotoActivity {
                             takePhoto.onPickFromCapture(imageUri);
                         } else {
                             ToastUtil.showShortToast("最多添加9张张片");
-                            dismiss();
+
                         }
+
+                        dismiss();
 
                     }
                 });
@@ -109,8 +111,10 @@ public class TestTaskPhotoActivity extends BaseTakePhotoActivity {
                             takePhoto.onPickFromGallery();
                         } else {
                             ToastUtil.showShortToast("最多显示9张张片");
-                            dismiss();
+
                         }
+
+                        dismiss();
 
                     }
                 });

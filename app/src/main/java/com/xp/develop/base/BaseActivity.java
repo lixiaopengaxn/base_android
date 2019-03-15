@@ -271,7 +271,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
      * 的颜色
      */
     protected void setNanigationBarColor(@ColorRes int color) {
-        Sofia.with(this).statusBarDarkFont()
+        Sofia.with(this)
                 .navigationBarBackground(ContextCompat.getColor(this, color));
     }
 

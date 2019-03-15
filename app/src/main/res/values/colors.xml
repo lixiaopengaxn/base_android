@@ -3,7 +3,7 @@
     <!--状态栏，toobar，导航栏的颜色-->
     <!--<color name="colorPrimary">#417fd1</color>-->
 
-    <color name="colorPrimary">@color/transparency_bar</color>
+    <color name="colorPrimary">@color/colorAccent</color>
 
     <color name="colorPrimaryDark">@color/def_app_color</color>
     <color name="colorAccent">@color/def_app_color</color>
