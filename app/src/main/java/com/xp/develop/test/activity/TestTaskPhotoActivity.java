@@ -39,7 +39,6 @@ public class TestTaskPhotoActivity extends BaseTakePhotoActivity {
     private HomeAdapter homeAdapter;
 
     private List<String> list = new ArrayList<>();
-//    private SlideFromBottomPopup slidePopup;
 
     @Override
     protected int getId() {

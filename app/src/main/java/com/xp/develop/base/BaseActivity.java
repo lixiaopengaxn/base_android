@@ -240,6 +240,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
                 tooBar.setVisibility(View.GONE);
                 StatusbarUtils.enableTranslucentStatusbar(this);
             } else {
+                //显示状态栏和导航栏
                 tooBar.setVisibility(View.VISIBLE);
                 setStatusBarNanigationBarTooBarColor(R.color.colorPrimary);
             }
@@ -487,7 +488,7 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
 
 
     protected void BaseTopSnackBar(String text) {
-        TBSnackbar.make(findViewById(android.R.id.content), text, TBSnackbar.LENGTH_SHORT, TBSnackbar.STYLE_SHOW_TOP).show();
+        TBSnackbar.make(mBodyContent, text, TBSnackbar.LENGTH_SHORT, TBSnackbar.STYLE_SHOW_TOP).show();
     }
 
     protected void BaseBottomSnackBar(String text) {

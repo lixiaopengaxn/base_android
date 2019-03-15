@@ -209,7 +209,7 @@ public final class TBSnackbar {
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         mView = (SnackbarLayout) inflater.inflate(
-                R.layout.design_layout_snackbar, mTargetParent, false);
+                R.layout.design_layout_snackbar, parent, false);
 
         mAccessibilityManager = (AccessibilityManager)
                 mContext.getSystemService(Context.ACCESSIBILITY_SERVICE);
@@ -352,10 +352,11 @@ public final class TBSnackbar {
      *                 #LENGTH_LONG}
      */
     @NonNull
-    public static TBSnackbar make(@NonNull View view, @NonNull CharSequence text,
+    public static TBSnackbar make(@NonNull ViewGroup view, @NonNull CharSequence text,
                                   @Duration int duration, @Style int style) {
 
-        TBSnackbar tbSnackbar = new TBSnackbar(findSuitableParent(view));
+//        TBSnackbar tbSnackbar = new TBSnackbar(findSuitableParent(view));
+        TBSnackbar tbSnackbar = new TBSnackbar(view);
         tbSnackbar.mStyle = style;
         tbSnackbar.setText(text);
         tbSnackbar.setDuration(duration);
@@ -374,11 +375,11 @@ public final class TBSnackbar {
      *                 #LENGTH_LONG}
      */
     @NonNull
-    public static TBSnackbar make(@NonNull View view, @StringRes int resId, @Duration int duration, @Style int style) {
+    public static TBSnackbar make(@NonNull ViewGroup view, @StringRes int resId, @Duration int duration, @Style int style) {
         return make(view, view.getResources().getText(resId), duration, style);
     }
 
-    private static ViewGroup findSuitableParent(View view) {
+    private static ViewGroup findSuitableParent(ViewGroup view) {
         ViewGroup fallback = null;
         do {
             if (view instanceof CoordinatorLayout) {
@@ -398,7 +399,7 @@ public final class TBSnackbar {
             if (view != null) {
                 // Else, we will loop and crawl up the view hierarchy and try to find a parent
                 final ViewParent parent = view.getParent();
-                view = parent instanceof View ? (View) parent : null;
+                view = parent instanceof View ? (ViewGroup) parent : null;
             }
         } while (view != null);
 
