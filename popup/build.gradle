@@ -27,6 +27,7 @@ dependencies {
 
     //卡片效果
     implementation rootProject.ext.dependencies.cardView
+
     implementation 'com.lxj:easyadapter:1.0.1'
 }
 

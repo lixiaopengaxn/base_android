@@ -164,10 +164,6 @@ dependencies {
     //kotlin
     implementation rootProject.ext.otherlib.kotlin
 
-    //s所有的对话框
-//    implementation rootProject.ext.utils.xpopup
-//    implementation rootProject.ext.utils.toast
-
 
 //    //友盟
 //    implementation 'com.umeng.sdk:common:latest.integration'
@@ -181,11 +177,6 @@ dependencies {
 //    implementation 'com.umeng.sdk:common:latest.integration'
 //    implementation 'com.umeng.sdk:analytics:latest.integration'
 
-
-
-    //    //KLog
-
-    //    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
 
 
 }

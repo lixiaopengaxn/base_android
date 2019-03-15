@@ -2,12 +2,13 @@ ext {
 
  /*   gradlew compileDebug --stacktrace  
    * classpath 'com.android.tools.build:gradle:3.2.0'
+   * distributionUrl=https://services.gradle.org/distributions/gradle-3.4.1-all.zip
     * */
 
     android = [
 
             compileSdkVersion:  28,
-            buildToolsVersion: "28.0.2",
+            buildToolsVersion: "28.0.3",
             minSdkVersion    :  16,
             targetSdkVersion :  28,
             versionCode      :   2,
@@ -20,7 +21,7 @@ ext {
     dependVersion = [
 
             rxlifecycle    : "2.2.2",
-            support        : "28.0.0-rc01",
+            support        : "28.0.0-rc02",
             retrofit       : "2.4.0",
             butterknife    : "8.8.1",
             glide          : "4.8.0",
