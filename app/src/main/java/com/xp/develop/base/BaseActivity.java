@@ -496,13 +496,13 @@ public abstract class BaseActivity<V extends BaseView, P extends BasePresenter<V
     }
 
     public void BaseTopSnackBarIc(String text, @DrawableRes int res) {
-        TBSnackbar snackbar = TBSnackbar.make((ViewGroup) findViewById(android.R.id.content), text, TBSnackbar.LENGTH_SHORT, TBSnackbar.STYLE_SHOW_TOP);
+        TBSnackbar snackbar = TBSnackbar.make(mBodyContent, text, TBSnackbar.LENGTH_SHORT, TBSnackbar.STYLE_SHOW_TOP);
         snackbar.setIconLeft(R.mipmap.ic_arrow,24);
         snackbar.show();
     }
     public void BaseTopSnackBarShowAction(String text) {
 
-        final TBSnackbar snackbar = TBSnackbar.make((ViewGroup) findViewById(android.R.id.content),text, TBSnackbar.LENGTH_INDEFINITE, TBSnackbar.STYLE_SHOW_TOP);
+        final TBSnackbar snackbar = TBSnackbar.make(mBodyContent,text, TBSnackbar.LENGTH_INDEFINITE, TBSnackbar.STYLE_SHOW_TOP);
         snackbar.setAction("Action", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
