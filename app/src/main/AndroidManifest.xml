@@ -117,10 +117,12 @@
             android:launchMode="singleTask"
             android:process=":web_view_process"/>
 
+        <activity android:name=".test.activity.TestFragmentViewPageTablauoytActivity"
+            android:screenOrientation="portrait"/>
+
         <!-- test -->
 
-        <activity android:name=".test.activity.TestRxJavaActivity">
-        </activity>
+        <activity android:name=".test.activity.TestRxJavaActivity"/>
     </application>
 
 </manifest>

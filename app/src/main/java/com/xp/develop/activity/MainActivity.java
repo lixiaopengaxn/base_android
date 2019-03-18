@@ -17,6 +17,7 @@ import com.xp.develop.base.BaseView;
 import com.xp.develop.kotlin.KotlinActivity;
 import com.xp.develop.test.activity.JinPingMeiActivity;
 import com.xp.develop.test.activity.TestActivity;
+import com.xp.develop.test.activity.TestFragmentViewPageTablauoytActivity;
 import com.xp.develop.test.activity.TestPingFenActivity;
 import com.xp.develop.test.activity.TestScrollActivity;
 import com.xp.develop.test.activity.TestTaskPhotoActivity;
@@ -118,7 +119,7 @@ public class MainActivity extends BaseActivity {
                                     break;
                             }
                         }
-                    },PopupAnimation.TranslateFromBottom,"windows","top","bottom","4");
+                    },null,"windows","top","bottom","4");
                 } else {
                     openActivity(jumpClass.get(position));
 //                    BaseTopSnackBar("我是土司");
@@ -137,6 +138,7 @@ public class MainActivity extends BaseActivity {
         textTitle.add("滑动状态栏沉浸式");
         textTitle.add("MVP请求");
         textTitle.add("Kotlin");
+        textTitle.add("tabLayout");
 
 
         jumpClass.add(TestActivity.class);
@@ -147,6 +149,7 @@ public class MainActivity extends BaseActivity {
         jumpClass.add(TestScrollActivity.class);
         jumpClass.add(JinPingMeiActivity.class);
         jumpClass.add(KotlinActivity.class);
+        jumpClass.add(TestFragmentViewPageTablauoytActivity.class);
     }
 
     @Override
