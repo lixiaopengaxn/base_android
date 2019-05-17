@@ -36,7 +36,7 @@ public class AppUtils {
 
     // 高斯模糊处理
     @SuppressLint("NewApi")
-    public Bitmap blur(Bitmap bitmap, float radius, Context context) {
+    public static Bitmap blur(Bitmap bitmap, float radius, Context context) {
         Bitmap output = Bitmap.createBitmap(bitmap); // 创建输出图片
         RenderScript rs = RenderScript.create(context); // 构建一个RenderScript对象
         ScriptIntrinsicBlur gaussianBlue = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs)); //

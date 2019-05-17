@@ -8,7 +8,9 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
 
+import okhttp3.FormBody;
 import okhttp3.Headers;
+import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.Request;
@@ -65,11 +67,39 @@ public class HttpLoggingInterceptorHelper implements Interceptor{
 
     @Override
     public Response intercept(Chain chain) throws IOException {
+        //获取原先的请求
         Request request = chain.request();
-        Response response = chain.proceed(request);
+
+
+
+        //重新构建url
+        HttpUrl.Builder builder = request.url().newBuilder();
+        //如果是post请求的话就把参数重新拼接一下，get请求的话就可以直接加入公共参数了
+        if(request.method().equals("POST")){
+            FormBody body = (FormBody) request.body();
+            for(int i = 0; i < body.size();i++){
+                UtilsLog.i("RequestFatory",body.name(i) + "---" + body.value(i));
+                builder.addQueryParameter(body.name(i),body.value(i));
+            }
+        }
+        //这里是我的2个公共参数
+//        builder.addQueryParameter("key","MJX11XSAPG")
+//                .addQueryParameter("language","zh-Hans");
+        //新的url
+        HttpUrl httpUrl = builder.build();
+        Request requests = request.newBuilder()
+                .addHeader("Accept-Encoding", "gzip")
+                .addHeader("Accept", "application/json")
+                .addHeader("Content-Type", "application/json; charset=utf-8")
+                .method(request.method(), request.body())
+                .url(httpUrl).build();
+
+
+        Response response = chain.proceed(requests);
 
         ResponseBody responseBody = response.body();
         long contentLength = responseBody.contentLength();
+
 
         if (!bodyEncoded(response.headers())) {
             BufferedSource source = responseBody.source();

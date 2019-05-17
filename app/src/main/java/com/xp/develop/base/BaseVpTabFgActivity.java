@@ -48,33 +48,13 @@ public abstract class BaseVpTabFgActivity extends BaseActivity {
     }
 
     @Override
-    protected void initOnClick() {
-
-    }
-
-    @Override
     protected boolean IsSwipeBackPage() {
-        return false;
+        return true;
     }
 
     @Override
     protected int isTemp() {
         return 0;
-    }
-
-    @Override
-    protected BasePresenter createPresenter() {
-        return null;
-    }
-
-    @Override
-    protected BaseView createView() {
-        return null;
-    }
-
-    @Override
-    public void onClick(View v) {
-
     }
 
     /**

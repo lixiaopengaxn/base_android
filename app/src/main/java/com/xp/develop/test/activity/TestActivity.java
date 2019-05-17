@@ -51,7 +51,7 @@ public class TestActivity extends BaseActivity<LoginContract.LoginView,LoginCont
                 /****
                  * 获取 P 层的对象   并且把数据 给 回调给 V  然后 这里实现的 V 的方法 就 被 执行了
                  */
-                getPresenter().requsetLogin("beijing","admin","123456");
+                getPresenter().requsetLogin("beijing","admin","123");
             }
         });
 
@@ -91,8 +91,8 @@ public class TestActivity extends BaseActivity<LoginContract.LoginView,LoginCont
     }
 
     @Override
-    public void loginData(LoginModel loginModel) {
-        ToastUtil.showLongToast(loginModel.getResults().toString());
+    public void loginData(String loginModel) {
+        ToastUtil.showLongToast(loginModel.toString());
     }
 
     @Override

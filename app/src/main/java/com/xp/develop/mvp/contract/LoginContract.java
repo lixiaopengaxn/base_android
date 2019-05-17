@@ -15,7 +15,7 @@ public interface LoginContract {
 
     interface LoginView extends BaseView {
 
-        void loginData(LoginModel loginModel);
+        void loginData(String loginModel);
 
     }
 

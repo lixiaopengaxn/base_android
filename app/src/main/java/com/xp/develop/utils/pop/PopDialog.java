@@ -44,7 +44,7 @@ public class PopDialog {
      * @param onConfirmListener
      */
     public void asConfirm(Context context, String title, String text, OnConfirmListener onConfirmListener) {
-        XPopup.get(context).asConfirm("我是标题", "我是内容", onConfirmListener)
+        XPopup.get(context).asConfirm(title, text, onConfirmListener)
                 .show();
     }
 
@@ -56,7 +56,7 @@ public class PopDialog {
      * @param onInputConfirmListener
      */
     public void asInputConfirm(Context context, String title, String text, OnInputConfirmListener onInputConfirmListener) {
-        XPopup.get(context).asInputConfirm("我是标题", "我是内容", onInputConfirmListener)
+        XPopup.get(context).asInputConfirm(title, text, onInputConfirmListener)
                 .show();
     }
 

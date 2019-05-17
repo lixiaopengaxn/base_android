@@ -41,7 +41,7 @@ public class ProgressDialogHandler extends Handler {
         if (cancelable) {
             PopDialog.getInstance().asCustom(context, loadingView);
         } else {
-            PopDialog.getInstance().asCustom(context, loadingView);
+            PopDialog.getInstance() .asCustom(context, loadingView);
         }
 
 

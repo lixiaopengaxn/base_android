@@ -3,7 +3,9 @@ package com.xp.develop.progress;
 import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.xn.xp.customtoast.TopToast;
 import com.xp.develop.utils.ExceptionHandle;
 import com.xp.develop.utils.ToastUtil;
 

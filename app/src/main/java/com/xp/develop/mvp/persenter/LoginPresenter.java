@@ -30,13 +30,14 @@ public class LoginPresenter extends LoginContract.Presenter {
     @Override
     public void requsetLogin(String companyName, String uName, String uPassword) {
         HashMap map = new HashMap();
-        map.put("location", companyName);
-        map.put("key", "MJX11XSAPG");
-        map.put("language", "zh-Hans");
-        map.put("unit", "c");
-        model.okHttp(context, Api.getApiService().login(map), getView().bindLifecycle(), new ObserverResponseListener<LoginModel>() {
+        map.put("orgCode", "glf");
+        map.put("userName", uName);
+        map.put("password", uPassword);
+        map.put("currentLang", "2");
+        map.put("endpointInfo", "{\"ID\":\"00-33-67-DE-B4\",\"systemType\":\"ios\",\"systemVersion\":\"4.3.3\"}");
+        model.okHttp(context, Api.getApiService().loginpost(map), getView().bindLifecycle(), new ObserverResponseListener<String>() {
             @Override
-            public void onNext(LoginModel model) {
+            public void onNext(String model) {
 
                 if (getView() != null) {
                     getView().loginData(model);

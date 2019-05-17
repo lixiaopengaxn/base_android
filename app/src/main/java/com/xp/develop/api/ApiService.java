@@ -23,8 +23,12 @@ import retrofit2.http.QueryMap;
  */
 public interface ApiService {
 
-    @GET("v3/weather/now.json")
+    @GET("select_profile")
     Observable<LoginModel> login(@QueryMap() Map<String, String> map);
+
+    @FormUrlEncoded()
+    @POST("/rest/auth")
+    Observable<String> loginpost(@FieldMap() Map<String, String> map);
 
 
     @FormUrlEncoded()

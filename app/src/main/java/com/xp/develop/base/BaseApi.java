@@ -64,25 +64,14 @@ public class BaseApi {
         File cacheFile = new File(BaseApplication.getContext().getCacheDir(), "cache");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); //100Mb
 
-        BasicParamsInterceptor basicParamsInterceptor =
-                new BasicParamsInterceptor.Builder()
-                        //添加头部参数
-                        .addHeaderParam("Content-Type", "application/json")
-                        //添加公用的参数
-                        .addQueryParam("key", "MJX11XSAPG")
-                        .addQueryParam("language", "zh-Hans")
-                        .addQueryParam("unit", "c")
-                        .build();
-
         //创建一个OkHttpClient并设置超时时间
         OkHttpClient client = new OkHttpClient.Builder()
                 .readTimeout(READ_TIME_OUT, TimeUnit.MILLISECONDS)
                 .connectTimeout(CONNECT_TIME_OUT, TimeUnit.MILLISECONDS)
                 .addInterceptor(mRewriteCacheControlInterceptor)//没网的情况下
                 .addNetworkInterceptor(mRewriteCacheControlInterceptor)//有网的情况下
-                .addInterceptor(basicParamsInterceptor)
                 .addInterceptor(new HttpLoggingInterceptorHelper())
-                .cache(cache)
+//                .cache(cache)
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()

@@ -14,7 +14,7 @@ public class Api {
 
 
 
-    private String baseUrl = "https://api.seniverse.com";
+    private String baseUrl = "http://192.168.2.156:8090/";
 //    private String baseUrl = "http://hbhz.sesdf.org/api/";
 //    http://www.kuaidi100.com/query?type=快递公司代号&postid=快递单号
 
