@@ -78,7 +78,7 @@ public class HttpLoggingInterceptorHelper implements Interceptor{
         if(request.method().equals("POST")){
             FormBody body = (FormBody) request.body();
             for(int i = 0; i < body.size();i++){
-                UtilsLog.i("RequestFatory",body.name(i) + "---" + body.value(i));
+//                UtilsLog.i("RequestFatory",body.name(i) + "---" + body.value(i));
                 builder.addQueryParameter(body.name(i),body.value(i));
             }
         }

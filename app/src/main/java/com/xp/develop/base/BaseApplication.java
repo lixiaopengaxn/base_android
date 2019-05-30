@@ -2,7 +2,10 @@ package com.xp.develop.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 
+import com.xp.develop.utils.exception.CrashHandlerUtil;
 import com.xp.develop.utils.swipe.BGASwipeBackHelper;
 
 
@@ -21,11 +24,16 @@ public class BaseApplication extends Application {
         return mContext;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onCreate() {
         super.onCreate();
 
         mContext = getApplicationContext();
+
+
+        CrashHandlerUtil handler = CrashHandlerUtil.getInstance(this);
+        Thread.setDefaultUncaughtExceptionHandler(handler);
 
         //对单位的自定义配置, 请在 App 启动时完成
 //        configUnits();

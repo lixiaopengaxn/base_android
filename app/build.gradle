@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'//引入kotlin
 
 android {
@@ -38,6 +39,7 @@ android {
 
 
     }
+
 
     buildTypes {
 
@@ -160,9 +162,10 @@ dependencies {
     implementation rootProject.ext.file.crop
     implementation rootProject.ext.file.multipleimageselect
     implementation rootProject.ext.file.advancedluban
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //kotlin
-    implementation rootProject.ext.otherlib.kotlin
+//    implementation rootProject.ext.otherlib.kotlin
 
 
 //    //友盟
@@ -178,5 +181,18 @@ dependencies {
 //    implementation 'com.umeng.sdk:analytics:latest.integration'
 
 
+}
 
+
+task makeJar(type: Copy) {
+    delete 'build/libs/baseAndr.jar'
+    from('build/intermediates/bundles/release/')
+    into('build/libs/')
+    include('classes.jar')
+    rename('classes.jar', 'baseAndr.jar')
+}
+
+makeJar.dependsOn(build)
+repositories {
+    mavenCentral()
 }
