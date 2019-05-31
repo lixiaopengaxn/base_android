@@ -17,7 +17,7 @@
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/build/generated/res/resValues/debug" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/build/generated/res/rs/debug;file://$MODULE_DIR$/build/generated/res/resValues/debug" />
         <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
         <option name="PROJECT_TYPE" value="1" />
@@ -28,7 +28,7 @@
         <compilerSettings />
         <compilerArguments>
           <option name="destination" value="$MODULE_DIR$/build/tmp/kotlin-classes/debug" />
-          <option name="classpath" value="$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9f9b261879e5d9906076e0bd46e240a7/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/d3c063ce01bd79c66392f549c9c2b551/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/38d60dff8ab4750b87fb7661c440f067/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/e290729a71438fd1455e2bcff997555e/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/68fbae8e027f99dc88b7500821ad3d23/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/a93e154391f66cbc274a145626e9b531/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/a953562dc88d7560cc9089691b48bdfa/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/2f298b66c44f533c71286c7e9337855f/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/2d5d35cbcf08b276537c52d5e97f899a/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/ac8c603bae1449d2c423157a8b56e9d0/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/031aa5ed92c2e114d0e2d436fb82866d/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/70ee0ed2246c1a241f9cb68f517978dd/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/52dea76f5206c8af6e260b1d585da8bd/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/0fda4c8a10630fc8b6c7a932f3d6650a/jars/classes.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/com.android.support/collections/28.0.0-rc01/936bb431338ec51ccd899b3bf100b3961af3c25d/collections-28.0.0-rc01.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/e491aa540dc518de28cbb608498c308c/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/4fa1b46b81fc0de35f10e9d9c8607258/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/9e8fe620bc3a441e39d7f09a69023172/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/6a9559ac08a9e05823bf962e9062a77d/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/0634c051bcb2e4670eb1cc112740643f/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/aebb4bdc5a5545a6fdf37743b05e2a95/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/ef6f36111a6ce63cfcaca72b7553e9fe/jars/classes.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.1.1/207a6efae6a3555e326de41f76bdadd9a239cbce/common-1.1.1.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/a9aa38db0589ecdf3b3cf22fc79cc347/jars/classes.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.1.1/e55b70d1f5620db124b3e85a7f4bdc7bd48d9f95/common-1.1.1.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/28.0.0-rc01/4fec72569449246ee917f3249147f8e47910b119/support-annotations-28.0.0-rc01.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.3.31/e652770b6416c6d85934086899ffed3eccd35813/kotlin-stdlib-jdk7-1.3.31.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.31/11289d20fd95ae219333f3456072be9f081c30cc/kotlin-stdlib-1.3.31.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.31/20c34a04ea25cb1ef0139598bd67c764562cb170/kotlin-stdlib-common-1.3.31.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/lipeng/Downloads/project/gitProject/studio_/base_android/AndPermission/build/intermediates/compile_only_not_namespaced_r_class_jar/debug/generateDebugRFile/R.jar:/Applications/Android Studio.app/sdk/platforms/android-28/android.jar" />
+          <option name="classpath" value="$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5a8ddf7c33b8b37a96bb39a9f534a2b1/jars/classes.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.3.31/e652770b6416c6d85934086899ffed3eccd35813/kotlin-stdlib-jdk7-1.3.31.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/e60c9c398458098b3af3923cedd03c8f/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/a61c898e7dca4f4a1200f93fd8e8703c/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/e5e58ee79faa9815ff1a1c477202036d/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/bcd49763746b1d9772da6584d1cc946c/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/1f496f527bd3d5eb02e4dcbb22f3d1b7/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/59df3961f8b12b861c57fc53649283d0/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/17cbd54d064940887ae6d5e61537e325/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/fe010a99b0bb05136f224ba8da6b31e6/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/c2e32068f5e0da55f59e0a4644f61cba/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/fc7822ad83f65baa431998e503bc9971/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/5475c2b02e505b17f75ea5eaa6a1e1ad/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/5e7800ef79eb0ce8838de2e48a074471/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/2d878fa8a4672704d4bb6e43e8c5d29a/jars/classes.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/com.android.support/collections/28.0.0-rc01/936bb431338ec51ccd899b3bf100b3961af3c25d/collections-28.0.0-rc01.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/e4fcde33baada58db50c0f2f2d846a1d/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/51f76f1e677aa087caa9c4b88d778055/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/a8cb3139a9acf7384c8febf1d57d7a02/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/a3e83a69c786082f836effc86fc7c773/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/d5460c7df676115875d15f8085fc0956/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/f1f40f3913a7219f8ef7a7597fe9c108/jars/classes.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/50339f511c91e15f838f6af631f07b2b/jars/classes.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.1.1/207a6efae6a3555e326de41f76bdadd9a239cbce/common-1.1.1.jar:/Users/lipeng/.gradle/caches/transforms-2/files-2.1/c9ac539eb5c5482f2b016d2f6e67b9cf/jars/classes.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.1.1/e55b70d1f5620db124b3e85a7f4bdc7bd48d9f95/common-1.1.1.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/28.0.0-rc01/4fec72569449246ee917f3249147f8e47910b119/support-annotations-28.0.0-rc01.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.31/11289d20fd95ae219333f3456072be9f081c30cc/kotlin-stdlib-1.3.31.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.31/20c34a04ea25cb1ef0139598bd67c764562cb170/kotlin-stdlib-common-1.3.31.jar:/Users/lipeng/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Applications/Android Studio.app/sdk/platforms/android-28/android.jar" />
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
           <option name="moduleName" value="AndPermission_debug" />
@@ -56,20 +56,20 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
-    <output url="file://$MODULE_DIR$/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes" />
+    <output url="file://$MODULE_DIR$/build/intermediates/classes/debug" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/debug" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/debug/compileDebugAidl/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/debug/compileDebugRenderscript/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/debugAndroidTest/compileDebugAndroidTestAidl/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/debugAndroidTest/compileDebugAndroidTestRenderscript/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/test/debug" isTestSource="true" generated="true" />
@@ -122,30 +122,41 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotation_processor_list" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotations_typedef_file" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotations_zip" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/attr" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check-manifest" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check_manifest_result" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/compile_library_classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/compile_only_not_namespaced_r_class_jar" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/consumer_proguard_file" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/full_jar" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/intermediate-jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaPrecompile" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javac" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_and_local_jars_jni" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_java_res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint_jar" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint_publish_jar" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_jni_libs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_shaders" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged-aidl" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged-classes" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packagedAssets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged_res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/public_res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/runtime_library_classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shader_assets" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
